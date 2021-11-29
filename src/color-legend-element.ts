@@ -2,6 +2,7 @@ import { LitElement, html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
 import { ColorScaleSetter } from "./color-scale";
+import { Renderer } from "./renderer";
 
 import {
   ColorScale,
@@ -137,7 +138,12 @@ export class ColorLegendElement extends LitElement {
   colorScale!: ColorScale;
 
   /**
-   * A d3 linear scale function for use with xAxis
+   * Handles rendering of various scale types
+   */
+  private renderer = new Renderer(this);
+
+  /**
+   * A d3 linear scale for generating axis ticks
    */
   xScale!: XScale;
 
@@ -156,7 +162,9 @@ export class ColorLegendElement extends LitElement {
       style="width:${this.width}px; height:auto;"
     >
       ${title}
-      <svg width=${this.width} height=${this.height}></svg>
+      <svg width=${this.width} height=${this.height}>
+        ${this.renderer.renderContinuous()}
+      </svg>
     </div>`;
   }
 
