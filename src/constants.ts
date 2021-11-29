@@ -27,8 +27,8 @@ export const DEFAULT_TITLE_TEXT = "Legend Title";
 export const DEFAULT_SCALE_TYPE = ScaleType.Continuous;
 
 export const COLOR_SCALE_PROPS = [
-  'domain',
-  'range',
-  'interpolator',
-  'scaleType',
+  "domain",
+  "range",
+  "interpolator",
+  "scaleType",
 ];

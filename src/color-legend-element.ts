@@ -1,13 +1,9 @@
 import { LitElement, html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
-import * as d3 from "d3";
 
-import {
-  ColorScale,
-  ScaleType,
-  Interpolator,
-  ChangedProps,
-} from "./types";
+import { ColorScaleSetter } from "./color-scale";
+
+import { ColorScale, ScaleType, Interpolator, ChangedProps } from "./types";
 
 import {
   COLOR_SCALE_PROPS,
@@ -92,15 +88,25 @@ export class ColorLegendElement extends LitElement {
   svg!: SVGSVGElement;
 
   /**
-   * A type of d3-scale function for setting color values
+   * Handles configuring the colorScale
+   */
+  private colorScaleSetter = new ColorScaleSetter(this);
+
+  /**
+   * A type of d3-scale for applying color values to the legend item(s)
    */
   colorScale!: ColorScale;
 
   /**
-   * a color interpolator such as from d3-scale-chromatic
+   * a color interpolator function such as one from d3-scale-chromatic
    */
   private _interpolator!: Interpolator<string>;
 
+  /**
+   * Invoked on each update to perform rendering tasks. This method may return any
+   * value renderable by lit-html's ChildPart - typically a TemplateResult
+   * @returns TemplateResult
+   */
   override render() {
     const title = this.titleText
       ? html`<p class="legend-title">${this.titleText}</p>`
@@ -119,82 +125,10 @@ export class ColorLegendElement extends LitElement {
    * Lit lifecycle method that is called before an update to the component's DOM
    * @param changedProps: ChangedProps
    */
-   override willUpdate(changedProps: ChangedProps) {
+  override willUpdate(changedProps: ChangedProps) {
     if (COLOR_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
-      this.setColorScale();
+      this.colorScaleSetter.setColorScale();
     }
-  }
-
-  /**
-   * Sets the colorScale value from the scaleType value
-   */
-  private setColorScale() {
-    switch (this.scaleType) {
-      case ScaleType.Continuous:
-        this.setContinousColorScale();
-        break;
-      case ScaleType.Discrete:
-        this.setDiscreteColorScale();
-        break;
-      case ScaleType.Threshold:
-        this.setThresholdColorScale();
-        break;
-      case ScaleType.Categorical:
-        this.setCategoricalColorScale();
-        break;
-      default:
-        this.invalidScaleType(this.scaleType);
-    }
-  }
-
-  /**
-   * Sets the colorScale property to either a ScaleSequential or ScaleLinear
-   */
-  private setContinousColorScale() {
-    const interpolatorFn = this.interpolator;
-    this.colorScale = interpolatorFn
-      ? d3.scaleSequential(interpolatorFn).domain(this.domain as number[])
-      : d3
-          .scaleLinear<string>()
-          .range(this.range as string[])
-          .domain(this.domain as number[])
-          .interpolate(d3.interpolateHcl);
-  }
-
-  /**
-   * Sets the colorScale property to a ScaleQuantize
-   */
-  private setDiscreteColorScale() {
-    this.colorScale = d3
-      .scaleQuantize()
-      .domain(this.domain as number[])
-      .range(this.range as number[]);
-  }
-
-  /**
-   * Sets the colorScale property to a ScaleThreshold
-   */
-  private setThresholdColorScale() {
-    const domain = this.domain as number[];
-    this.colorScale = d3
-      .scaleThreshold<number, string>()
-      .domain(domain.slice(1, domain.length - 1))
-      .range(this.range as string[]);
-  }
-
-  /**
-   * Sets the colorScale to a ScaleOrdinal
-   */
-  private setCategoricalColorScale() {
-    this.colorScale = d3
-      .scaleOrdinal<string, string>()
-      .domain(this.domain as unknown as string[])
-      .range(this.range as unknown as string[]);
-  }
-
-  private invalidScaleType(value:string) {
-    throw new Error(`invalid property scaletype: ${value}. 
-      Must be one of "categorical", "continuous", "discrete", "threshold".`);
   }
 
   get interpolator() {
@@ -204,6 +138,8 @@ export class ColorLegendElement extends LitElement {
   set interpolator(value) {
     if (value && typeof value === "function") {
       this._interpolator = value;
+    } else {
+      throw new Error("Interpolator must be a function");
     }
   }
 }
