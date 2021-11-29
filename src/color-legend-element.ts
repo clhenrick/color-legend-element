@@ -3,7 +3,14 @@ import { customElement, property, query } from "lit/decorators.js";
 
 import { ColorScaleSetter } from "./color-scale";
 
-import { ColorScale, ScaleType, Interpolator, ChangedProps } from "./types";
+import {
+  ColorScale,
+  XScale,
+  MarkType,
+  ScaleType,
+  Interpolator,
+  ChangedProps,
+} from "./types";
 
 import {
   COLOR_SCALE_PROPS,
@@ -17,6 +24,8 @@ import {
   DEFAULT_DOMAIN,
   DEFAULT_RANGE,
   DEFAULT_SCALE_TYPE,
+  DEFAULT_MARK_TYPE,
+  DEFAULT_TICK_SIZE,
 } from "./constants";
 
 @customElement("color-legend-element")
@@ -82,10 +91,40 @@ export class ColorLegendElement extends LitElement {
   range: string[] | number[] = DEFAULT_RANGE;
 
   /**
+   * The mark type for categorical legends
+   */
+  @property({ type: String })
+  markType: MarkType = DEFAULT_MARK_TYPE;
+
+  /**
+   * The size or length of the axis ticks
+   */
+  @property({ type: Number })
+  tickSize = DEFAULT_TICK_SIZE;
+
+  /**
    * Reference to the SVG node
    */
   @query("svg")
   svg!: SVGSVGElement;
+
+  /**
+   * a color interpolator function such as one from d3-scale-chromatic
+   */
+  private _interpolator!: Interpolator<string>;
+
+  @property({ attribute: false })
+  get interpolator() {
+    return this._interpolator;
+  }
+
+  set interpolator(value) {
+    if (typeof value === "function") {
+      this._interpolator = value;
+    } else {
+      throw new Error("Interpolator must be a function.");
+    }
+  }
 
   /**
    * Handles configuring the colorScale
@@ -98,9 +137,9 @@ export class ColorLegendElement extends LitElement {
   colorScale!: ColorScale;
 
   /**
-   * a color interpolator function such as one from d3-scale-chromatic
+   * A d3 linear scale function for use with xAxis
    */
-  private _interpolator!: Interpolator<string>;
+  xScale!: XScale;
 
   /**
    * Invoked on each update to perform rendering tasks. This method may return any
@@ -128,18 +167,6 @@ export class ColorLegendElement extends LitElement {
   override willUpdate(changedProps: ChangedProps) {
     if (COLOR_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
       this.colorScaleSetter.setColorScale();
-    }
-  }
-
-  get interpolator() {
-    return this._interpolator;
-  }
-
-  set interpolator(value) {
-    if (value && typeof value === "function") {
-      this._interpolator = value;
-    } else {
-      throw new Error("Interpolator must be a function");
     }
   }
 }

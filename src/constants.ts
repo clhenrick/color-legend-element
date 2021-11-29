@@ -1,4 +1,4 @@
-import { ScaleType } from "./types";
+import { MarkType, ScaleType } from "./types";
 
 export const DEFAULT_WIDTH = 325;
 export const DEFAULT_HEIGHT = 32;
@@ -24,6 +24,7 @@ export const DEFAULT_RANGE = [
 
 export const DEFAULT_TITLE_TEXT = "Legend Title";
 
+export const DEFAULT_MARK_TYPE = MarkType.Circle;
 export const DEFAULT_SCALE_TYPE = ScaleType.Continuous;
 
 export const COLOR_SCALE_PROPS = [
