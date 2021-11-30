@@ -17,10 +17,35 @@
     </p>
 
     <h2>Usage</h2>
+
+    <h3>Continuous</h3>
+
     <color-legend-element
       titletext="Color Legend"
       scaletype="continuous"
     ></color-legend-element>
+
+    <h3>Discrete</h3>
+
+    <color-legend-element
+      titleText="Unemployment Rate (%)"
+      tickFormat=".1f"
+      scaletype="discrete"
+      domain="[0.1, 1]"
+      range='["#fcfbfd","#efedf5","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3","#54278f","#3f007d"]'
+    >
+    </color-legend-element>
+
+    <h3>Threshold</h3>
+
+    <color-legend-element
+      titleText="Number of Incidents"
+      scaletype="threshold"
+      tickFormat=".0f"
+      domain="[0, 11, 22, 33, 50, 100]"
+      range='["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]'
+    >
+    </color-legend-element>
 
     <script>
       let cle = document.querySelector("color-legend-element");

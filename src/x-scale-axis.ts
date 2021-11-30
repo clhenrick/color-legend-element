@@ -3,7 +3,7 @@ import { ColorLegendElement } from "./color-legend-element";
 import { ScaleType } from "./types";
 
 
-export class XScaleAxis {
+export class AxisTicksSetter {
   cle: ColorLegendElement;
 
   constructor(cle: ColorLegendElement) {

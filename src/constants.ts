@@ -33,3 +33,19 @@ export const COLOR_SCALE_PROPS = [
   "interpolator",
   "scaleType",
 ];
+
+export const AXIS_AND_X_SCALE_PROPS = [
+  'scaleType',
+  'ticks',
+  'tickSize',
+  'tickValues',
+  'tickFormat',
+  'domain',
+  'range',
+  'marginLeft',
+  'marginRight',
+  'marginBottom',
+  'marginTop',
+  'width',
+  'height',
+];

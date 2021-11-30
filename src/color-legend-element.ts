@@ -3,6 +3,7 @@ import { customElement, property, query } from "lit/decorators.js";
 
 import { ColorScaleSetter } from "./color-scale";
 import { Renderer } from "./renderer";
+import { AxisTicksSetter } from "./x-scale-axis";
 
 import {
   ColorScale,
@@ -15,6 +16,7 @@ import {
 
 import {
   COLOR_SCALE_PROPS,
+  AXIS_AND_X_SCALE_PROPS,
   DEFAULT_WIDTH,
   DEFAULT_HEIGHT,
   DEFAULT_MARGIN_BOTTOM,
@@ -143,6 +145,11 @@ export class ColorLegendElement extends LitElement {
   private renderer = new Renderer(this);
 
   /**
+   * Configures the x scale and axis ticks
+   */
+  axisTickSetter = new AxisTicksSetter(this);
+
+  /**
    * A d3 linear scale for generating axis ticks
    */
   xScale!: XScale;
@@ -163,6 +170,9 @@ export class ColorLegendElement extends LitElement {
     >
       ${title}
       <svg width=${this.width} height=${this.height}>
+        <g class="rects">
+          ${this.renderer.renderDiscreteThreshold()}
+        </g>
         ${this.renderer.renderContinuous()}
       </svg>
     </div>`;
@@ -175,6 +185,10 @@ export class ColorLegendElement extends LitElement {
   override willUpdate(changedProps: ChangedProps) {
     if (COLOR_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
       this.colorScaleSetter.setColorScale();
+    }
+
+    if (AXIS_AND_X_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
+      this.axisTickSetter.setXScale();
     }
   }
 }
