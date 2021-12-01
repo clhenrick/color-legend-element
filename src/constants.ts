@@ -4,9 +4,9 @@ export const DEFAULT_WIDTH = 325;
 export const DEFAULT_HEIGHT = 32;
 
 export const DEFAULT_MARGIN_TOP = 6;
-export const DEFAULT_MARGIN_RIGHT = 0;
+export const DEFAULT_MARGIN_RIGHT = 12;
 export const DEFAULT_MARGIN_BOTTOM = 16;
-export const DEFAULT_MARGIN_LEFT = 0;
+export const DEFAULT_MARGIN_LEFT = 12;
 
 export const DEFAULT_TICKS = DEFAULT_WIDTH / 64;
 export const DEFAULT_TICK_SIZE = 6;
@@ -35,17 +35,17 @@ export const COLOR_SCALE_PROPS = [
 ];
 
 export const AXIS_AND_X_SCALE_PROPS = [
-  'scaleType',
-  'ticks',
-  'tickSize',
-  'tickValues',
-  'tickFormat',
-  'domain',
-  'range',
-  'marginLeft',
-  'marginRight',
-  'marginBottom',
-  'marginTop',
-  'width',
-  'height',
+  "scaleType",
+  "ticks",
+  "tickSize",
+  "tickValues",
+  "tickFormat",
+  "domain",
+  "range",
+  "marginLeft",
+  "marginRight",
+  "marginBottom",
+  "marginTop",
+  "width",
+  "height",
 ];

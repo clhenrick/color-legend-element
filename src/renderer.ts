@@ -106,7 +106,7 @@ export class Renderer {
       return "";
     }
 
-    const { tickSize, marginTop, colorScale, xScale } = this.cle;
+    const { tickSize, marginTop, marginLeft, colorScale, xScale } = this.cle;
 
     const height = this.cle.height + tickSize;
     const marginBottom = this.cle.marginBottom + tickSize;
@@ -116,7 +116,7 @@ export class Renderer {
       return (
         (colorScale as ScaleThreshold<number, string>)
           .invertExtent(d)
-          .map(xScale)[0] || 0
+          .map(xScale)[0] || marginLeft
       );
     };
 
@@ -135,6 +135,50 @@ export class Renderer {
           height - marginTop - marginBottom
         } fill=${v}></rect>`
     )}`;
+  }
+
+  /**
+   * Renders the legend's SVG x axis
+   * @returns lit-html TemplateResult or empty string
+   */
+  renderAxis(): TemplateResult | string {
+    if (!this.cle.xScale || this.cle.scaleType === ScaleType.Categorical)
+      return "";
+
+    const {
+      ticks,
+      tickSize,
+      tickFormat,
+      tickFormatter,
+      tickValues,
+      xScale,
+      marginTop,
+    } = this.cle;
+
+    const height = this.cle.height + tickSize;
+    const marginBottom = this.cle.marginBottom + tickSize;
+    const values = tickValues?.length
+      ? tickValues
+      : (xScale.ticks.apply(xScale, [ticks, tickFormat]) as number[]);
+    const spacing = Math.max(tickSize, 0) + 3;
+
+    const renderAxisTicks = () =>
+      values.map(
+        (d) => svg`<g class="tick" transform='translate(${xScale(d)},0)'>
+      <line stroke="currentColor" y2="${tickSize}" y1="${
+          marginTop + marginBottom - height
+        }"></line>
+      <text fill="currentColor" y="${spacing}" dy="0.71em">${tickFormatter(
+          d
+        )}</text>
+      </g>`
+      );
+
+    return svg`<g
+      class="x-axis"
+      transform="translate(0, ${height - marginBottom})"
+      text-anchor="middle"
+    >${renderAxisTicks()}</g>`;
   }
 
   getColorRamp(colorInterpolator: Interpolator<string>, n = 256) {

@@ -12,6 +12,7 @@ import {
   ScaleType,
   Interpolator,
   ChangedProps,
+  TickFormatter,
 } from "./types";
 
 import {
@@ -28,7 +29,10 @@ import {
   DEFAULT_RANGE,
   DEFAULT_SCALE_TYPE,
   DEFAULT_MARK_TYPE,
+  DEFAULT_TICKS,
+  DEFAULT_TICK_FORMAT,
   DEFAULT_TICK_SIZE,
+  DEFAULT_TICK_VALUES,
 } from "./constants";
 
 @customElement("color-legend-element")
@@ -100,10 +104,28 @@ export class ColorLegendElement extends LitElement {
   markType: MarkType = DEFAULT_MARK_TYPE;
 
   /**
+   * The desired number of axis ticks
+   */
+  @property({ type: Number })
+  ticks = DEFAULT_TICKS;
+
+  /**
+   * The d3-format specifier to format axis tick values
+   */
+  @property({ type: String })
+  tickFormat = DEFAULT_TICK_FORMAT;
+
+  /**
    * The size or length of the axis ticks
    */
   @property({ type: Number })
   tickSize = DEFAULT_TICK_SIZE;
+
+  /**
+   * The explicit values to be used for axis ticks
+   */
+  @property({ type: Array })
+  tickValues = DEFAULT_TICK_VALUES;
 
   /**
    * Reference to the SVG node
@@ -125,7 +147,25 @@ export class ColorLegendElement extends LitElement {
     if (typeof value === "function") {
       this._interpolator = value;
     } else {
-      throw new Error("Interpolator must be a function.");
+      throw new Error("interpolator must be a function.");
+    }
+  }
+
+  /**
+   * Function that formats the xAxis tick values
+   */
+  private _tickFormatter!: TickFormatter;
+
+  @property({ attribute: false })
+  get tickFormatter() {
+    return this._tickFormatter;
+  }
+
+  set tickFormatter(value) {
+    if (typeof value === "function") {
+      this._tickFormatter = value;
+    } else {
+      throw new Error("tickFormatter must be a function.");
     }
   }
 
@@ -170,10 +210,12 @@ export class ColorLegendElement extends LitElement {
     >
       ${title}
       <svg width=${this.width} height=${this.height}>
-        <g class="rects">
-          ${this.renderer.renderDiscreteThreshold()}
-        </g>
+        <!-- discrete and threshold -->
+        <g class="rects">${this.renderer.renderDiscreteThreshold()}</g>
+        <!-- continuous -->
         ${this.renderer.renderContinuous()}
+        <!-- axis ticks -->
+        ${this.renderer.renderAxis()}
       </svg>
     </div>`;
   }
@@ -189,6 +231,7 @@ export class ColorLegendElement extends LitElement {
 
     if (AXIS_AND_X_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
       this.axisTickSetter.setXScale();
+      this.axisTickSetter.handleAxisTicks();
     }
   }
 }
