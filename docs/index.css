@@ -3,7 +3,15 @@ body {
   color: #333;
 }
 
+header,
+main {
+  max-width: 66rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 color-legend-element {
-  margin-bottom: 2rem;
+  display: block;
+  margin-bottom: 3rem;
   font-size: 0.625rem;
 }
