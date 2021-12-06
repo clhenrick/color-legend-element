@@ -7,9 +7,6 @@ if (!["dev", "prod"].includes(mode)) {
 }
 
 export default {
-  mimeTypes: {
-    ".js": "text/javascript",
-  },
   nodeResolve: { exportConditions: mode === "dev" ? ["development"] : [] },
   preserveSymlinks: true,
   plugins: [
