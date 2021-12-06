@@ -22,7 +22,7 @@ export const DEFAULT_RANGE = [
   "#253494",
 ]; // d3.schemeYlGnBu[5]
 
-export const DEFAULT_TITLE_TEXT = "Legend Title";
+export const DEFAULT_TITLE_TEXT = "Color Legend Element";
 
 export const DEFAULT_MARK_TYPE = MarkType.Circle;
 export const DEFAULT_SCALE_TYPE = ScaleType.Continuous;

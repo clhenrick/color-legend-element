@@ -48,10 +48,10 @@ export class Renderer {
       });
 
     return html`${domain.map(
-      (category) => html`<div class="legend-item">
+      (category) => html`<li class="legend-item">
         <div class="mark" style="${getMarkStyle(category) as string}"></div>
         <p class="label">${category}</p>
-      </div>`
+      </li>`
     )}`;
   }
 
