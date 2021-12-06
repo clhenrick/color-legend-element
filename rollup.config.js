@@ -5,7 +5,7 @@ import replace from "@rollup/plugin-replace";
 
 export default {
   external: ["d3"],
-  input: "color-legend-element.js",
+  input: "build/color-legend-element.js",
   output: [
     {
       file: "build/color-legend-element.bundled.js",
