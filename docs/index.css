@@ -10,8 +10,12 @@ main {
   padding: 0 1rem;
 }
 
-color-legend-element {
-  display: block;
+color-legend-element:not(:defined) {
+  display: none;
+}
+
+color-legend-element:defined {
+  display: inline-block;
   margin-bottom: 3rem;
-  font-size: 0.625rem;
+  border: 1px solid gray;
 }
