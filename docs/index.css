@@ -10,12 +10,33 @@ main {
   padding: 0 1rem;
 }
 
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.875rem;
+}
+
 color-legend-element:not(:defined) {
   display: none;
 }
 
 color-legend-element:defined {
   display: inline-block;
-  margin-bottom: 3rem;
   border: 1px solid gray;
+  margin-bottom: 2rem;
+}
+
+.example {
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  color-legend-element:defined {
+    margin-bottom: 0;
+  }
+
+  .example {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
