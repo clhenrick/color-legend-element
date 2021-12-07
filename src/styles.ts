@@ -2,25 +2,39 @@ import { css } from "lit";
 
 export const styles = css`
   :host {
-    --cle-font-family: "Roboto", sans-serif;
+    --cle-font-family: sans-serif;
+    --cle-font-family-title: var(--cle-font-family);
     --cle-font-size: 0.75rem;
     --cle-font-size-title: 0.875rem;
     --cle-letter-spacing: 0.3px;
     --cle-letter-spacing-title: 0.25px;
-    --cle-font-weight-bold: 500;
-    --cle-font-color: #202124;
-
-    font-family: var(--cle-font-family);
-    font-size: var(--cle-font-size);
-    letter-spacing: var(--cle-letter-spacing);
-    color: var(--cle-font-color);
-    display: inline-block;
-    padding: 0.5rem;
+    --cle-font-weight: 400;
+    --cle-font-weight-title: 500;
+    --cle-color: currentColor;
+    --cle-background: #fff;
+    --cle-padding: 0.375rem;
+    --cle-border: none;
+    --cle-border-radius: 0;
+    --cle-box-sizing: content-box;
   }
 
   :host([hidden]),
   .hidden {
     display: none;
+  }
+
+  div.cle-container {
+    font-family: var(--cle-font-family);
+    font-size: var(--cle-font-size);
+    font-weight: var(--cle-font-weight);
+    letter-spacing: var(--cle-letter-spacing);
+    color: var(--cle-color);
+    background: var(--cle-background);
+    display: inline-block;
+    padding: var(--cle-padding);
+    border: var(--cle-border);
+    border-radius: var(--cle-border-radius);
+    box-sizing: var(--cle-box-sizing);
   }
 
   svg {
@@ -31,14 +45,14 @@ export const styles = css`
   svg text {
     font-family: var(--cle-font-family);
     font-size: var(--cle-font-size);
-    fill: var(--cle-font-color);
+    fill: var(--cle-color);
   }
 
   p.legend-title {
     margin: 0;
-    font-family: var(--cle-font-family);
+    font-family: var(--cle-font-family-title);
     font-size: var(--cle-font-size-title);
-    font-weight: var(--cle-font-weight-bold);
+    font-weight: var(--cle-font-weight-title);
     letter-spacing: var(--cle-letter-spacing-title);
   }
 
