@@ -1,6 +1,7 @@
 import { svg, html, TemplateResult } from "lit";
 import { DirectiveResult } from "lit/directive";
 import { styleMap, StyleMapDirective } from "lit/directives/style-map.js";
+import { classMap } from "lit/directives/class-map.js";
 import * as d3 from "d3";
 
 import { ColorLegendElement } from "./color-legend-element";
@@ -18,6 +19,43 @@ export class Renderer {
 
   constructor(colorLegendElement: ColorLegendElement) {
     this.cle = colorLegendElement;
+  }
+
+  /**
+   * render: handles rendering HTML & SVG markup for the current scaleType
+   * @returns TemplateResult
+   */
+  render() {
+    const title = this.cle.titleText
+      ? html`<p class="legend-title">${this.cle.titleText}</p>`
+      : "";
+    const svgClasses = { hidden: this.cle.scaleType === ScaleType.Categorical };
+    const categoricalClasses = {
+      hidden: this.cle.scaleType !== ScaleType.Categorical,
+      "categorical-container": true,
+    };
+
+    return html`<div
+      class="cle-container"
+      style="width:${this.cle.width}px; height:auto;"
+    >
+      ${title}
+      <svg
+        class=${classMap(svgClasses)}
+        width=${this.cle.width}
+        height=${this.cle.height}
+      >
+        <!-- discrete and threshold -->
+        <g class="rects">${this.renderDiscreteThreshold()}</g>
+        <!-- continuous -->
+        ${this.renderContinuous()}
+        <!-- axis ticks -->
+        ${this.renderAxis()}
+      </svg>
+      <ul class=${classMap(categoricalClasses)}>
+        ${this.renderCategorical()}
+      </ul>
+    </div>`;
   }
 
   /**
@@ -181,6 +219,12 @@ export class Renderer {
     >${renderAxisTicks()}</g>`;
   }
 
+  /**
+   * getColorRamp: constructs the canvas element used for continuous legends
+   * @param colorInterpolator an interpolator function, e.g. one from d3-scale-chromatic
+   * @param n width of canvas / number of colors
+   * @returns HTMLCanvasElement
+   */
   getColorRamp(colorInterpolator: Interpolator<string>, n = 256) {
     const canvas = document.createElement("canvas") as HTMLCanvasElement;
     canvas.setAttribute("height", `${1}`);

@@ -1,6 +1,5 @@
-import { LitElement, html } from "lit";
+import { LitElement } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
-import { classMap } from "lit/directives/class-map.js";
 
 import { ColorScaleSetter } from "./color-scale";
 import { Renderer } from "./renderer";
@@ -191,7 +190,7 @@ export class ColorLegendElement extends LitElement {
   /**
    * Configures the x scale and axis ticks
    */
-  axisTickSetter = new AxisTicksSetter(this);
+  private axisTickSetter = new AxisTicksSetter(this);
 
   /**
    * A d3 linear scale for generating axis ticks
@@ -204,36 +203,7 @@ export class ColorLegendElement extends LitElement {
    * @returns TemplateResult
    */
   override render() {
-    const title = this.titleText
-      ? html`<p class="legend-title">${this.titleText}</p>`
-      : "";
-    const svgClasses = { hidden: this.scaleType === ScaleType.Categorical };
-    const categoricalClasses = {
-      hidden: this.scaleType !== ScaleType.Categorical,
-      "categorical-container": true,
-    };
-
-    return html`<div
-      class="cle-container"
-      style="width:${this.width}px; height:auto;"
-    >
-      ${title}
-      <svg
-        class=${classMap(svgClasses)}
-        width=${this.width}
-        height=${this.height}
-      >
-        <!-- discrete and threshold -->
-        <g class="rects">${this.renderer.renderDiscreteThreshold()}</g>
-        <!-- continuous -->
-        ${this.renderer.renderContinuous()}
-        <!-- axis ticks -->
-        ${this.renderer.renderAxis()}
-      </svg>
-      <ul class=${classMap(categoricalClasses)}>
-        ${this.renderer.renderCategorical()}
-      </ul>
-    </div>`;
+    return this.renderer.render();
   }
 
   /**
