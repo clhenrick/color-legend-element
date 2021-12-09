@@ -36,7 +36,7 @@ import {
   DEFAULT_TICK_VALUES,
 } from "./constants";
 
-@customElement("color-legend-element")
+@customElement("color-legend")
 export class ColorLegendElement extends LitElement {
   static override styles = [styles];
 
@@ -224,6 +224,6 @@ export class ColorLegendElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "color-legend-element": ColorLegendElement;
+    "color-legend": ColorLegendElement;
   }
 }

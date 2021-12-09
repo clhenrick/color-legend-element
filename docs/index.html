@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;color-legend-element> Demo</title>
+    <title>Color Legend Element Demo</title>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
@@ -23,53 +23,53 @@
 
       <h3>Continuous</h3>
 
-      <color-legend-element
+      <color-legend
         titletext="Color Legend"
         scaletype="continuous"
-      ></color-legend-element>
+      ></color-legend>
 
       <h3>Continuous with an interpolator</h3>
 
-      <color-legend-element
+      <color-legend
         class="continuous-with-interpolator"
         titletext="Temperature (°C)"
         scaletype="continuous"
         tickFormat=".0f"
         domain="[0, 100]"
       >
-      </color-legend-element>
+      </color-legend>
 
       <script>
         document.querySelector(
-          "color-legend-element.continuous-with-interpolator"
+          "color-legend.continuous-with-interpolator"
         ).interpolator = d3.interpolateViridis;
       </script>
 
       <h3>Discrete</h3>
 
-      <color-legend-element
+      <color-legend
         titleText="Unemployment Rate (%)"
         tickFormat=".1f"
         scaletype="discrete"
         domain="[0.1, 1]"
         range='["#fcfbfd","#efedf5","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3","#54278f","#3f007d"]'
       >
-      </color-legend-element>
+      </color-legend>
 
       <h3>Threshold</h3>
 
-      <color-legend-element
+      <color-legend
         titleText="Number of Incidents"
         scaletype="threshold"
         tickFormat=".0f"
         domain="[0, 11, 22, 33, 50, 100]"
         range='["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]'
       >
-      </color-legend-element>
+      </color-legend>
 
       <h3>Categorical with default markType (circle)</h3>
 
-      <color-legend-element
+      <color-legend
         width="325"
         height="32"
         titleText="Business Sectors"
@@ -77,11 +77,11 @@
         domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
       >
-      </color-legend-element>
+      </color-legend>
 
       <h3>Categorical with markType set to rect</h3>
 
-      <color-legend-element
+      <color-legend
         width="325"
         height="32"
         titleText="Business Sectors"
@@ -90,11 +90,11 @@
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
         marktype="rect"
       >
-      </color-legend-element>
+      </color-legend>
 
       <h3>Categorical with markType set to line</h3>
 
-      <color-legend-element
+      <color-legend
         width="350"
         height="32"
         titleText="Business Sectors"
@@ -103,11 +103,11 @@
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
         marktype="line"
       >
-      </color-legend-element>
+      </color-legend>
     </main>
 
     <script>
-      let cle = document.querySelector("color-legend-element");
+      let cle = document.querySelector("color-legend");
       console.log(cle);
     </script>
   </body>
