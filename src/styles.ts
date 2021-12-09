@@ -16,6 +16,8 @@ export const styles = css`
     --cle-border: none;
     --cle-border-radius: 0;
     --cle-box-sizing: content-box;
+    --cle-columns: 2;
+    --cle-column-width: auto;
   }
 
   :host([hidden]),
@@ -56,9 +58,11 @@ export const styles = css`
     letter-spacing: var(--cle-letter-spacing-title);
   }
 
-  .categorical-container {
+  ul.categorical-container {
     padding: 0;
     margin: 0;
+    column-count: var(--cle-columns);
+    column-width: var(--cle-column-width);
   }
 
   .categorical-container .legend-item {
