@@ -68,20 +68,20 @@ export class Renderer {
     }
 
     const domain = this.cle.domain as string[];
-    const { markType, colorScale, height, marginTop, marginBottom } = this.cle;
+    const { markType, colorScale } = this.cle;
     const getMarkStyle = (
       d: string
     ): DirectiveResult<typeof StyleMapDirective> =>
       styleMap({
         width:
           markType === MarkType.Line
-            ? `${24}px`
-            : `${height - marginTop - marginBottom}px`,
+            ? "var(--cle-line-width)"
+            : "var(--cle-swatch-width)",
         height:
           markType === MarkType.Line
-            ? "2px"
-            : `${height - marginTop - marginBottom}px`,
-        borderRadius: markType === "circle" ? "50%" : "",
+            ? "var(--cle-line-height)"
+            : "var(--cle-swatch-height)",
+        borderRadius: markType === "circle" ? "50%" : "0",
         backgroundColor: (colorScale as ScaleOrdinal<string, string>)(d),
       });
 

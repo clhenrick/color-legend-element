@@ -18,6 +18,11 @@ export const styles = css`
     --cle-box-sizing: content-box;
     --cle-columns: 2;
     --cle-column-width: auto;
+    --cle-line-width: 24px;
+    --cle-line-height: 2px;
+    --cle-swatch-size: 10px;
+    --cle-swatch-width: var(--cle-swatch-size);
+    --cle-swatch-height: var(--cle-swatch-size);
   }
 
   :host([hidden]),
