@@ -1,6 +1,4 @@
 import { svg, html, TemplateResult } from "lit";
-import { DirectiveResult } from "lit/directive";
-import { styleMap, StyleMapDirective } from "lit/directives/style-map.js";
 import { classMap } from "lit/directives/class-map.js";
 import * as d3 from "d3";
 
@@ -66,29 +64,20 @@ export class Renderer {
     if (this.cle.scaleType !== ScaleType.Categorical) {
       return "";
     }
-
-    const domain = this.cle.domain as string[];
-    const { markType, colorScale } = this.cle;
-    const getMarkStyle = (
-      d: string
-    ): DirectiveResult<typeof StyleMapDirective> =>
-      styleMap({
-        width:
-          markType === MarkType.Line
-            ? "var(--cle-line-width)"
-            : "var(--cle-swatch-width)",
-        height:
-          markType === MarkType.Line
-            ? "var(--cle-line-height)"
-            : "var(--cle-swatch-height)",
-        borderRadius: markType === "circle" ? "50%" : "0",
-        backgroundColor: (colorScale as ScaleOrdinal<string, string>)(d),
-      });
-
-    return html`${domain.map(
-      (category) => html`<li class="legend-item">
-        <div class="mark" style="${getMarkStyle(category) as string}"></div>
-        <p class="label">${category}</p>
+    const { markType, colorScale, domain } = this.cle;
+    const classes = {
+      "legend-item": true,
+      line: markType === MarkType.Line,
+      circle: markType === MarkType.Circle,
+    };
+    return html`${(domain as string[]).map(
+      (category) => html`<li
+        class=${classMap(classes)}
+        style="--color:${(colorScale as ScaleOrdinal<string, string>)(
+          category
+        )}"
+      >
+        ${category}
       </li>`
     )}`;
   }

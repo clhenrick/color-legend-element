@@ -70,18 +70,27 @@ export const styles = css`
     column-width: var(--cle-column-width);
   }
 
-  .categorical-container .legend-item {
+  .legend-item {
     display: inline-flex;
     align-items: center;
     margin-right: 0.75rem;
     margin-top: 0.375rem;
   }
 
-  .legend-item p.label {
-    display: inline-block;
-    font-size: var(--cle-font-size);
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0.375rem;
+  .legend-item::before {
+    content: "";
+    width: var(--cle-swatch-width);
+    height: var(--cle-swatch-height);
+    margin-right: 0.5rem;
+    background: var(--color);
+  }
+
+  .legend-item.line::before {
+    width: var(--cle-line-width);
+    height: var(--cle-line-height);
+  }
+
+  .legend-item.circle::before {
+    border-radius: 50%;
   }
 `;
