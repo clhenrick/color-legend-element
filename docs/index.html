@@ -13,8 +13,14 @@
     <header>
       <h1>Color Legend Element</h1>
       <p>
-        A custom element (web component) suitable for use as a legend in data
-        visualizations.
+        A Custom Element suitable for use as a legend in data visualizations.
+        <br />
+        Inspired by the
+        <a href="#">Observable Color Legend</a> by <a href="#">Mike Bostock</a>.
+      </p>
+      <p>
+        Copyright 2021, <a href="">Chris Henrick</a>, under the
+        <a href="#">MIT License</a>.
       </p>
     </header>
 
@@ -23,17 +29,14 @@
 
       <h3>Continuous</h3>
 
-      <color-legend
-        titletext="Color Legend"
-        scaletype="continuous"
-      ></color-legend>
+      <color-legend></color-legend>
 
       <h3>Continuous with an interpolator</h3>
 
       <color-legend
         class="continuous-with-interpolator"
-        titletext="Temperature (°C)"
-        scaletype="continuous"
+        titleText="Temperature (°C)"
+        scaleType="continuous"
         tickFormat=".0f"
         domain="[0, 100]"
       >
@@ -50,7 +53,7 @@
       <color-legend
         titleText="Unemployment Rate (%)"
         tickFormat=".1f"
-        scaletype="discrete"
+        scaleType="discrete"
         domain="[0.1, 1]"
         range='["#fcfbfd","#efedf5","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3","#54278f","#3f007d"]'
       >
@@ -60,7 +63,7 @@
 
       <color-legend
         titleText="Number of Incidents"
-        scaletype="threshold"
+        scaleType="threshold"
         tickFormat=".0f"
         domain="[0, 11, 22, 33, 50, 100]"
         range='["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]'
@@ -71,9 +74,8 @@
 
       <color-legend
         width="325"
-        height="32"
         titleText="Business Sectors"
-        scaletype="categorical"
+        scaleType="categorical"
         domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
       >
@@ -83,12 +85,11 @@
 
       <color-legend
         width="325"
-        height="32"
         titleText="Business Sectors"
-        scaletype="categorical"
+        scaleType="categorical"
         domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-        marktype="rect"
+        markType="rect"
       >
       </color-legend>
 
@@ -96,12 +97,11 @@
 
       <color-legend
         width="350"
-        height="32"
         titleText="Business Sectors"
-        scaletype="categorical"
+        scaleType="categorical"
         domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
         range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-        marktype="line"
+        markType="line"
       >
       </color-legend>
 
@@ -124,9 +124,19 @@
         });
       </script>
 
-      <h3>Styling using CSS</h3>
+      <h2>Styling using CSS</h2>
 
-      <p>To do...</p>
+      <p>
+        Styles are encapsulated using the Shadow DOM and thus will not bleed out
+        to pollute the style of other DOM elements. Its default styles may be
+        customized by overriding one or more of its CSS variables (custom
+        properties). All CSS variables are prefixed with
+        <span class="code">cle</span>, for example
+        <span class="code">--cle-font-family</span> will set the font-family
+        property for the title and axis ticks.
+      </p>
+
+      <p>To do: add code blocks...</p>
     </main>
 
     <script>
