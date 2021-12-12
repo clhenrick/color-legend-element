@@ -1,0 +1,951 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/color-legend-element.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ColorLegendElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "titleText",
+              "default": "DEFAULT_TITLE_TEXT",
+              "description": "The title text that displays at the top of the legend",
+              "attribute": "titleText"
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "default": "DEFAULT_WIDTH",
+              "description": "The width of the SVG or categorical legend div element",
+              "attribute": "width"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "default": "DEFAULT_HEIGHT",
+              "description": "The height of the SVG element",
+              "attribute": "height"
+            },
+            {
+              "kind": "field",
+              "name": "marginTop",
+              "default": "DEFAULT_MARGIN_TOP",
+              "description": "The spacing between the legend bar and top most extent of the SVG",
+              "attribute": "marginTop"
+            },
+            {
+              "kind": "field",
+              "name": "marginRight",
+              "default": "DEFAULT_MARGIN_RIGHT",
+              "description": "The spacing between the legend bar and right most extent of the SVG",
+              "attribute": "marginRight"
+            },
+            {
+              "kind": "field",
+              "name": "marginBottom",
+              "default": "DEFAULT_MARGIN_BOTTOM",
+              "description": "The spacing between the legend bar and bottom most extent of the SVG",
+              "attribute": "marginBottom"
+            },
+            {
+              "kind": "field",
+              "name": "marginLeft",
+              "default": "DEFAULT_MARGIN_LEFT",
+              "description": "The spacing between the legend bar and left most extent of the SVG",
+              "attribute": "marginLeft"
+            },
+            {
+              "kind": "field",
+              "name": "scaleType",
+              "type": {
+                "text": "ScaleType"
+              },
+              "default": "DEFAULT_SCALE_TYPE",
+              "description": "The type of legend to render based on d3-scale",
+              "attribute": "scaleType"
+            },
+            {
+              "kind": "field",
+              "name": "domain",
+              "type": {
+                "text": "number[] | string[]"
+              },
+              "default": "DEFAULT_DOMAIN",
+              "description": "The color scale's domain values",
+              "attribute": "domain"
+            },
+            {
+              "kind": "field",
+              "name": "range",
+              "type": {
+                "text": "string[] | number[]"
+              },
+              "default": "DEFAULT_RANGE",
+              "description": "The color scale's range values",
+              "attribute": "range"
+            },
+            {
+              "kind": "field",
+              "name": "markType",
+              "type": {
+                "text": "MarkType"
+              },
+              "default": "DEFAULT_MARK_TYPE",
+              "description": "The mark type for categorical legends",
+              "attribute": "markType"
+            },
+            {
+              "kind": "field",
+              "name": "ticks",
+              "default": "DEFAULT_TICKS",
+              "description": "The desired number of axis ticks",
+              "attribute": "ticks"
+            },
+            {
+              "kind": "field",
+              "name": "tickFormat",
+              "default": "DEFAULT_TICK_FORMAT",
+              "description": "The d3-format specifier to format axis tick values",
+              "attribute": "tickFormat"
+            },
+            {
+              "kind": "field",
+              "name": "tickSize",
+              "default": "DEFAULT_TICK_SIZE",
+              "description": "The size or length of the axis ticks",
+              "attribute": "tickSize"
+            },
+            {
+              "kind": "field",
+              "name": "tickValues",
+              "default": "DEFAULT_TICK_VALUES",
+              "description": "The explicit values to be used for axis ticks",
+              "attribute": "tickValues"
+            },
+            {
+              "kind": "field",
+              "name": "svg",
+              "type": {
+                "text": "SVGSVGElement"
+              },
+              "description": "Reference to the SVG node"
+            },
+            {
+              "kind": "field",
+              "name": "_interpolator",
+              "type": {
+                "text": "Interpolator<string>"
+              },
+              "privacy": "private",
+              "description": "a color interpolator function such as one from d3-scale-chromatic"
+            },
+            {
+              "kind": "field",
+              "name": "interpolator"
+            },
+            {
+              "kind": "field",
+              "name": "_tickFormatter",
+              "type": {
+                "text": "TickFormatter"
+              },
+              "privacy": "private",
+              "description": "Function that formats the xAxis tick values"
+            },
+            {
+              "kind": "field",
+              "name": "tickFormatter"
+            },
+            {
+              "kind": "field",
+              "name": "colorScaleSetter",
+              "privacy": "private",
+              "default": "new ColorScaleSetter(this)",
+              "description": "Handles configuring the colorScale"
+            },
+            {
+              "kind": "field",
+              "name": "colorScale",
+              "type": {
+                "text": "ColorScale"
+              },
+              "description": "A type of d3-scale for applying color values to the legend item(s)"
+            },
+            {
+              "kind": "field",
+              "name": "renderer",
+              "privacy": "private",
+              "default": "new Renderer(this)",
+              "description": "Handles rendering of various scale types"
+            },
+            {
+              "kind": "field",
+              "name": "axisTickSetter",
+              "privacy": "private",
+              "default": "new AxisTicksSetter(this)",
+              "description": "Configures the x scale and axis ticks"
+            },
+            {
+              "kind": "field",
+              "name": "xScale",
+              "type": {
+                "text": "XScale"
+              },
+              "description": "A d3 linear scale for generating axis ticks"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "titleText",
+              "default": "DEFAULT_TITLE_TEXT",
+              "description": "The title text that displays at the top of the legend",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "titleText"
+            },
+            {
+              "name": "width",
+              "default": "DEFAULT_WIDTH",
+              "description": "The width of the SVG or categorical legend div element",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "width"
+            },
+            {
+              "name": "height",
+              "default": "DEFAULT_HEIGHT",
+              "description": "The height of the SVG element",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "height"
+            },
+            {
+              "name": "marginTop",
+              "default": "DEFAULT_MARGIN_TOP",
+              "description": "The spacing between the legend bar and top most extent of the SVG",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "marginTop"
+            },
+            {
+              "name": "marginRight",
+              "default": "DEFAULT_MARGIN_RIGHT",
+              "description": "The spacing between the legend bar and right most extent of the SVG",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "marginRight"
+            },
+            {
+              "name": "marginBottom",
+              "default": "DEFAULT_MARGIN_BOTTOM",
+              "description": "The spacing between the legend bar and bottom most extent of the SVG",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "marginBottom"
+            },
+            {
+              "name": "marginLeft",
+              "default": "DEFAULT_MARGIN_LEFT",
+              "description": "The spacing between the legend bar and left most extent of the SVG",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "marginLeft"
+            },
+            {
+              "name": "scaleType",
+              "type": {
+                "text": "ScaleType"
+              },
+              "default": "DEFAULT_SCALE_TYPE",
+              "description": "The type of legend to render based on d3-scale",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "scaleType"
+            },
+            {
+              "name": "domain",
+              "type": {
+                "text": "number[] | string[]"
+              },
+              "default": "DEFAULT_DOMAIN",
+              "description": "The color scale's domain values",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "domain"
+            },
+            {
+              "name": "range",
+              "type": {
+                "text": "string[] | number[]"
+              },
+              "default": "DEFAULT_RANGE",
+              "description": "The color scale's range values",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "range"
+            },
+            {
+              "name": "markType",
+              "type": {
+                "text": "MarkType"
+              },
+              "default": "DEFAULT_MARK_TYPE",
+              "description": "The mark type for categorical legends",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "markType"
+            },
+            {
+              "name": "ticks",
+              "default": "DEFAULT_TICKS",
+              "description": "The desired number of axis ticks",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "ticks"
+            },
+            {
+              "name": "tickFormat",
+              "default": "DEFAULT_TICK_FORMAT",
+              "description": "The d3-format specifier to format axis tick values",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "tickFormat"
+            },
+            {
+              "name": "tickSize",
+              "default": "DEFAULT_TICK_SIZE",
+              "description": "The size or length of the axis ticks",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "tickSize"
+            },
+            {
+              "name": "tickValues",
+              "default": "DEFAULT_TICK_VALUES",
+              "description": "The explicit values to be used for axis ticks",
+              "resolveInitializer": {
+                "module": "/src/constants"
+              },
+              "fieldName": "tickValues"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "color-legend",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ColorLegendElement",
+          "declaration": {
+            "name": "ColorLegendElement",
+            "module": "src/color-legend-element.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "color-legend",
+          "declaration": {
+            "name": "ColorLegendElement",
+            "module": "src/color-legend-element.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/color-scale.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ColorScaleSetter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "cle",
+              "type": {
+                "text": "ColorLegendElement"
+              },
+              "default": "cle"
+            },
+            {
+              "kind": "method",
+              "name": "setColorScale",
+              "description": "Sets the colorScale value from the scaleType value"
+            },
+            {
+              "kind": "method",
+              "name": "setContinousColorScale",
+              "privacy": "private",
+              "description": "Sets the colorScale property to either a ScaleSequential or ScaleLinear"
+            },
+            {
+              "kind": "method",
+              "name": "setDiscreteColorScale",
+              "privacy": "private",
+              "description": "Sets the colorScale property to a ScaleQuantize"
+            },
+            {
+              "kind": "method",
+              "name": "setThresholdColorScale",
+              "privacy": "private",
+              "description": "Sets the colorScale property to a ScaleThreshold"
+            },
+            {
+              "kind": "method",
+              "name": "setCategoricalColorScale",
+              "privacy": "private",
+              "description": "Sets the colorScale to a ScaleOrdinal"
+            },
+            {
+              "kind": "method",
+              "name": "invalidScaleType",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "string"
+                }
+              ],
+              "description": "Handles warning the user they provided an invalid scale type"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ColorScaleSetter",
+          "declaration": {
+            "name": "ColorScaleSetter",
+            "module": "src/color-scale.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "DEFAULT_WIDTH",
+          "type": {
+            "text": "number"
+          },
+          "default": "325"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_HEIGHT",
+          "type": {
+            "text": "number"
+          },
+          "default": "32"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_MARGIN_TOP",
+          "type": {
+            "text": "number"
+          },
+          "default": "6"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_MARGIN_RIGHT",
+          "type": {
+            "text": "number"
+          },
+          "default": "12"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_MARGIN_BOTTOM",
+          "type": {
+            "text": "number"
+          },
+          "default": "16"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_MARGIN_LEFT",
+          "type": {
+            "text": "number"
+          },
+          "default": "12"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_TICKS"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_TICK_SIZE",
+          "type": {
+            "text": "number"
+          },
+          "default": "6"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_TICK_VALUES",
+          "type": {
+            "text": "number[] | null"
+          },
+          "default": "null"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_TICK_FORMAT",
+          "type": {
+            "text": "string"
+          },
+          "default": "\".1f\""
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_DOMAIN",
+          "type": {
+            "text": "array"
+          },
+          "default": "[0, 1]"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_RANGE",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  \"#ffffcc\",\n  \"#a1dab4\",\n  \"#41b6c4\",\n  \"#2c7fb8\",\n  \"#253494\",\n]"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_TITLE_TEXT",
+          "type": {
+            "text": "string"
+          },
+          "default": "\"Color Legend Element\""
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_MARK_TYPE"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULT_SCALE_TYPE"
+        },
+        {
+          "kind": "variable",
+          "name": "COLOR_SCALE_PROPS",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  \"domain\",\n  \"range\",\n  \"interpolator\",\n  \"scaleType\",\n]"
+        },
+        {
+          "kind": "variable",
+          "name": "AXIS_AND_X_SCALE_PROPS",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  \"scaleType\",\n  \"ticks\",\n  \"tickSize\",\n  \"tickValues\",\n  \"tickFormat\",\n  \"domain\",\n  \"range\",\n  \"marginLeft\",\n  \"marginRight\",\n  \"marginBottom\",\n  \"marginTop\",\n  \"width\",\n  \"height\",\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DEFAULT_WIDTH",
+          "declaration": {
+            "name": "DEFAULT_WIDTH",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_HEIGHT",
+          "declaration": {
+            "name": "DEFAULT_HEIGHT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_MARGIN_TOP",
+          "declaration": {
+            "name": "DEFAULT_MARGIN_TOP",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_MARGIN_RIGHT",
+          "declaration": {
+            "name": "DEFAULT_MARGIN_RIGHT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_MARGIN_BOTTOM",
+          "declaration": {
+            "name": "DEFAULT_MARGIN_BOTTOM",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_MARGIN_LEFT",
+          "declaration": {
+            "name": "DEFAULT_MARGIN_LEFT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_TICKS",
+          "declaration": {
+            "name": "DEFAULT_TICKS",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_TICK_SIZE",
+          "declaration": {
+            "name": "DEFAULT_TICK_SIZE",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_TICK_VALUES",
+          "declaration": {
+            "name": "DEFAULT_TICK_VALUES",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_TICK_FORMAT",
+          "declaration": {
+            "name": "DEFAULT_TICK_FORMAT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_DOMAIN",
+          "declaration": {
+            "name": "DEFAULT_DOMAIN",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_RANGE",
+          "declaration": {
+            "name": "DEFAULT_RANGE",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_TITLE_TEXT",
+          "declaration": {
+            "name": "DEFAULT_TITLE_TEXT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_MARK_TYPE",
+          "declaration": {
+            "name": "DEFAULT_MARK_TYPE",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "DEFAULT_SCALE_TYPE",
+          "declaration": {
+            "name": "DEFAULT_SCALE_TYPE",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "COLOR_SCALE_PROPS",
+          "declaration": {
+            "name": "COLOR_SCALE_PROPS",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "AXIS_AND_X_SCALE_PROPS",
+          "declaration": {
+            "name": "AXIS_AND_X_SCALE_PROPS",
+            "module": "src/constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/renderer.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Renderer",
+          "members": [
+            {
+              "kind": "field",
+              "name": "cle",
+              "type": {
+                "text": "ColorLegendElement"
+              },
+              "default": "colorLegendElement"
+            },
+            {
+              "kind": "method",
+              "name": "renderCategorical",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "description": "Renders a categorical legend html"
+            },
+            {
+              "kind": "method",
+              "name": "renderContinuous",
+              "description": "Renders the continuous legend's color ramp SVG image",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderDiscreteThreshold",
+              "description": "Renders SVG Rects for a discrete or threshold color scale",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderAxis",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "description": "Renders the legend's SVG x axis"
+            },
+            {
+              "kind": "method",
+              "name": "getColorRamp",
+              "parameters": [
+                {
+                  "name": "colorInterpolator",
+                  "type": {
+                    "text": "Interpolator<string>"
+                  },
+                  "description": "an interpolator function, e.g. one from d3-scale-chromatic"
+                },
+                {
+                  "name": "n",
+                  "default": "256",
+                  "description": "width of canvas / number of colors"
+                }
+              ],
+              "description": "getColorRamp: constructs the canvas element used for continuous legends",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Renderer",
+          "declaration": {
+            "name": "Renderer",
+            "module": "src/renderer.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css`\n  :host {\n    --cle-font-family: sans-serif;\n    --cle-font-family-title: var(--cle-font-family);\n    --cle-font-size: 0.75rem;\n    --cle-font-size-title: 0.875rem;\n    --cle-letter-spacing: 0.3px;\n    --cle-letter-spacing-title: 0.25px;\n    --cle-font-weight: 400;\n    --cle-font-weight-title: 500;\n    --cle-color: currentColor;\n    --cle-background: #fff;\n    --cle-padding: 0.375rem;\n    --cle-border: none;\n    --cle-border-radius: 0;\n    --cle-box-sizing: content-box;\n    --cle-columns: 2;\n    --cle-column-width: auto;\n    --cle-line-width: 24px;\n    --cle-line-height: 2px;\n    --cle-swatch-size: 10px;\n    --cle-swatch-width: var(--cle-swatch-size);\n    --cle-swatch-height: var(--cle-swatch-size);\n  }\n\n  :host([hidden]),\n  .hidden {\n    display: none;\n  }\n\n  div.cle-container {\n    font-family: var(--cle-font-family);\n    font-size: var(--cle-font-size);\n    font-weight: var(--cle-font-weight);\n    letter-spacing: var(--cle-letter-spacing);\n    color: var(--cle-color);\n    background: var(--cle-background);\n    display: inline-block;\n    padding: var(--cle-padding);\n    border: var(--cle-border);\n    border-radius: var(--cle-border-radius);\n    box-sizing: var(--cle-box-sizing);\n  }\n\n  svg {\n    display: block;\n    overflow: visible;\n  }\n\n  svg text {\n    font-family: var(--cle-font-family);\n    font-size: var(--cle-font-size);\n    fill: var(--cle-color);\n  }\n\n  p.legend-title {\n    margin: 0;\n    font-family: var(--cle-font-family-title);\n    font-size: var(--cle-font-size-title);\n    font-weight: var(--cle-font-weight-title);\n    letter-spacing: var(--cle-letter-spacing-title);\n  }\n\n  ul.categorical-container {\n    padding: 0;\n    margin: 0;\n    column-count: var(--cle-columns);\n    column-width: var(--cle-column-width);\n  }\n\n  .legend-item {\n    display: inline-flex;\n    align-items: center;\n    margin-right: 0.75rem;\n    margin-top: 0.375rem;\n  }\n\n  .legend-item::before {\n    content: \"\";\n    width: var(--cle-swatch-width);\n    height: var(--cle-swatch-height);\n    margin-right: 0.5rem;\n    background: var(--color);\n  }\n\n  .legend-item.line::before {\n    width: var(--cle-line-width);\n    height: var(--cle-line-height);\n  }\n\n  .legend-item.circle::before {\n    border-radius: 50%;\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "src/styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/types.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ScaleSequential",
+          "declaration": {
+            "name": "ScaleSequential",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleQuantile",
+          "declaration": {
+            "name": "ScaleQuantile",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleQuantize",
+          "declaration": {
+            "name": "ScaleQuantize",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleThreshold",
+          "declaration": {
+            "name": "ScaleThreshold",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleDiverging",
+          "declaration": {
+            "name": "ScaleDiverging",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleOrdinal",
+          "declaration": {
+            "name": "ScaleOrdinal",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleLinear",
+          "declaration": {
+            "name": "ScaleLinear",
+            "module": "src/types.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ScaleBand",
+          "declaration": {
+            "name": "ScaleBand",
+            "module": "src/types.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/x-scale-axis.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AxisTicksSetter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "cle",
+              "type": {
+                "text": "ColorLegendElement"
+              },
+              "default": "cle"
+            },
+            {
+              "kind": "method",
+              "name": "setXScale",
+              "description": "Sets the xScale property based on the scaleType"
+            },
+            {
+              "kind": "method",
+              "name": "handleAxisTicks",
+              "description": "Handles configuring the x axis for non-categorical scale types"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AxisTicksSetter",
+          "declaration": {
+            "name": "AxisTicksSetter",
+            "module": "src/x-scale-axis.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
