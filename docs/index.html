@@ -104,6 +104,29 @@
         marktype="line"
       >
       </color-legend>
+
+      <h3>Hidden</h3>
+
+      <p>Hide the Color Legend Element by setting its `hidden` attribute:</p>
+
+      <fieldset>
+        <input id="toggle-hidden" type="checkbox" />
+        <label for="toggle-hidden">Hide Legend</label>
+      </fieldset>
+
+      <color-legend class="hidden-demo"></color-legend>
+
+      <script>
+        let cle = document.querySelector(".hidden-demo");
+        let toggle = document.getElementById("toggle-hidden");
+        toggle.addEventListener("change", function () {
+          cle.hidden = !cle.hidden;
+        });
+      </script>
+
+      <h3>Styling using CSS</h3>
+
+      <p>To do...</p>
     </main>
 
     <script>
