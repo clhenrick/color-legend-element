@@ -11,7 +11,7 @@ export class AxisTicksSetter {
   }
 
   /**
-   * Sets the xScale property based on the scaleType
+   * Sets the xScale property based on the value of the scaleType property
    */
   setXScale() {
     const { scaleType, marginLeft, width, marginRight } = this.cle;
@@ -39,7 +39,7 @@ export class AxisTicksSetter {
   }
 
   /**
-   * Handles configuring the x axis for non-categorical scale types
+   * Handles configuring the x axis for scale types other than categorical
    */
   handleAxisTicks() {
     if (this.cle.scaleType === ScaleType.Discrete) {

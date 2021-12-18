@@ -155,7 +155,7 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
-   * Function that formats the xAxis tick values
+   * Function that formats the xAxis tick values, set internally
    */
   private _tickFormatter!: TickFormatter;
 
@@ -178,12 +178,13 @@ export class ColorLegendElement extends LitElement {
   private colorScaleSetter = new ColorScaleSetter(this);
 
   /**
-   * A type of d3-scale for applying color values to the legend item(s)
+   * A type of d3-scale for applying color values to the legend item(s),
+   * set internally by the colorScaleSetter.
    */
   colorScale!: ColorScale;
 
   /**
-   * Handles rendering of various scale types
+   * Handles rendering of HTML/SVG markup from the scaleType
    */
   private renderer = new Renderer(this);
 
@@ -193,7 +194,7 @@ export class ColorLegendElement extends LitElement {
   private axisTickSetter = new AxisTicksSetter(this);
 
   /**
-   * A d3 linear scale for generating axis ticks
+   * A d3 linear scale used for generating axis ticks
    */
   xScale!: XScale;
 
