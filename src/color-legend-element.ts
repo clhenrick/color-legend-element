@@ -128,7 +128,7 @@ export class ColorLegendElement extends LitElement {
    * The explicit values to be used for axis ticks
    */
   @property({ type: Array })
-  tickValues = DEFAULT_TICK_VALUES;
+  tickValues: number[] = DEFAULT_TICK_VALUES;
 
   /**
    * Reference to the SVG node
