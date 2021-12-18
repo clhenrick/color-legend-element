@@ -98,7 +98,7 @@ export class ColorLegendElement extends LitElement {
    * The color scale's range values
    */
   @property({ type: Array })
-  range: string[] | number[] = DEFAULT_RANGE;
+  range = DEFAULT_RANGE;
 
   /**
    * The mark type for categorical legends

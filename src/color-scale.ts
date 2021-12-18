@@ -52,9 +52,9 @@ export class ColorScaleSetter {
    */
   private setDiscreteColorScale() {
     this.cle.colorScale = d3
-      .scaleQuantize()
+      .scaleQuantize<string>()
       .domain(this.cle.domain as number[])
-      .range(this.cle.range as number[]);
+      .range(this.cle.range);
   }
 
   /**
