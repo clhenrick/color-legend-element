@@ -149,13 +149,15 @@ export class ColorLegendElement extends LitElement {
   set interpolator(value) {
     if (typeof value === "function") {
       this._interpolator = value;
+      // note: we don't need to call requestUpdate() here because when
+      // "interpolator" is set the colorScaleSetter will perform the necessary update
     } else {
       throw new Error("interpolator must be a function.");
     }
   }
 
   /**
-   * Function that formats the xAxis tick values, set internally
+   * Function that formats the xAxis tick values, set internally but may also be set externally
    */
   private _tickFormatter!: TickFormatter;
 
@@ -166,7 +168,9 @@ export class ColorLegendElement extends LitElement {
 
   set tickFormatter(value) {
     if (typeof value === "function") {
+      const oldVal = this.tickFormatter;
       this._tickFormatter = value;
+      this.requestUpdate("tickFormatter", oldVal);
     } else {
       throw new Error("tickFormatter must be a function.");
     }
@@ -194,7 +198,8 @@ export class ColorLegendElement extends LitElement {
   private axisTickSetter = new AxisTicksSetter(this);
 
   /**
-   * A d3 linear scale used for generating axis ticks
+   * A d3 linear scale used for generating axis ticks,
+   * set internally by the axisTickSetter
    */
   xScale!: XScale;
 
