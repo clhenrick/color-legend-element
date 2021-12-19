@@ -34,6 +34,8 @@ export class AxisTicksSetter {
           .rangeRound([marginLeft, width - marginRight]);
         break;
       default:
+        // xScale is not used for ScaleType.Categorical
+        this.cle.xScale = null;
         break;
     }
   }
