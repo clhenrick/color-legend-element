@@ -44,24 +44,19 @@ export class AxisTicksSetter {
    * Handles configuring the x axis for scale types other than categorical
    */
   handleAxisTicks() {
-    if (this.cle.scaleType === ScaleType.Discrete) {
-      const [min, max] = this.cle.colorScale.domain() as [number, number];
+    const { scaleType } = this.cle;
+    if (
+      scaleType !== ScaleType.Continuous &&
+      scaleType !== ScaleType.Categorical
+    ) {
+      const [min, max] = this.cle.xScale.domain() as [number, number];
       this.cle.tickValues = this.cle.tickValues || [
         min,
-        ...((
-          this.cle.colorScale as ScaleQuantize<number>
-        )?.thresholds?.() as number[]),
-        max,
-      ];
-    } else if (this.cle.scaleType === ScaleType.Threshold) {
-      const [min, max] = this.cle.xScale.domain();
-      this.cle.tickValues = this.cle.tickValues || [
-        min,
-        ...(this.cle.colorScale.domain() as number[]),
+        ...((this.cle.colorScale as ScaleQuantize<number>)?.thresholds?.() ||
+          (this.cle.colorScale.domain() as number[])),
         max,
       ];
     }
-
     if (this.cle.tickFormat?.length) {
       this.cle.tickFormatter = d3.format(this.cle.tickFormat);
     } else {
