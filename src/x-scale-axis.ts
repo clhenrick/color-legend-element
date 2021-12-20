@@ -15,12 +15,11 @@ export class AxisTicksSetter {
    */
   setXScale() {
     const { scaleType, marginLeft, width, marginRight } = this.cle;
-    this.cle.domain = this.cle.domain as number[];
     switch (scaleType) {
       case ScaleType.Continuous:
         this.cle.xScale = d3
           .scaleLinear()
-          .domain(this.cle.domain)
+          .domain(this.cle.domain as number[])
           .range([marginLeft, width - marginRight]);
         break;
       case ScaleType.Discrete:
@@ -28,15 +27,17 @@ export class AxisTicksSetter {
         this.cle.xScale = d3
           .scaleLinear<number, number>()
           .domain([
-            this.cle.domain[0],
-            this.cle.domain[this.cle.domain.length - 1],
+            (this.cle.domain as number[]).at(0),
+            (this.cle.domain as number[]).at(-1),
           ])
           .rangeRound([marginLeft, width - marginRight]);
         break;
-      default:
+      case ScaleType.Categorical:
         // xScale is not used for ScaleType.Categorical
         this.cle.xScale = null;
         break;
+      default:
+        throw new Error(`Unrecognized scaleType: ${scaleType}`);
     }
   }
 
