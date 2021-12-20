@@ -42,7 +42,8 @@ export class AxisTicksSetter {
   }
 
   /**
-   * Handles configuring the x axis for scale types other than categorical
+   * Handles setting fallback axis tick values for discrete & threshold scales
+   * Handles setting the tickFormatter function
    */
   handleAxisTicks() {
     const { scaleType } = this.cle;
