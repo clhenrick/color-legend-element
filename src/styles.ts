@@ -25,9 +25,8 @@ export const styles = css`
     --cle-swatch-height: var(--cle-swatch-size);
   }
 
-  :host([hidden]),
-  .hidden {
-    display: none;
+  :host([hidden]) {
+    display: none !important;
   }
 
   div.cle-container {
