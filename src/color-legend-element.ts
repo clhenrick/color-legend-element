@@ -9,7 +9,6 @@ import { styles } from "./styles";
 import {
   ColorScale,
   XScale,
-  MarkType,
   ScaleType,
   Interpolator,
   ChangedProps,
@@ -19,7 +18,6 @@ import {
 import {
   COLOR_SCALE_PROPS,
   AXIS_AND_X_SCALE_PROPS,
-  MARK_TYPES,
   DEFAULT_WIDTH,
   DEFAULT_HEIGHT,
   DEFAULT_MARGIN_BOTTOM,
@@ -104,22 +102,8 @@ export class ColorLegendElement extends LitElement {
   /**
    * The symbology used for categorical legends
    */
-  private _markType: MarkType = DEFAULT_MARK_TYPE;
-
   @property({ type: String })
-  get markType() {
-    return this._markType;
-  }
-
-  set markType(value: MarkType) {
-    if (MARK_TYPES.has(value)) {
-      const oldVal = this.markType;
-      this._markType = value;
-      this.requestUpdate("markType", oldVal);
-    } else {
-      throw new Error("Invalid markType");
-    }
-  }
+  markType = DEFAULT_MARK_TYPE;
 
   /**
    * The desired number of axis ticks
