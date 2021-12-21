@@ -29,7 +29,17 @@ export type ColorScale =
   | ScaleThreshold<number, string>
   | ScaleOrdinal<string | number, string>;
 
+export type XScale = ScaleLinear<number, number, unknown>;
+
 export type Interpolator<T> = (t: number) => T;
+
+export type TickFormatter = (d: number) => string;
+
+export const enum MarkType {
+  Rect = "rect",
+  Circle = "circle",
+  Line = "line",
+}
 
 export const enum ScaleType {
   Categorical = "categorical",

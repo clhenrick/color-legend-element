@@ -1,12 +1,23 @@
-import { LitElement, html } from "lit";
+import { LitElement } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
 import { ColorScaleSetter } from "./color-scale";
+import { Renderer } from "./renderer";
+import { AxisTicksSetter } from "./x-scale-axis";
+import { styles } from "./styles";
 
-import { ColorScale, ScaleType, Interpolator, ChangedProps } from "./types";
+import {
+  ColorScale,
+  XScale,
+  ScaleType,
+  Interpolator,
+  ChangedProps,
+  TickFormatter,
+} from "./types";
 
 import {
   COLOR_SCALE_PROPS,
+  AXIS_AND_X_SCALE_PROPS,
   DEFAULT_WIDTH,
   DEFAULT_HEIGHT,
   DEFAULT_MARGIN_BOTTOM,
@@ -17,10 +28,17 @@ import {
   DEFAULT_DOMAIN,
   DEFAULT_RANGE,
   DEFAULT_SCALE_TYPE,
+  DEFAULT_MARK_TYPE,
+  DEFAULT_TICKS,
+  DEFAULT_TICK_FORMAT,
+  DEFAULT_TICK_SIZE,
+  DEFAULT_TICK_VALUES,
 } from "./constants";
 
-@customElement("color-legend-element")
+@customElement("color-legend")
 export class ColorLegendElement extends LitElement {
+  static override styles = [styles];
+
   /**
    * The title text that displays at the top of the legend
    */
@@ -79,7 +97,37 @@ export class ColorLegendElement extends LitElement {
    * The color scale's range values
    */
   @property({ type: Array })
-  range: string[] | number[] = DEFAULT_RANGE;
+  range = DEFAULT_RANGE;
+
+  /**
+   * The symbology used for categorical legends
+   */
+  @property({ type: String })
+  markType = DEFAULT_MARK_TYPE;
+
+  /**
+   * The desired number of axis ticks
+   */
+  @property({ type: Number })
+  ticks = DEFAULT_TICKS;
+
+  /**
+   * The d3-format specifier to format axis tick values
+   */
+  @property({ type: String })
+  tickFormat = DEFAULT_TICK_FORMAT;
+
+  /**
+   * The size or length of the axis ticks
+   */
+  @property({ type: Number })
+  tickSize = DEFAULT_TICK_SIZE;
+
+  /**
+   * The explicit values to be used for axis ticks
+   */
+  @property({ type: Array })
+  tickValues: number[] = DEFAULT_TICK_VALUES;
 
   /**
    * Reference to the SVG node
@@ -88,19 +136,71 @@ export class ColorLegendElement extends LitElement {
   svg!: SVGSVGElement;
 
   /**
+   * a color interpolator function such as one from d3-scale-chromatic
+   */
+  private _interpolator!: Interpolator<string>;
+
+  @property({ attribute: false })
+  get interpolator() {
+    return this._interpolator;
+  }
+
+  set interpolator(value) {
+    if (typeof value === "function") {
+      this._interpolator = value;
+      // note: we don't need to call requestUpdate() here because when
+      // "interpolator" is set the colorScaleSetter will perform the necessary update
+    } else {
+      throw new Error("interpolator must be a function.");
+    }
+  }
+
+  /**
+   * Function that formats the xAxis tick values, set internally but may also be set externally
+   */
+  private _tickFormatter!: TickFormatter;
+
+  @property({ attribute: false })
+  get tickFormatter() {
+    return this._tickFormatter;
+  }
+
+  set tickFormatter(value) {
+    if (typeof value === "function") {
+      const oldVal = this.tickFormatter;
+      this._tickFormatter = value;
+      this.requestUpdate("tickFormatter", oldVal);
+    } else {
+      throw new Error("tickFormatter must be a function.");
+    }
+  }
+
+  /**
    * Handles configuring the colorScale
    */
   private colorScaleSetter = new ColorScaleSetter(this);
 
   /**
-   * A type of d3-scale for applying color values to the legend item(s)
+   * A type of d3-scale for applying color values to the legend item(s),
+   * set internally by the colorScaleSetter.
    */
   colorScale!: ColorScale;
 
   /**
-   * a color interpolator function such as one from d3-scale-chromatic
+   * Handles rendering of HTML/SVG markup from the scaleType
    */
-  private _interpolator!: Interpolator<string>;
+  private renderer = new Renderer(this);
+
+  /**
+   * Configures the x scale and axis ticks
+   */
+  private axisTickSetter = new AxisTicksSetter(this);
+
+  /**
+   * A d3 linear scale used for generating axis ticks,
+   * set internally by the axisTickSetter
+   */
+  xScale!: XScale;
 
   /**
    * Invoked on each update to perform rendering tasks. This method may return any
@@ -108,17 +208,7 @@ export class ColorLegendElement extends LitElement {
    * @returns TemplateResult
    */
   override render() {
-    const title = this.titleText
-      ? html`<p class="legend-title">${this.titleText}</p>`
-      : "";
-
-    return html`<div
-      class="cle-container"
-      style="width:${this.width}px; height:auto;"
-    >
-      ${title}
-      <svg width=${this.width} height=${this.height}></svg>
-    </div>`;
+    return this.renderer.render();
   }
 
   /**
@@ -129,23 +219,16 @@ export class ColorLegendElement extends LitElement {
     if (COLOR_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
       this.colorScaleSetter.setColorScale();
     }
-  }
 
-  get interpolator() {
-    return this._interpolator;
-  }
-
-  set interpolator(value) {
-    if (value && typeof value === "function") {
-      this._interpolator = value;
-    } else {
-      throw new Error("Interpolator must be a function");
+    if (AXIS_AND_X_SCALE_PROPS.some((prop) => changedProps.has(prop))) {
+      this.axisTickSetter.setXScale();
+      this.axisTickSetter.handleAxisTicks();
     }
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "color-legend-element": ColorLegendElement;
+    "color-legend": ColorLegendElement;
   }
 }

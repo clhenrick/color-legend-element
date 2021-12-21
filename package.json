@@ -11,7 +11,7 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "bundle": "rollup -c",
-    "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
+    "format": "prettier \"**/*.{cjs,html,js,json,md,ts,css}\" --ignore-path ./.eslintignore --write",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
@@ -60,5 +60,6 @@
     "rollup-plugin-summary": "^1.2.3",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.3.5"
-  }
+  },
+  "customElements": "custom-elements.json"
 }
