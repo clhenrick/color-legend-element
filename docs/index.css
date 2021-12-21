@@ -3,6 +3,7 @@
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --bg-color: hsl(220, 5%, 95%);
   --color: hsl(220, 5%, 5%);
+  --border: 1px solid lightgray;
 }
 
 body {
@@ -38,14 +39,47 @@ label {
   font-size: 0.875rem;
 }
 
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.75rem;
+  background: #fff;
+}
+
+pre[class*="language-"] {
+  border: var(--border);
+  max-width: 22rem;
+  margin: 0;
+}
+
 color-legend:not(:defined) {
   display: none;
 }
 
 color-legend:defined {
-  --cle-border: 1px solid lightgray;
+  --cle-border: var(--border);
   --cle-font-family: var(--font-family);
   --cle-padding: 0.375rem 0.375rem 0.75rem 0.375rem;
   display: inline-block;
   margin-bottom: 3rem;
+}
+
+.example {
+  display: flex;
+  justify-content: baseline;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 50rem) {
+  color-legend:defined {
+    margin-bottom: 0;
+  }
+
+  pre[class*="language-"] {
+    max-width: min(100%, 25rem);
+  }
+
+  .example {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
