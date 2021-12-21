@@ -113,7 +113,7 @@ export class ColorLegendElement extends LitElement {
 
   set markType(value: MarkType) {
     if (MARK_TYPES.has(value)) {
-      const oldVal = value;
+      const oldVal = this.markType;
       this._markType = value;
       this.requestUpdate("markType", oldVal);
     } else {
