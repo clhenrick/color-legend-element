@@ -18,11 +18,13 @@ export const styles = css`
     --cle-box-sizing: content-box;
     --cle-columns: 2;
     --cle-column-width: auto;
+    --cle-item-margin: 0.375rem 0.75rem 0 0;
     --cle-line-width: 24px;
     --cle-line-height: 2px;
     --cle-swatch-size: 10px;
     --cle-swatch-width: var(--cle-swatch-size);
     --cle-swatch-height: var(--cle-swatch-size);
+    --cle-swatch-margin: 0 0.5rem 0 0;
   }
 
   :host([hidden]),
@@ -73,15 +75,14 @@ export const styles = css`
   .legend-item {
     display: inline-flex;
     align-items: center;
-    margin-right: 0.75rem;
-    margin-top: 0.375rem;
+    margin: var(--cle-item-margin);
   }
 
   .legend-item::before {
     content: "";
     width: var(--cle-swatch-width);
     height: var(--cle-swatch-height);
-    margin-right: 0.5rem;
+    margin: var(--cle-swatch-margin);
     background: var(--color);
   }
 
