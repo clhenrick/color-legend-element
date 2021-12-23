@@ -33,6 +33,7 @@
     "lit": "^2.0.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
     "@custom-elements-manifest/analyzer": "^0.5.3",
     "@esm-bundle/chai": "^4.1.5",
     "@open-wc/testing": "^3.0.0-next.1",
