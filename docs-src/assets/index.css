@@ -19,8 +19,22 @@ h4,
 h5,
 h6,
 p,
-li {
+li,
+a {
   max-width: 65ch;
+}
+
+a:link {
+  color: hsl(220, 60%, 45%);
+}
+a:visited {
+  color: hsl(220, 60%, 35%);
+}
+a:hover {
+  color: hsl(220, 60%, 55%);
+}
+a:active {
+  color: hsl(220, 60%, 55%);
 }
 
 header,
