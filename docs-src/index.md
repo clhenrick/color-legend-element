@@ -17,6 +17,26 @@ With no additional configuration, the `<color-legend>` will render a continuous 
   </script>
 </div>
 
+To alter the colors used in the gradient, update the values for the `range` property / attribute. To update the values in the axis ticks, update the `domain` and `axisTicks` properties / attributes.
+
+<div class="example">
+  <color-legend
+    range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
+    domain='[100, 500]'
+    tickFormat=".0f"
+  >
+  </color-legend>
+
+  <script type="text/plain" class="language-markup">
+    <color-legend
+      range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
+      domain='[100, 500]'
+      tickFormat=".0f"
+    >
+    </color-legend>
+  </script>
+</div>
+
 ### Continuous with an interpolator
 
 A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](#), by setting the `interpolator` property in JavaScript:
@@ -181,8 +201,7 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
 
 ### Hidden
 
-Hide the Color Legend Element by setting its
-<code class="language-text">hidden</code> attribute:
+Hide the Color Legend Element by setting its `hidden` attribute:
 
 <fieldset>
   <input id="toggle-hidden" type="checkbox" />
@@ -199,15 +218,13 @@ Hide the Color Legend Element by setting its
   });
 </script>
 
-<h2>Styling using CSS</h2>
+## Styling using CSS
 
 Styles are encapsulated using the Shadow DOM and thus will not bleed out
 to pollute the style of other DOM elements. Its default styles may be
 customized by overriding one or more of its CSS variables (custom
-properties). All CSS variables are prefixed with
-<code class="language-text">cle</code>, for example
-<code class="language-text">--cle-font-family</code> will set the
-font-family property for legend items and axis tick text.
+properties). All CSS variables are prefixed with `cle`, for example
+`--cle-font-family` will set the font-family property for legend items and axis tick text.
 
 <div class="example">
   <color-legend class="styled"></color-legend>

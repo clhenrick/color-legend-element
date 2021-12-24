@@ -81,6 +81,7 @@ color-legend:defined {
   display: flex;
   justify-content: baseline;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 50rem) {
