@@ -6,6 +6,7 @@ title: Color Legend Element
 ## Usage
 
 ### Continuous
+
 With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is rendered using the [`d3.interpolateHcl`](#) color interpolator and color values from the `range` property.
 
 <div class="example">
@@ -17,6 +18,7 @@ With no additional configuration, the `<color-legend>` will render a continuous 
 </div>
 
 ### Continuous with an interpolator
+
 A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](#), by setting the `interpolator` property in JavaScript:
 
 <div class="example">
@@ -54,6 +56,7 @@ A continuous legend may also be rendered by providing an interpolator, such as o
 </div>
 
 ### Discrete
+
 A discrete legend may be rendered by setting the `scaleType` to "discrete" and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.
 
 <div class="example">
@@ -79,6 +82,7 @@ A discrete legend may be rendered by setting the `scaleType` to "discrete" and p
 </div>
 
 ### Threshold
+
 Threshold legends may be rendered by setting `scaleType` to "threshold" and by setting the `domain` to be a sequential set of numbers and having one value greater than the number of values in the `range`.
 
 <div class="example">
