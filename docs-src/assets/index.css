@@ -36,6 +36,9 @@ a:hover {
 a:active {
   color: hsl(220, 60%, 55%);
 }
+a.anchor {
+  text-decoration: none;
+}
 
 header,
 main {

@@ -3,11 +3,15 @@ layout: baselayout.html
 title: Color Legend Element
 ---
 
-## Usage
+## <a class="anchor" id="install" href="#install" aria-hidden>#</a> Install
 
-### Continuous
+_TODO..._
 
-With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is rendered using the [`d3.interpolateHcl`](#) color interpolator and color values from the `range` property.
+## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
+
+### <a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous
+
+With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is created using the [`d3.interpolateHcl`](#) color interpolator and color values from the `range` property.
 
 <div class="example">
   <color-legend></color-legend>
@@ -17,13 +21,14 @@ With no additional configuration, the `<color-legend>` will render a continuous 
   </script>
 </div>
 
-To alter the colors used in the gradient, update the values for the `range` property / attribute. To update the values in the axis ticks, update the `domain` and `axisTicks` properties / attributes.
+To alter the colors used in the gradient, update the values for the `range` property. To update the values in the axis ticks, update the `domain` and `tickValues` properties / attributes.
 
 <div class="example">
   <color-legend
     range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
     domain='[100, 500]'
     tickFormat=".0f"
+    tickValues="[100, 300, 500]"
   >
   </color-legend>
 
@@ -32,12 +37,13 @@ To alter the colors used in the gradient, update the values for the `range` prop
       range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
       domain='[100, 500]'
       tickFormat=".0f"
+      tickValues="[100, 300, 500]"
     >
     </color-legend>
   </script>
 </div>
 
-### Continuous with an interpolator
+### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator
 
 A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](#), by setting the `interpolator` property in JavaScript:
 
@@ -75,7 +81,7 @@ A continuous legend may also be rendered by providing an interpolator, such as o
   </script>
 </div>
 
-### Discrete
+### <a class="anchor" id="discrete" href="#discrete" aria-hidden>#</a> Discrete
 
 A discrete legend may be rendered by setting the `scaleType` to "discrete" and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.
 
@@ -101,7 +107,7 @@ A discrete legend may be rendered by setting the `scaleType` to "discrete" and p
   </script>
 </div>
 
-### Threshold
+### <a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold
 
 Threshold legends may be rendered by setting `scaleType` to "threshold" and by setting the `domain` to be a sequential set of numbers and having one value greater than the number of values in the `range`.
 
@@ -127,7 +133,9 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
   </script>
 </div>
 
-### Categorical with default markType (circle)
+### <a class="anchor" id="categorical" href="#categorical" aria-hidden>#</a> Categorical
+
+Categorical legends may be rendered by setting the `scaleType` property to "categorical". This assumes an equal number of values in both the `domain` and `range`. The `markType` property is used to symbolize each category and may be set to one of "circle", "rect", or "line". The default `markType` is "circle".
 
 <div class="example">
   <color-legend
@@ -149,7 +157,7 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
   </script>
 </div>
 
-### Categorical with markType set to rect
+#### <a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden>#</a> Categorical with markType set to rect
 
 <div class="example">
   <color-legend
@@ -173,7 +181,7 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
   </script>
 </div>
 
-### Categorical with markType set to line
+#### <a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line
 
 <div class="example">
   <color-legend
@@ -199,7 +207,7 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
   </script>
 </div>
 
-### Hidden
+### <a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden
 
 Hide the Color Legend Element by setting its `hidden` attribute:
 
@@ -218,7 +226,7 @@ Hide the Color Legend Element by setting its `hidden` attribute:
   });
 </script>
 
-## Styling using CSS
+## <a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden>#</a> Styling using CSS
 
 Styles are encapsulated using the Shadow DOM and thus will not bleed out
 to pollute the style of other DOM elements. Its default styles may be
