@@ -6,13 +6,15 @@
     <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="./node_modules/lit/polyfill-support.js"></script>
     <script src="./node_modules/d3/dist/d3.min.js"></script>
-    <script type="module" src="./build/color-legend-element.umd.js"></script>
+    <script src="./build/color-legend-element.umd.js"></script>
+    <script src="./assets/prism.js"></script>
     <link href="./assets/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/index.css" />
   </head>
   <body>
     <header>
       <h1>{{ title }}</h1>
+
       <p>
         A Custom Element suitable for use as a legend in data visualizations.
         <br />
@@ -23,8 +25,19 @@
         by
         <a target="_blank" href="https://observablehq.com/@mbostock"
           >Mike Bostock</a
-        >.
+        >
+        🙏.
       </p>
+
+      <color-legend
+        titleText="Snowfall (cm)"
+        scaleType="continuous"
+        tickFormat=".0f"
+        domain="[0, 100]"
+        range='["#eff3ff","#bdd7e7","#6baed6","#3182bd","#08519c"]'
+        style="margin-bottom: 0"
+      ></color-legend>
+
       <p>
         Copyright 2021,
         <a target="_blank" href="https://clhenrick.io/">Chris Henrick</a>, under
@@ -35,15 +48,13 @@
           >MIT License</a
         >.
       </p>
-      <p><a href="https://github.com/clhenrick/color-legend-element">View on Github.</a></p>
+      <p>
+        <a href="https://github.com/clhenrick/color-legend-element"
+          >View on Github.</a
+        >
+      </p>
     </header>
 
     <main>{{ content | safe }}</main>
-
-    <script src="./assets/prism.js"></script>
-    <script>
-      let cle = document.querySelector("color-legend");
-      console.log(cle);
-    </script>
   </body>
 </html>

@@ -3,9 +3,43 @@ layout: baselayout.html
 title: Color Legend Element
 ---
 
-## <a class="anchor" id="install" href="#install" aria-hidden>#</a> Install
+## <a class="anchor" id="install" href="#install" aria-hidden>#</a> Installation
 
-_TODO..._
+### <a class="anchor" id="dependencies" href="#dependencies" aria-hidden>#</a> Dependencies
+
+The `<color-legend>` assumes D3JS is available as a dependency. At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
+
+### <a class="anchor" id="install-npm" href="#install-npm" aria-hidden>#</a> NPM
+
+Install via [npm](https://www.npmjs.com/package/color-legend-element):
+
+<script type="text/plain" class="language-bash">
+  npm install color-legend-element
+</script>
+
+Then `import` the `ColorLegendElement` in the desired ES Module:
+
+<script type="text/plain" class="language-javascript">
+  import ColorLegendElement from "color-legend-element';
+</script>
+
+### <a class="anchor" id="install-script" href="#install-script" aria-hidden>#</a> Script
+
+To use without a package manager, add the `<color-legend>` via a `<script>` tag in your HTML document.
+
+<script type="text/plain" class="language-markup">
+  <script
+    type="module"
+    src="/path/to/color-legend-element.bundle.js"
+  >
+  </script>
+</script>
+
+You may also use the UMD build:
+
+<script type="text/plain" class="language-markup">
+  <script  src="/path/to/color-legend-element.umd.js"></script>
+</script>
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
 
@@ -265,3 +299,67 @@ properties). All CSS variables are prefixed with `cle`, for example
     }
   </script>
 </div>
+
+Or for example, to change the number of columns and swatch size in a categorical legend:
+
+<div class="example">
+<style>
+  color-legend.columns {
+    --cle-columns: 3;
+    --cle-swatch-size: 14px;
+  }
+</style>
+
+<color-legend
+  class="columns"
+  width="400"
+  height=""
+  titleText="Business Sectors"
+  scaletype="categorical"
+  marktype="line"
+  domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
+  range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
+/>
+
+  <script type="text/plain" class="language-markup">
+    <color-legend
+      class="columns"
+      width="400"
+      height=""
+      titleText="Business Sectors"
+      scaletype="categorical"
+      marktype="line"
+      domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
+      range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
+    />
+  </script>
+
+  <script type="text/plain" class="language-css">
+    color-legend.columns {
+      --cle-columns: 3;
+      --cle-swatch-size: 14px;
+    }
+  </script>
+
+</div>
+
+You may choose to hide the `<color-legend>` until it loads using the [`:defined`](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined) pseudo class:
+
+<div class="example">
+  <script type="text/plain" class="language-css">
+    color-legend-element:not(:defined) {
+      display: none;
+    }
+
+    color-legend-element:defined {
+      display: inline-block;
+    }
+
+  </script>
+</div>
+
+## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions
+
+To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](#). And please let me know if it's helped you in a project 🙂 Thanks!
+
+<div style="margin-bottom: 3rem"></div>
