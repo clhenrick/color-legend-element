@@ -18,6 +18,16 @@ h2,
 h3,
 h4,
 h5,
+h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
 h6,
 p,
 li,
@@ -41,11 +51,6 @@ a.anchor {
   text-decoration: none;
 }
 
-p {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 header,
 main {
   max-width: 66rem;
@@ -56,6 +61,7 @@ main {
 fieldset {
   border: none;
   margin-bottom: 1rem;
+  padding: 0;
 }
 
 label {
@@ -65,12 +71,10 @@ label {
 code[class*="language-"],
 pre[class*="language-"] {
   font-size: 0.75rem;
-  background: #fff;
 }
 
 pre[class*="language-"] {
-  border: var(--border);
-  max-width: 22rem;
+  max-width: min(100%, 25rem);
   margin: 0;
 }
 
@@ -83,27 +87,14 @@ color-legend:defined {
   --cle-font-family: var(--font-family);
   --cle-padding: 0.375rem 0.375rem 0.75rem 0.375rem;
   display: inline-block;
-  margin-bottom: 3rem;
 }
 
 .example {
   display: flex;
+  flex-direction: column;
   justify-content: baseline;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 50rem) {
-  color-legend:defined {
-    margin-bottom: 0;
-  }
-
-  pre[class*="language-"] {
-    max-width: min(100%, 25rem);
-  }
-
-  .example {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
+/* @media screen and (max-width: 50rem) {} */
