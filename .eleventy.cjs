@@ -1,4 +1,10 @@
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    trim: true,
+  });
+
   eleventyConfig.addPassthroughCopy("docs-src/assets");
   eleventyConfig.addPassthroughCopy(
     "node_modules/@webcomponents/webcomponentsjs"

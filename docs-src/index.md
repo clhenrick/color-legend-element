@@ -13,35 +13,37 @@ The `<color-legend>` assumes D3JS is available as a dependency. At the very leas
 
 Install via [npm](https://www.npmjs.com/package/color-legend-element):
 
-<script type="text/plain" class="language-bash">
-  npm install color-legend-element
-</script>
+```bash
+npm install color-legend-element
+```
 
 Then `import` the `ColorLegendElement` in the desired ES Module:
 
-<script type="text/plain" class="language-javascript">
-  import ColorLegendElement from "color-legend-element';
-</script>
+```js
+import ColorLegendElement from "color-legend-element';
+```
 
 ### <a class="anchor" id="install-script" href="#install-script" aria-hidden>#</a> Script
 
 To use without a package manager, add the `<color-legend>` via a `<script>` tag in your HTML document.
 
-<script type="text/plain" class="language-markup">
-  <script
-    type="module"
-    src="/path/to/color-legend-element.bundle.js"
-  >
-  </script>
+```html
+<script
+  type="module"
+  src="/path/to/color-legend-element.bundle.js"
+>
 </script>
+```
 
 You may also use the UMD build:
 
-<script type="text/plain" class="language-markup">
-  <script  src="/path/to/color-legend-element.umd.js"></script>
-</script>
+```html
+<script  src="/path/to/color-legend-element.umd.js"></script>
+```
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
+
+Examples showing how to configure the `<color-legend>` for various data visualization use cases.
 
 ### <a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous
 
@@ -50,9 +52,9 @@ With no additional configuration, the `<color-legend>` will render a continuous 
 <div class="example">
   <color-legend></color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend></color-legend>
-  </script>
+  ```html
+  <color-legend></color-legend>
+  ```
 </div>
 
 To alter the colors used in the gradient, update the values for the `range` property. To update the values in the axis ticks, update the `domain` and `tickValues` properties / attributes.
@@ -66,15 +68,15 @@ To alter the colors used in the gradient, update the values for the `range` prop
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
-      domain='[100, 500]'
-      tickFormat=".0f"
-      tickValues="[100, 300, 500]"
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    range='["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]'
+    domain='[100, 500]'
+    tickFormat=".0f"
+    tickValues="[100, 300, 500]"
+  >
+  </color-legend>
+  ```
 </div>
 
 ### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator
@@ -97,22 +99,22 @@ A continuous legend may also be rendered by providing an interpolator, such as o
     ).interpolator = d3.interpolateViridis;
   </script>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      class="continuous-with-interpolator"
-      titletext="Temperature (°C)"
-      scaletype="continuous"
-      tickFormat=".0f"
-      domain="[0, 100]"
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    class="continuous-with-interpolator"
+    titletext="Temperature (°C)"
+    scaletype="continuous"
+    tickFormat=".0f"
+    domain="[0, 100]"
+  >
+  </color-legend>
+  ```
 
-  <script type="text/plain" class="language-javascript">
-    document.querySelector(
-      "color-legend.continuous-with-interpolator"
-    ).interpolator = d3.interpolateViridis;
-  </script>
+  ```js
+  document.querySelector(
+    "color-legend.continuous-with-interpolator"
+  ).interpolator = d3.interpolateViridis;
+  ```
 </div>
 
 ### <a class="anchor" id="discrete" href="#discrete" aria-hidden>#</a> Discrete
@@ -129,16 +131,16 @@ A discrete legend may be rendered by setting the `scaleType` to "discrete" and p
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      titleText="Unemployment Rate (%)"
-      tickFormat=".1f"
-      scaleType="discrete"
-      domain="[0.1, 1]"
-      range='["#fcfbfd","#efedf5","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3","#54278f","#3f007d"]'
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    titleText="Unemployment Rate (%)"
+    tickFormat=".1f"
+    scaleType="discrete"
+    domain="[0.1, 1]"
+    range='["#fcfbfd","#efedf5","#dadaeb","#bcbddc","#9e9ac8","#807dba","#6a51a3","#54278f","#3f007d"]'
+  >
+  </color-legend>
+  ```
 </div>
 
 ### <a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold
@@ -155,16 +157,16 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      titleText="Number of Incidents"
-      scaleType="threshold"
-      tickFormat=".0f"
-      domain="[0, 11, 22, 33, 50, 100]"
-      range='["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]'
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    titleText="Number of Incidents"
+    scaleType="threshold"
+    tickFormat=".0f"
+    domain="[0, 11, 22, 33, 50, 100]"
+    range='["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]'
+  >
+  </color-legend>
+  ```
 </div>
 
 ### <a class="anchor" id="categorical" href="#categorical" aria-hidden>#</a> Categorical
@@ -180,15 +182,15 @@ Categorical legends may be rendered by setting the `scaleType` property to "cate
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      titleText="Business Sectors"
-      scaleType="categorical"
-      domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
-      range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    titleText="Business Sectors"
+    scaleType="categorical"
+    domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
+    range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
+  >
+  </color-legend>
+  ```
 </div>
 
 #### <a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden>#</a> Categorical with markType set to rect
@@ -203,16 +205,16 @@ Categorical legends may be rendered by setting the `scaleType` property to "cate
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      titleText="Business Sectors"
-      scaleType="categorical"
-      domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
-      range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-      markType="rect"
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    titleText="Business Sectors"
+    scaleType="categorical"
+    domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
+    range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
+    markType="rect"
+  >
+  </color-legend>
+  ```
 </div>
 
 #### <a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line
@@ -228,17 +230,17 @@ Categorical legends may be rendered by setting the `scaleType` property to "cate
   >
   </color-legend>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      width="350"
-      titleText="Business Sectors"
-      scaleType="categorical"
-      domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
-      range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-      markType="line"
-    >
-    </color-legend>
-  </script>
+  ```html
+  <color-legend
+    width="350"
+    titleText="Business Sectors"
+    scaleType="categorical"
+    domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
+    range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
+    markType="line"
+  >
+  </color-legend>
+  ```
 </div>
 
 ### <a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden
@@ -283,21 +285,21 @@ properties). All CSS variables are prefixed with `cle`, for example
     }
   </style>
 
-  <script type="text/plain" class="language-markup">
-    <color-legend class="styled"></color-legend>
-  </script>
+  ```html
+  <color-legend class="styled"></color-legend>
+  ```
 
-  <script type="text/plain" class="language-css">
-    color-legend.styled {
-      --cle-font-family: serif;
-      --cle-font-family-title: Impact;
-      --cle-letter-spacing-title: 0.5px;
-      --cle-color: white;
-      --cle-background: #222;
-      --cle-border-radius: 6px;
-      --cle-padding: 0.25rem 0.25rem .75rem;
-    }
-  </script>
+  ```css
+  color-legend.styled {
+    --cle-font-family: serif;
+    --cle-font-family-title: Impact;
+    --cle-letter-spacing-title: 0.5px;
+    --cle-color: white;
+    --cle-background: #222;
+    --cle-border-radius: 6px;
+    --cle-padding: 0.25rem 0.25rem .75rem;
+  }
+  ```
 </div>
 
 Or for example, to change the number of columns and swatch size in a categorical legend:
@@ -321,41 +323,41 @@ Or for example, to change the number of columns and swatch size in a categorical
   range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
 />
 
-  <script type="text/plain" class="language-markup">
-    <color-legend
-      class="columns"
-      width="400"
-      height=""
-      titleText="Business Sectors"
-      scaletype="categorical"
-      marktype="line"
-      domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
-      range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
-    />
-  </script>
+  ```html
+  <color-legend
+    class="columns"
+    width="400"
+    height=""
+    titleText="Business Sectors"
+    scaletype="categorical"
+    marktype="line"
+    domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
+    range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
+  />
+  ```
 
-  <script type="text/plain" class="language-css">
-    color-legend.columns {
-      --cle-columns: 3;
-      --cle-swatch-size: 14px;
-    }
-  </script>
+  ```css
+  color-legend.columns {
+    --cle-columns: 3;
+    --cle-swatch-size: 14px;
+  }
+  ```
 
 </div>
 
 You may choose to hide the `<color-legend>` until it loads using the [`:defined`](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined) pseudo class:
 
 <div class="example">
-  <script type="text/plain" class="language-css">
-    color-legend-element:not(:defined) {
-      display: none;
-    }
 
-    color-legend-element:defined {
-      display: inline-block;
-    }
+  ```css
+  color-legend-element:not(:defined) {
+    display: none;
+  }
 
-  </script>
+  color-legend-element:defined {
+    display: inline-block;
+  }
+  ```
 </div>
 
 ## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions
