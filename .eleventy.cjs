@@ -4,6 +4,7 @@ module.exports = function (eleventyConfig) {
     "node_modules/@webcomponents/webcomponentsjs"
   );
   eleventyConfig.addPassthroughCopy("node_modules/lit/polyfill-support.js");
+  eleventyConfig.addPassthroughCopy("node_modules/d3/dist/d3.min.js");
   eleventyConfig.addPassthroughCopy("build/color-legend-element.umd.js");
 
   eleventyConfig.addWatchTarget("./docs-src/assets");
