@@ -3,7 +3,7 @@ const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
   const md = new markdownIt({
-    html: true
+    html: true,
   });
 
   eleventyConfig.addPairedShortcode("markdown", (content) => {
@@ -20,7 +20,9 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addPassthroughCopy("node_modules/lit/polyfill-support.js");
   eleventyConfig.addPassthroughCopy("node_modules/d3/dist/d3.min.js");
-  eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-okaidia.css");
+  eleventyConfig.addPassthroughCopy(
+    "node_modules/prismjs/themes/prism-okaidia.css"
+  );
   eleventyConfig.addPassthroughCopy("build/color-legend-element.umd.js");
 
   eleventyConfig.addWatchTarget("./docs-src/assets");
