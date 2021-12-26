@@ -1,5 +1,5 @@
 ---
-layout: baselayout.html
+layout: baselayout.njk
 title: Color Legend Element
 ---
 

@@ -14,21 +14,6 @@
     <header>
       <h1>{{ title }}</h1>
 
-      <p>
-        A Custom Element suitable for use as a legend in data visualizations.
-        <br />
-        Inspired by the
-        <a href="https://observablehq.com/@d3/color-legend" target="_blank"
-          >Color Legend</a
-        >
-        on <a target="_blank" href="https://observablehq.com">Observable</a>
-        by
-        <a target="_blank" href="https://observablehq.com/@mbostock"
-          >Mike Bostock</a
-        >
-        🙏.
-      </p>
-
       <color-legend
         titleText="Snowfall (cm)"
         scaleType="continuous"
@@ -38,21 +23,9 @@
         style="margin-bottom: 0"
       ></color-legend>
 
-      <p>
-        Copyright 2021,
-        <a target="_blank" href="https://clhenrick.io/">Chris Henrick</a>, under
-        the
-        <a
-          target="_blank"
-          href="https://github.com/clhenrick/color-legend-element/blob/main/LICENSE"
-          >MIT License</a
-        >.
-      </p>
-      <p>
-        <a href="https://github.com/clhenrick/color-legend-element"
-          >View on Github.</a
-        >
-      </p>
+      {% markdown %}
+        {%- include "./_header.md" -%}
+      {% endmarkdown %}
     </header>
 
     <main>{{ content | safe }}</main>

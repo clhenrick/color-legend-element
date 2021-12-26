@@ -1,6 +1,15 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
+  const md = new markdownIt({
+    html: true
+  });
+
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return md.render(content);
+  });
+
   eleventyConfig.addPlugin(syntaxHighlight, {
     trim: true,
   });
