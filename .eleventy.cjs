@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addPassthroughCopy("node_modules/lit/polyfill-support.js");
   eleventyConfig.addPassthroughCopy("node_modules/d3/dist/d3.min.js");
+  eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-okaidia.css");
   eleventyConfig.addPassthroughCopy("build/color-legend-element.umd.js");
 
   eleventyConfig.addWatchTarget("./docs-src/assets");
