@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <script defer src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script defer src="./node_modules/lit/polyfill-support.js"></script>
+    <script defer src="./node_modules/d3/dist/d3.min.js"></script>
+    <script type="module" defer src="./build/color-legend-element.bundled.js"></script>
+    <link href="./node_modules/prismjs/themes/prism-okaidia.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{ title }}</h1>
+
+      <color-legend
+        titleText="Snowfall (cm)"
+        scaleType="continuous"
+        tickFormat=".0f"
+        domain="[0, 100]"
+        range='["#eff3ff","#bdd7e7","#6baed6","#3182bd","#08519c"]'
+        style="margin-bottom: 0"
+      ></color-legend>
+
+      {% markdown %}
+        {%- include "./_header.md" -%}
+      {% endmarkdown %}
+    </header>
+
+    <main>{{ content | safe }}</main>
+  </body>
+</html>
