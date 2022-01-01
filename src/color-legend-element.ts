@@ -147,9 +147,9 @@ export class ColorLegendElement extends LitElement {
 
   set interpolator(value) {
     if (typeof value === "function") {
+      const oldVal = this.interpolator;
       this._interpolator = value;
-      // note: we don't need to call requestUpdate() here because when
-      // "interpolator" is set the colorScaleSetter will perform the necessary update
+      this.requestUpdate("interpolator", oldVal);
     } else {
       throw new Error("interpolator must be a function.");
     }
