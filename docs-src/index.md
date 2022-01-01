@@ -97,7 +97,7 @@ A continuous legend may also be rendered by providing an interpolator, such as o
     import {interpolateViridis} from "d3";
     document.querySelector(
       "color-legend.continuous-with-interpolator"
-    ).interpolator = interpolateViridis;
+    ).interpolator = d3.interpolateTurbo;
   </script>
 
 ```html
@@ -114,7 +114,7 @@ A continuous legend may also be rendered by providing an interpolator, such as o
 ```js
 document.querySelector(
   "color-legend.continuous-with-interpolator"
-).interpolator = d3.interpolateViridis;
+).interpolator = d3.interpolateTurbo;
 ```
 
 </div>
