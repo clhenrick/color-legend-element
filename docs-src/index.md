@@ -17,21 +17,21 @@ Install via [npm](https://www.npmjs.com/package/color-legend-element):
 npm install color-legend-element
 ```
 
-Then `import` the `ColorLegendElement` in the desired ES Module:
+You may then `import` the `<color-legend>` in the desired ES Module:
 
 ```js
-import ColorLegendElement from "color-legend-element';
+import "color-legend-element";
 ```
 
 ### <a class="anchor" id="install-script" href="#install-script" aria-hidden>#</a> Script
 
-To use without a package manager, add the `<color-legend>` via a `<script>` tag in your HTML document.
+To use without a frontend build tool, add the `<color-legend>` via a `<script>` tag in your HTML document.
 
 ```html
 <script type="module" src="/path/to/color-legend-element.bundle.js"></script>
 ```
 
-You may also use the UMD build:
+If you prefer to not use the ESM, you may instead use the UMD build:
 
 ```html
 <script src="/path/to/color-legend-element.umd.js"></script>
@@ -39,11 +39,13 @@ You may also use the UMD build:
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
 
-Examples showing how to configure the `<color-legend>` for various data visualization use cases.
+The following examples demonstrate how to configure the `<color-legend>` for various types of data such as continuous, categorical, or discrete.
+
+**Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity.
 
 ### <a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous
 
-With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is created using the [`d3.interpolateHcl`](#) color interpolator and color values from the `range` property.
+With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is created using the [`d3.interpolateHcl`](https://github.com/d3/d3-interpolate#interpolateHcl) color interpolator and color values from the `range` property.
 
 <div class="example">
   <color-legend></color-legend>
@@ -54,7 +56,7 @@ With no additional configuration, the `<color-legend>` will render a continuous 
 
 </div>
 
-To alter the colors used in the gradient, update the values for the `range` property. To update the values in the axis ticks, update the `domain` and `tickValues` properties / attributes.
+To alter the color gradient, pass an array of strings equivalent to valid HTML colors for the `range` property. To alter the values in the axis ticks, set values for the `domain`, `tickFormat`, and/or `tickValues` properties.
 
 <div class="example">
   <color-legend
@@ -79,7 +81,7 @@ To alter the colors used in the gradient, update the values for the `range` prop
 
 ### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator
 
-A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](#), by setting the `interpolator` property in JavaScript:
+A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](https://github.com/d3/d3-scale-chromatic), by setting the `interpolator` property in JavaScript. _Note that there is no equivalent HTML attribute for the `interpolator` property._
 
 <div class="example">
   <color-legend
@@ -91,10 +93,11 @@ A continuous legend may also be rendered by providing an interpolator, such as o
   >
   </color-legend>
 
-  <script>
+  <script type="module" defer>
+    import {interpolateViridis} from "d3";
     document.querySelector(
       "color-legend.continuous-with-interpolator"
-    ).interpolator = d3.interpolateViridis;
+    ).interpolator = interpolateViridis;
   </script>
 
 ```html
