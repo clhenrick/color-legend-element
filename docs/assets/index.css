@@ -1,0 +1,100 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --bg-color: hsl(220, 5%, 95%);
+  --color: hsl(220, 5%, 5%);
+  --border: 1px solid lightgray;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.5;
+  color: var(--color);
+  background: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  max-width: 65ch;
+}
+
+a:link {
+  color: hsl(220, 60%, 45%);
+}
+a:visited {
+  color: hsl(220, 60%, 35%);
+}
+a:hover {
+  color: hsl(220, 60%, 55%);
+}
+a:active {
+  color: hsl(220, 60%, 55%);
+}
+a.anchor {
+  text-decoration: none;
+}
+
+header,
+main {
+  max-width: 66rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-size: 0.875rem;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.75rem;
+}
+
+pre[class*="language-"] {
+  max-width: min(100%, 25rem);
+  margin: 0;
+}
+
+color-legend:not(:defined) {
+  display: none;
+}
+
+color-legend:defined {
+  --cle-border: var(--border);
+  --cle-font-family: var(--font-family);
+  --cle-padding: 0.375rem 0.375rem 0.75rem 0.375rem;
+  display: inline-block;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* @media screen and (max-width: 50rem) {} */
