@@ -31,7 +31,7 @@ To use without a frontend build tool, add the `<color-legend>` via a `<script>` 
 <script type="module" src="/path/to/color-legend-element.bundle.js"></script>
 ```
 
-If you prefer to not use the ESM, you may instead use the UMD build:
+If you prefer to not use the ESM build, you may instead use the UMD build:
 
 ```html
 <script src="/path/to/color-legend-element.umd.js"></script>
@@ -39,13 +39,15 @@ If you prefer to not use the ESM, you may instead use the UMD build:
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
 
-The following examples demonstrate how to configure the `<color-legend>` for various types of data such as continuous, categorical, or discrete.
+The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete.
 
 **Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity.
 
+<!-- TODO: link to README with full list of configuration options -->
+
 ### <a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous
 
-With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for the `scaleType`, `domain`, and `range` properties. The color gradient is created using the [`d3.interpolateHcl`](https://github.com/d3/d3-interpolate#interpolateHcl) color interpolator and color values from the `range` property.
+With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for its properties. The color gradient is created using the [`d3.interpolateHcl`](https://github.com/d3/d3-interpolate#interpolateHcl) color interpolator and color values from the `range` property.
 
 <div class="example">
   <color-legend></color-legend>
@@ -148,7 +150,7 @@ A discrete legend may be rendered by setting the `scaleType` property to `"discr
 
 ### <a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold
 
-Threshold legends may be rendered by setting the `scaleType` property to `"threshold"`, and by setting the `domain` to an array of two or more sequential numbers. In order to render correctly, the length of the `range` colors array should be one longer than the length of the `domain` array.
+Threshold legends may be rendered by setting the `scaleType` property to `"threshold"`, and by setting the `domain` to an array of two or more sequential numbers. In order to render correctly, the length of the `range` colors array should be one less than the length of the `domain` array.
 
 <div class="example">
   <color-legend
@@ -285,7 +287,7 @@ The `<color-legend>`'s styles are encapsulated using the Shadow DOM and thus wil
 to pollute the style of neigboring DOM elements. Its default styles may be
 customized by overriding one or more of its CSS variables (custom
 properties). All CSS variable names are namespaced with `cle`. For example,
-`--cle-font-family` will set the font-family property for legend items and axis ticks text.
+`--cle-font-family` will set the `font-family` property for categorical legend items and axis ticks.
 
 <div class="example">
   <color-legend class="styled"></color-legend>
@@ -363,7 +365,7 @@ color-legend.columns {
 
 </div>
 
-You may choose to hide the `<color-legend>` until it loads using the [`:defined`](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined) pseudo class:
+You may choose to hide the `<color-legend>` until it loads using the CSS [:defined pseudo class](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined):
 
 <div class="example">
 

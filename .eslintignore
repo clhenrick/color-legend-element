@@ -2,4 +2,3 @@ node_modules/*
 build/*
 rollup-config.js
 docs/
-docs-src/assets/prism.*
