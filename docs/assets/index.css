@@ -92,7 +92,6 @@ color-legend:defined {
 .example {
   display: flex;
   flex-direction: column;
-  justify-content: baseline;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
