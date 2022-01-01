@@ -60,7 +60,7 @@ main {
 
 fieldset {
   border: none;
-  margin-bottom: 1rem;
+  margin: 0;
   padding: 0;
 }
 

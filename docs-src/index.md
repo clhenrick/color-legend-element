@@ -81,7 +81,7 @@ To alter the color gradient, pass an array of strings equivalent to valid HTML c
 
 ### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator
 
-A continuous legend may also be rendered by providing an interpolator, such as one from [`d3-scale-chromatic`](https://github.com/d3/d3-scale-chromatic), by setting the `interpolator` property in JavaScript. _Note that there is no equivalent HTML attribute for the `interpolator` property._
+The continuous legend may also be altered by providing an interpolator function, such as one from [`d3-scale-chromatic`](https://github.com/d3/d3-scale-chromatic), by setting the `interpolator` property in JavaScript. _Note that there is no equivalent HTML attribute for the `interpolator` property as it must be a function and cannot be parsed as JSON._
 
 <div class="example">
   <color-legend
@@ -94,7 +94,7 @@ A continuous legend may also be rendered by providing an interpolator, such as o
   </color-legend>
 
   <script type="module" defer>
-    import {interpolateViridis} from "d3";
+    import * as d3 from "d3";
     document.querySelector(
       "color-legend.continuous-with-interpolator"
     ).interpolator = d3.interpolateTurbo;
@@ -121,7 +121,7 @@ document.querySelector(
 
 ### <a class="anchor" id="discrete" href="#discrete" aria-hidden>#</a> Discrete
 
-A discrete legend may be rendered by setting the `scaleType` to "discrete" and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.
+A discrete legend may be rendered by setting the `scaleType` property to `"discrete"` and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.
 
 <div class="example">
   <color-legend
@@ -148,7 +148,7 @@ A discrete legend may be rendered by setting the `scaleType` to "discrete" and p
 
 ### <a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold
 
-Threshold legends may be rendered by setting `scaleType` to "threshold" and by setting the `domain` to be a sequential set of numbers and having one value greater than the number of values in the `range`.
+Threshold legends may be rendered by setting the `scaleType` property to `"threshold"`, and by setting the `domain` to an array of two or more sequential numbers. In order to render correctly, the length of the `range` colors array should be one longer than the length of the `domain` array.
 
 <div class="example">
   <color-legend
@@ -175,7 +175,7 @@ Threshold legends may be rendered by setting `scaleType` to "threshold" and by s
 
 ### <a class="anchor" id="categorical" href="#categorical" aria-hidden>#</a> Categorical
 
-Categorical legends may be rendered by setting the `scaleType` property to "categorical". This assumes an equal number of values in both the `domain` and `range`. The `markType` property is used to symbolize each category and may be set to one of "circle", "rect", or "line". The default `markType` is "circle".
+Categorical legends may be rendered by setting the `scaleType` property to `"categorical"`. This assumes an equal number of values in both the `domain` and `range` properties. The `markType` property is used to symbolize each category and may be set to one of `"circle"`, `"rect"`, or `"line"`. The default `markType` value is `"circle"`.
 
 <div class="example">
   <color-legend
@@ -252,14 +252,18 @@ Categorical legends may be rendered by setting the `scaleType` property to "cate
 
 ### <a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden
 
-Hide the Color Legend Element by setting its `hidden` attribute:
+The `<color-legend>` may be hidden applying the boolean `hidden` attribute:
+
+<div class="example">
 
 <fieldset>
   <input id="toggle-hidden" type="checkbox" />
   <label for="toggle-hidden">Hide Legend</label>
 </fieldset>
 
+<span>
 <color-legend class="hidden-demo"></color-legend>
+</span>
 
 <script>
   let cle = document.querySelector(".hidden-demo");
@@ -269,13 +273,19 @@ Hide the Color Legend Element by setting its `hidden` attribute:
   });
 </script>
 
+```html
+<color-legend hidden></color-legend>
+```
+
+</div>
+
 ## <a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden>#</a> Styling using CSS
 
-Styles are encapsulated using the Shadow DOM and thus will not bleed out
-to pollute the style of other DOM elements. Its default styles may be
+The `<color-legend>`'s styles are encapsulated using the Shadow DOM and thus will not bleed out
+to pollute the style of neigboring DOM elements. Its default styles may be
 customized by overriding one or more of its CSS variables (custom
-properties). All CSS variables are prefixed with `cle`, for example
-`--cle-font-family` will set the font-family property for legend items and axis tick text.
+properties). All CSS variable names are namespaced with `cle`. For example,
+`--cle-font-family` will set the font-family property for legend items and axis ticks text.
 
 <div class="example">
   <color-legend class="styled"></color-legend>
@@ -310,7 +320,7 @@ color-legend.styled {
 
 </div>
 
-Or for example, to change the number of columns and swatch size in a categorical legend:
+Or for example, to change the number of columns and/or the swatch size in a categorical legend:
 
 <div class="example">
 <style>
@@ -371,6 +381,6 @@ color-legend-element:defined {
 
 ## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions
 
-To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](#). And please let me know if it's helped you in a project 🙂 Thanks!
+To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](https://twitter.com/chrislhenrick). And feel free to let me know if it's helped you in a project 🙂 Thanks!
 
 <div style="margin-bottom: 3rem"></div>
