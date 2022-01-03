@@ -381,7 +381,7 @@ color-legend-element:defined {
 
 </div>
 
-## <a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Child Content via Slots
+## <a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Adding Child Content via Slots
 
 Child content may be placed within the `<color-legend>` via its two [slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot), named "subtitle" and "footer" and render above and below the primary legend content respectively.
 
