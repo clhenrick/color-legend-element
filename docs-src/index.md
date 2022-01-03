@@ -399,24 +399,29 @@ Child content may be placed within the `<color-legend>` via its two [slots](http
     content: "";
     width: 0.75rem;
     height: 0.75rem;
-    background: #666;
+    background: #ccc;
     margin-right: 0.5rem;
   }
 </style>
 
 <color-legend>
-  <p slot="subtitle">I am a subtitle</p>
+  <small slot="subtitle">Some subtitle text here perhaps?</small>
   <p slot="footer" class="no-data"> = No data</p>
 </color-legend>
 
+<!-- prettier-ignore -->
 ```html
 <color-legend>
-  <p slot="subtitle">I am a subtitle</p>
-  <p slot="footer" class="no-data"> = No data</p>
+  <small slot="subtitle">
+    Some subtitle text here perhaps?
+  </small>
+  <p slot="footer" class="no-data">
+     = No data
+  </p>
 </color-legend>
 ```
 
-Note that slotted content is part of the "light DOM" and will be styled by CSS external from the `<color-legend>` and will not be styled by the `<color-legend>`'s internal styles.
+Note that any slotted elements are part of the "light DOM" and **will be** styled by CSS external from the `<color-legend>`. Slotted elements **will not** be styled by the `<color-legend>`'s internal styles.
 
 </div>
 
