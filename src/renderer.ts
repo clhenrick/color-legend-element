@@ -38,6 +38,7 @@ export class Renderer {
       style="width:${this.cle.width}px; height:auto;"
     >
       ${title}
+      <slot name="subtitle"></slot>
       <svg
         class=${classMap(svgClasses)}
         width=${this.cle.width}
@@ -53,6 +54,7 @@ export class Renderer {
       <ul class=${classMap(categoricalClasses)}>
         ${this.renderCategorical()}
       </ul>
+      <slot name="footer"></slot>
     </div>`;
   }
 
