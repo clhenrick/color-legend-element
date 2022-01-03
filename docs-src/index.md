@@ -381,6 +381,45 @@ color-legend-element:defined {
 
 </div>
 
+## <a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Child Content via Slots
+
+Child content may be placed within the `<color-legend>` via its two [slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot), named "subtitle" and "footer" and render above and below the primary legend content respectively.
+
+<div class="example">
+
+<style>
+  color-legend p {
+    margin: 0.5rem 0;
+  }
+  p.no-data {
+    display: inline-flex;
+    align-items: center;
+  }
+  p.no-data:before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #666;
+    margin-right: 0.5rem;
+  }
+</style>
+
+<color-legend>
+  <p slot="subtitle">I am a subtitle</p>
+  <p slot="footer" class="no-data"> = No data</p>
+</color-legend>
+
+```html
+<color-legend>
+  <p slot="subtitle">I am a subtitle</p>
+  <p slot="footer" class="no-data"> = No data</p>
+</color-legend>
+```
+
+Note that slotted content is part of the "light DOM" and will be styled by CSS external from the `<color-legend>` and will not be styled by the `<color-legend>`'s internal styles.
+
+</div>
+
 ## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions
 
 To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](https://twitter.com/chrislhenrick). And feel free to let me know if it's helped you in a project 🙂 Thanks!
