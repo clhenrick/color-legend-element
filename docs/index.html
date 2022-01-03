@@ -213,6 +213,32 @@ properties). All CSS variable names are namespaced with <code>cle</code>. For ex
 <div class="example">
 <pre class="language-css"><code class="language-css"><span class="token selector">color-legend-element:not(:defined)</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">color-legend-element:defined</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 </div>
+<h2><a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Child Content via Slots</h2>
+<p>Child content may be placed within the <code>&lt;color-legend&gt;</code> via its two <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot">slots</a>, named &quot;subtitle&quot; and &quot;footer&quot; and render above and below the primary legend content respectively.</p>
+<div class="example">
+<style>
+  color-legend p {
+    margin: 0.5rem 0;
+  }
+  p.no-data {
+    display: inline-flex;
+    align-items: center;
+  }
+  p.no-data:before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #666;
+    margin-right: 0.5rem;
+  }
+</style>
+<color-legend>
+  <p slot="subtitle">I am a subtitle</p>
+  <p slot="footer" class="no-data"> = No data</p>
+</color-legend>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subtitle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>I am a subtitle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> = No data<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
+<p>Note that slotted content is part of the &quot;light DOM&quot; and will be styled by CSS external from the <code>&lt;color-legend&gt;</code> and will not be styled by the <code>&lt;color-legend&gt;</code>'s internal styles.</p>
+</div>
 <h2><a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions</h2>
 <p>To report a bug or make a suggestion, please open an issue in the <a href="https://github.com/clhenrick/color-legend-element">Github repository</a> or send me a <a href="https://twitter.com/chrislhenrick">Tweet</a>. And feel free to let me know if it's helped you in a project 🙂 Thanks!</p>
 <div style="margin-bottom: 3rem"></div>
