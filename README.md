@@ -4,7 +4,9 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 
 Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/). Inspired by the [Color Legend](https://observablehq.com/@d3/color-legend) on [Observable](https://observablehq.com) by [Mike Bostock](https://observablehq.com/@mbostock) 🙏.
 
-## Properties / Attributes
+## Properties
+
+The following table describes the Color Legend Element's properties / public API. See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends.
 
 | Property     | Default Value          | Description                                                           | Has Attribute |
 |--------------|------------------------|-----------------------------------------------------------------------|---------------|
