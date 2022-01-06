@@ -15,7 +15,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 - Compatable with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
 - Framework and bundler not required, just add a `<script>` tag and use it
-- Small bundle size (<>kb minified, <>kb gzipped)
+- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (<>kb minified, <>kb gzipped)
 
 ## Usage
 
@@ -119,10 +119,10 @@ color-legend {
 
 ## License
 
-Licensed under the MIT License, 2022, Chris L Henrick.
+Licensed under the MIT License, Copyright 2021 Chris L Henrick.
 
 ## Credits
 
-🙏 Some project boilerplate has been borrowed from the [Lit Element TypeScript Starter Kit](#)
+🙏 Some project boilerplate has been borrowed from the [Lit Element TypeScript Starter Kit](https://github.com/lit/lit-element-starter-ts) under the BSD-3-Clause License, Copyright 2017 Google LLC.
 
-🙏 Inspired by the [Color Legend](https://observablehq.com/@d3/color-legend) on [Observable](https://observablehq.com) by [Mike Bostock](https://observablehq.com/@mbostock).
+🙏 Inspired by the [Color Legend](https://observablehq.com/@d3/color-legend) on [Observable](https://observablehq.com) by [Mike Bostock](https://observablehq.com/@mbostock) under the ISC License, Copyright 2019–2020 Observable, Inc.
