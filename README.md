@@ -6,9 +6,7 @@
 <color-legend></color-legend>
 ```
 
-A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) suitable for use as a legend in data visualizations.
-
-Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/). Inspired by the [Color Legend](https://observablehq.com/@d3/color-legend) on [Observable](https://observablehq.com) by [Mike Bostock](https://observablehq.com/@mbostock) 🙏.
+A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) suitable for use as a legend in data visualizations. Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/).
 
 ## Features
 
@@ -20,6 +18,8 @@ Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/). In
 - Small bundle size (<>kb minified, <>kb gzipped)
 
 ## Usage
+
+**NOTE: the `<color-legend>` assumes D3JS is available as a dependency.** At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
 
 Install via [npm](https://www.npmjs.com/package/color-legend-element):
 
@@ -45,9 +45,13 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 <script src="/path/to/color-legend-element.umd.js"></script>
 ```
 
+## Examples
+
+See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how to use the Color Legend Element.
+
 ## Properties
 
-The following table describes the Color Legend Element's properties / public API. See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends.
+The following table lists the Color Legend Element's properties and attributes (public API). See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends. All properties listed have a corresponding HTML attribute of the same name (but lowercased) except for the `interpolator` property which may only be set as a property using JavaScript.
 
 | Property     | Default Value          | Description                                                           | Has Attribute |
 |--------------|------------------------|-----------------------------------------------------------------------|---------------|
@@ -97,3 +101,28 @@ The internal styling (CSS) of the Color Legend Element may be altered via the fo
 | --cle-swatch-width         | var(--cle-swatch-size) | ...         |
 | --cle-swatch-height        | var(--cle-swatch-size) | ...         |
 | --cle-swatch-margin        | 0 0.5rem 0 0           | ...         |
+
+
+For example:
+
+```css
+color-legend {
+  --cle-font-family: serif;
+  --cle-font-family-title: Impact;
+  --cle-letter-spacing-title: 0.5px;
+  --cle-color: white;
+  --cle-background: #222;
+  --cle-border-radius: 6px;
+  --cle-padding: 0.25rem 0.25rem 0.75rem;
+}
+```
+
+## License
+
+Licensed under the MIT License, 2022, Chris L Henrick.
+
+## Credits
+
+🙏 Some project boilerplate has been borrowed from the [Lit Element TypeScript Starter Kit](#)
+
+🙏 Inspired by the [Color Legend](https://observablehq.com/@d3/color-legend) on [Observable](https://observablehq.com) by [Mike Bostock](https://observablehq.com/@mbostock).
