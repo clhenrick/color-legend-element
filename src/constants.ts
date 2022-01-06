@@ -8,7 +8,7 @@ export const DEFAULT_MARGIN_RIGHT = 12;
 export const DEFAULT_MARGIN_BOTTOM = 16;
 export const DEFAULT_MARGIN_LEFT = 12;
 
-export const DEFAULT_TICKS = DEFAULT_WIDTH / 64;
+export const DEFAULT_TICKS = 5;
 export const DEFAULT_TICK_SIZE = 6;
 export const DEFAULT_TICK_VALUES: number[] = null;
 export const DEFAULT_TICK_FORMAT = ".1f";

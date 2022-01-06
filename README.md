@@ -21,7 +21,7 @@ The following table describes the Color Legend Element's properties / public API
 | domain       | [0, 1]                 | The color scale's domain values.                                      | Yes           |
 | range        | d3.schemeYlGnBu[5]     | The color scale's range values.                                       | Yes           |
 | markType     | "circle"               | The symbology used for categorical legends.                           | Yes           |
-| ticks        | DEFAULT_WIDTH / 64     | The desired number of axis ticks.                                     | Yes           |
+| ticks        | 5     | The desired number of axis ticks.                                     | Yes           |
 | tickFormat   | ".1f"                  | The d3-format specifier to format axis tick values.                   | Yes           |
 | tickSize     | 6                      | The size or length of the axis ticks.                                 | Yes           |
 | tickValues   | null                   | The explicit values to be used for axis ticks.                        | Yes           |
