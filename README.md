@@ -17,11 +17,33 @@ Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/). In
 - Compatable with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
 - Framework and bundler not required, just add a `<script>` tag and use it
-- Lightweight (<>kb minified, <>kb gzipped)
+- Small bundle size (<>kb minified, <>kb gzipped)
 
 ## Usage
 
+Install via [npm](https://www.npmjs.com/package/color-legend-element):
 
+```bash
+npm install color-legend-element
+```
+
+You may then `import` the `<color-legend>` in the desired ES Module:
+
+```js
+import "color-legend-element";
+```
+
+To use without a frontend build tool, add the `<color-legend>` via a `<script>` tag in your HTML document.
+
+```html
+<script type="module" src="/path/to/color-legend-element.bundle.js"></script>
+```
+
+If you prefer to not use the ESM build, you may instead use the UMD build:
+
+```html
+<script src="/path/to/color-legend-element.umd.js"></script>
+```
 
 ## Properties
 
