@@ -74,7 +74,7 @@ The following table lists the Color Legend Element's properties and attributes (
 
 ## CSS Variables
 
-The internal styling (CSS) of the Color Legend Element may be altered via the following custom properties:
+The internal styling (CSS) of the Color Legend Element may be altered via the following [CSS variables / custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties):
 
 | Custom Property            | Default Value          | Description                                                |
 |----------------------------|------------------------|------------------------------------------------------------|
@@ -103,7 +103,7 @@ The internal styling (CSS) of the Color Legend Element may be altered via the fo
 | --cle-swatch-margin        | 0 0.5rem 0 0           | Margin of the mark (line, square, circle) for categorical legends         |
 
 
-For example:
+The following example demonstrates how to override the default values of the `<color-legend>`'s CSS variables:
 
 ```css
 color-legend {
