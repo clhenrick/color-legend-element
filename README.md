@@ -47,11 +47,11 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 
 ## Examples
 
-See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how to use the Color Legend Element.
+See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how to use the Color Legend Element.
 
 ## Properties
 
-The following table lists the Color Legend Element's properties and attributes (public API). See [the documentation](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends. All properties listed have a corresponding HTML attribute of the same name (but lowercased) except for the `interpolator` property which may only be set as a property using JavaScript.
+The following table lists the Color Legend Element's properties and attributes. See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends. All properties listed have a corresponding HTML attribute of the same name except for the `interpolator` property which may only be set as a property using JavaScript.
 
 | Property     | Default Value          | Description                                                           | Has Attribute |
 |--------------|------------------------|-----------------------------------------------------------------------|---------------|
