@@ -62,7 +62,7 @@ See [the color-legend website](https://clhenrick.github.io/color-legend-element)
 The following table lists the Color Legend Element's properties and attributes. See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends. All properties listed have a corresponding HTML attribute of the same name except for the `interpolator` property which may only be set as a property using JavaScript.
 
 | Property     | Default Value          | Description                                                           | Has Attribute |
-|--------------|------------------------|-----------------------------------------------------------------------|---------------|
+| ------------ | ---------------------- | --------------------------------------------------------------------- | ------------- |
 | titleText    | "Color Legend Element" | The title text that displays at the top of the legend.                | Yes           |
 | width        | 325                    | The width of the SVG or categorical legend div element.               | Yes           |
 | height       | 32                     | The height of the SVG element.                                        | Yes           |
@@ -74,7 +74,7 @@ The following table lists the Color Legend Element's properties and attributes. 
 | domain       | [0, 1]                 | The color scale's domain values.                                      | Yes           |
 | range        | d3.schemeYlGnBu[5]     | The color scale's range values.                                       | Yes           |
 | markType     | "circle"               | The symbology used for categorical legends.                           | Yes           |
-| ticks        | 5     | The desired number of axis ticks.                                     | Yes           |
+| ticks        | 5                      | The desired number of axis ticks.                                     | Yes           |
 | tickFormat   | ".1f"                  | The d3-format specifier to format axis tick values.                   | Yes           |
 | tickSize     | 6                      | The size or length of the axis ticks.                                 | Yes           |
 | tickValues   | null                   | The explicit values to be used for axis ticks.                        | Yes           |
@@ -84,32 +84,31 @@ The following table lists the Color Legend Element's properties and attributes. 
 
 The internal styling (CSS) of the Color Legend Element may be altered via the following [CSS variables / custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties):
 
-| Custom Property            | Default Value          | Description                                                |
-|----------------------------|------------------------|------------------------------------------------------------|
-| --cle-font-family          | sans-serif             | Font used for tick and legend item text                    |
-| --cle-font-family-title    | var(--cle-font-family) | Font used for the legend's title text                      |
-| --cle-font-size            | 0.75rem                | Font size for the tick and legend item text                |
-| --cle-font-size-title      | 0.875rem               | Font size for the legend title text                        |
-| --cle-letter-spacing       | 0.3px                  | Letter spacing for tick and legend item text               |
-| --cle-letter-spacing-title | 0.25px                 | Letter spacing for the legend title text                   |
-| --cle-font-weight          | 400                    | Font weight for the tick and legend item text              |
-| --cle-font-weight-title    | 500                    | Font weight for the title text                             |
-| --cle-color                | currentColor           | Font color for all text and tick lines                     |
-| --cle-background           | #fff                   | Background color for the legend                            |
-| --cle-padding              | 0.375rem               | Padding in the legend's container div                      |
-| --cle-border               | none                   | Border style of the legend's container div                 |
-| --cle-border-radius        | 0                      | Border radius of the legend's container div                |
-| --cle-box-sizing           | content-box            | Box-sizing property of the legend's container div          |
-| --cle-columns              | 2                      | Number of columns for categorical legends                  |
-| --cle-column-width         | auto                   | Column width for categorical legends                       |
-| --cle-item-margin          | 0.375rem 0.75rem 0 0   | Margin property for categorical legend items               |
-| --cle-line-width           | 24px                   | Width of the "line" markType for categorical legends       |
-| --cle-line-height          | 2px                    | Height of the "line" markType for categorical legends      |
+| Custom Property            | Default Value          | Description                                                             |
+| -------------------------- | ---------------------- | ----------------------------------------------------------------------- |
+| --cle-font-family          | sans-serif             | Font used for tick and legend item text                                 |
+| --cle-font-family-title    | var(--cle-font-family) | Font used for the legend's title text                                   |
+| --cle-font-size            | 0.75rem                | Font size for the tick and legend item text                             |
+| --cle-font-size-title      | 0.875rem               | Font size for the legend title text                                     |
+| --cle-letter-spacing       | 0.3px                  | Letter spacing for tick and legend item text                            |
+| --cle-letter-spacing-title | 0.25px                 | Letter spacing for the legend title text                                |
+| --cle-font-weight          | 400                    | Font weight for the tick and legend item text                           |
+| --cle-font-weight-title    | 500                    | Font weight for the title text                                          |
+| --cle-color                | currentColor           | Font color for all text and tick lines                                  |
+| --cle-background           | #fff                   | Background color for the legend                                         |
+| --cle-padding              | 0.375rem               | Padding in the legend's container div                                   |
+| --cle-border               | none                   | Border style of the legend's container div                              |
+| --cle-border-radius        | 0                      | Border radius of the legend's container div                             |
+| --cle-box-sizing           | content-box            | Box-sizing property of the legend's container div                       |
+| --cle-columns              | 2                      | Number of columns for categorical legends                               |
+| --cle-column-width         | auto                   | Column width for categorical legends                                    |
+| --cle-item-margin          | 0.375rem 0.75rem 0 0   | Margin property for categorical legend items                            |
+| --cle-line-width           | 24px                   | Width of the "line" markType for categorical legends                    |
+| --cle-line-height          | 2px                    | Height of the "line" markType for categorical legends                   |
 | --cle-swatch-size          | 10px                   | Height & Width of "rect" and "circle" markTypes for categorical legends |
-| --cle-swatch-width         | var(--cle-swatch-size) | Width of the "rect" and "circle" markTypes for categorical legends          |
-| --cle-swatch-height        | var(--cle-swatch-size) | Height of the "rect" and "circle" markTypes for categorical legends         |
-| --cle-swatch-margin        | 0 0.5rem 0 0           | Margin of the mark (line, square, circle) for categorical legends         |
-
+| --cle-swatch-width         | var(--cle-swatch-size) | Width of the "rect" and "circle" markTypes for categorical legends      |
+| --cle-swatch-height        | var(--cle-swatch-size) | Height of the "rect" and "circle" markTypes for categorical legends     |
+| --cle-swatch-margin        | 0 0.5rem 0 0           | Margin of the mark (line, square, circle) for categorical legends       |
 
 The following example demonstrates how to override the default values of the `<color-legend>`'s CSS variables:
 
