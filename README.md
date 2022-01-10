@@ -17,7 +17,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 - Framework and bundler not required, just add a `<script>` tag and use it!
 - TODO: [Small bundle size](https://bundlephobia.com/package/color-legend-element) (<>kb minified, <>kb gzipped)
 
-## Usage
+## Installation
 
 **NOTE: the `<color-legend>` assumes D3JS is available as a dependency.** At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
 
@@ -45,9 +45,17 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 <script src="/path/to/color-legend-element.umd.js"></script>
 ```
 
-## Examples
+## Example Usage
 
-See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how to use the Color Legend Element.
+The `<color-legend>` will render using its default settings as follows:
+
+```html
+<color-legend></color-legend>
+```
+
+It may be customized by providing values for its properties and CSS variables (see below).
+
+See [the color-legend website](https://clhenrick.github.io/color-legend-element) for more examples of how to use the Color Legend Element.
 
 ## Properties
 
