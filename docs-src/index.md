@@ -95,8 +95,7 @@ The continuous legend may also be altered by providing an interpolator function,
   >
   </color-legend>
 
-  <script type="module" defer>
-    import * as d3 from "d3";
+  <script type="module">
     document.querySelector(
       "color-legend.continuous-with-interpolator"
     ).interpolator = d3.interpolateTurbo;
