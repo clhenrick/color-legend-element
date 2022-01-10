@@ -76,31 +76,31 @@ The following table lists the Color Legend Element's properties and attributes (
 
 The internal styling (CSS) of the Color Legend Element may be altered via the following custom properties:
 
-| Custom Property            | Default Value          | Description |
-|----------------------------|------------------------|-------------|
-| --cle-font-family          | sans-serif             | ...         |
-| --cle-font-family-title    | var(--cle-font-family) | ...         |
-| --cle-font-size            | 0.75rem                | ...         |
-| --cle-font-size-title      | 0.875rem               | ...         |
-| --cle-letter-spacing       | 0.3px                  | ...         |
-| --cle-letter-spacing-title | 0.25px                 | ...         |
-| --cle-font-weight          | 400                    | ...         |
-| --cle-font-weight-title    | 500                    | ...         |
-| --cle-color                | currentColor           | ...         |
-| --cle-background           | #fff                   | ...         |
-| --cle-padding              | 0.375rem               | ...         |
-| --cle-border               | none                   | ...         |
-| --cle-border-radius        | 0                      | ...         |
-| --cle-box-sizing           | content-box            | ...         |
-| --cle-columns              | 2                      | ...         |
-| --cle-column-width         | auto                   | ...         |
-| --cle-item-margin          | 0.375rem 0.75rem 0 0   | ...         |
-| --cle-line-width           | 24px                   | ...         |
-| --cle-line-height          | 2px                    | ...         |
-| --cle-swatch-size          | 10px                   | ...         |
-| --cle-swatch-width         | var(--cle-swatch-size) | ...         |
-| --cle-swatch-height        | var(--cle-swatch-size) | ...         |
-| --cle-swatch-margin        | 0 0.5rem 0 0           | ...         |
+| Custom Property            | Default Value          | Description                                                |
+|----------------------------|------------------------|------------------------------------------------------------|
+| --cle-font-family          | sans-serif             | Font used for tick and legend item text                    |
+| --cle-font-family-title    | var(--cle-font-family) | Font used for the legend's title text                      |
+| --cle-font-size            | 0.75rem                | Font size for the tick and legend item text                |
+| --cle-font-size-title      | 0.875rem               | Font size for the legend title text                        |
+| --cle-letter-spacing       | 0.3px                  | Letter spacing for tick and legend item text               |
+| --cle-letter-spacing-title | 0.25px                 | Letter spacing for the legend title text                   |
+| --cle-font-weight          | 400                    | Font weight for the tick and legend item text              |
+| --cle-font-weight-title    | 500                    | Font weight for the title text                             |
+| --cle-color                | currentColor           | Font color for all text and tick lines                     |
+| --cle-background           | #fff                   | Background color for the legend                            |
+| --cle-padding              | 0.375rem               | Padding in the legend's container div                      |
+| --cle-border               | none                   | Border style of the legend's container div                 |
+| --cle-border-radius        | 0                      | Border radius of the legend's container div                |
+| --cle-box-sizing           | content-box            | Box-sizing property of the legend's container div          |
+| --cle-columns              | 2                      | Number of columns for categorical legends                  |
+| --cle-column-width         | auto                   | Column width for categorical legends                       |
+| --cle-item-margin          | 0.375rem 0.75rem 0 0   | Margin property for categorical legend items               |
+| --cle-line-width           | 24px                   | Width of the "line" markType for categorical legends       |
+| --cle-line-height          | 2px                    | Height of the "line" markType for categorical legends      |
+| --cle-swatch-size          | 10px                   | Height & Width of "rect" and "circle" markTypes for categorical legends |
+| --cle-swatch-width         | var(--cle-swatch-size) | Width of the "rect" and "circle" markTypes for categorical legends          |
+| --cle-swatch-height        | var(--cle-swatch-size) | Height of the "rect" and "circle" markTypes for categorical legends         |
+| --cle-swatch-margin        | 0 0.5rem 0 0           | Margin of the mark (line, square, circle) for categorical legends         |
 
 
 For example:
