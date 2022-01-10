@@ -14,8 +14,8 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 - Uses `d3-scale`'s concept of a `domain` and a `range` for mapping values to visual marks.
 - Compatable with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
-- Framework and bundler not required, just add a `<script>` tag and use it
-- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (<>kb minified, <>kb gzipped)
+- Framework and bundler not required, just add a `<script>` tag and use it!
+- TODO: [Small bundle size](https://bundlephobia.com/package/color-legend-element) (<>kb minified, <>kb gzipped)
 
 ## Usage
 
@@ -115,6 +115,78 @@ color-legend {
   --cle-border-radius: 6px;
   --cle-padding: 0.25rem 0.25rem 0.75rem;
 }
+```
+
+## Local Development
+
+In the root of this repository first install dependencies:
+
+```bash
+npm install
+```
+
+### Building from src
+
+To create the ESM build:
+
+```bash
+npm run build
+```
+
+or to watch for changes:
+
+```bash
+npm run build:watch
+```
+
+To create both the ESM & UMD bundles:
+
+```bash
+npm run bundle
+```
+
+### Develop
+
+To view the `<color-legend>` without bundling it:
+
+```
+npm run dev
+```
+
+or
+
+```
+npm run dev:prod
+```
+
+You may then modify the `dev/index.html` and view the changes.
+
+### Running Tests
+
+_TODO..._
+
+### Building docs
+
+To generate the `docs` directory:
+
+```bash
+npm run docs
+```
+
+This will first remove the `docs/` directory, build files from the `src/`, and build files from the `docs-src/` directory into the `docs/` directory. All necessary files will be copied into `docs/` directory (e.g. from `build/` and `node_modules/`) in order for the `<color-legend>` render as it would in a production environment.
+
+To serve the docs directory and watch for changes:
+
+```bash
+npm run docs:serve
+```
+
+### Updating the custom-elements.json
+
+To update the `custom-elements.json` manifest:
+
+```bash
+npm run analyze
 ```
 
 ## License
