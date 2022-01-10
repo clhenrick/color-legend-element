@@ -21,7 +21,7 @@
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
-    "serve": "wds --open=./docs --watch",
+    "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
