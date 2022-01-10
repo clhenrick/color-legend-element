@@ -499,7 +499,11 @@
         },
         {
           "kind": "variable",
-          "name": "DEFAULT_TICKS"
+          "name": "DEFAULT_TICKS",
+          "type": {
+            "text": "number"
+          },
+          "default": "5"
         },
         {
           "kind": "variable",
