@@ -14,14 +14,14 @@
     "docs": "npm run docs:clean && npm run build && npm run bundle && npm run docs:gen",
     "docs:gen": "npx @11ty/eleventy --config=.eleventy.cjs --input=docs-src --output=docs",
     "docs:clean": "rimraf docs",
-    "docs:serve": "wds --root-dir=docs --node-resolve --watch",
+    "docs:serve": "npm run docs:gen -- --serve",
     "docs:watch": "npm run docs:gen -- --watch",
     "docs:debug": "DEBUG=* npm run docs:gen",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts,css}\" --ignore-path ./.eslintignore --write",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
-    "serve": "wds --open=./docs --watch",
+    "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -39,7 +39,7 @@
     "lit": "^2.0.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
     "@custom-elements-manifest/analyzer": "^0.5.3",
     "@esm-bundle/chai": "^4.1.5",
