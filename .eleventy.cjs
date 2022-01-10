@@ -23,10 +23,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(
     "node_modules/prismjs/themes/prism-okaidia.css"
   );
-  eleventyConfig.addPassthroughCopy("build/color-legend-element.bundled.js");
+  eleventyConfig.addPassthroughCopy("build/color-legend-element.umd.js");
 
   eleventyConfig.addWatchTarget("./docs-src/assets");
-  eleventyConfig.addWatchTarget("./build/color-legend-element.bundled.js");
+  eleventyConfig.addWatchTarget("./build/color-legend-element.umd.js");
 
   return {
     dir: {
