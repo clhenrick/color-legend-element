@@ -14,7 +14,7 @@
     "docs": "npm run docs:clean && npm run build && npm run bundle && npm run docs:gen",
     "docs:gen": "npx @11ty/eleventy --config=.eleventy.cjs --input=docs-src --output=docs",
     "docs:clean": "rimraf docs",
-    "docs:serve": "wds --root-dir=docs --node-resolve --watch",
+    "docs:serve": "npm run docs:gen -- --serve",
     "docs:watch": "npm run docs:gen -- --watch",
     "docs:debug": "DEBUG=* npm run docs:gen",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts,css}\" --ignore-path ./.eslintignore --write",
