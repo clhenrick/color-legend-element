@@ -23,7 +23,11 @@
     "lint:lit-analyzer": "lit-analyzer",
     "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:dev && npm run test:prod",
+    "test:dev": "wtr",
+    "test:watch": "wtr --watch",
+    "test:prod": "MODE=prod wtr",
+    "test:prod:watch": "MODE=prod wtr --watch"
   },
   "keywords": [
     "web-components",
