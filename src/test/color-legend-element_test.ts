@@ -1,4 +1,10 @@
 import { ColorLegendElement } from "../color-legend-element";
+import {
+  DEFAULT_WIDTH,
+  DEFAULT_HEIGHT,
+  DEFAULT_MARGIN_LEFT,
+  DEFAULT_MARGIN_TOP,
+} from "../constants";
 
 import { fixture, assert } from "@open-wc/testing";
 import { html } from "lit/static-html.js";
@@ -69,16 +75,57 @@ suite("color-legend-element", () => {
     );
   });
 
-  // test("marginTop", async () => {
-  //   const el = (await fixture(
-  //     html`<color-legend marginTop="0"></color-legend>`
-  //   )) as ColorLegendElement;
-  //   await el.updateComplete;
-  //   assert.equal(
-  //     el.shadowRoot.querySelector("svg").getAttribute("margin-top"),
-  //     "0"
-  //   );
-  // });
+  test("marginTop", async () => {
+    const el = (await fixture(
+      html`<color-legend marginTop="0"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.equal(
+      el.shadowRoot.querySelector("svg image").getAttribute("y"),
+      "0"
+    );
+  });
+
+  test("marginRight", async () => {
+    const el = (await fixture(
+      html`<color-legend marginRight="0"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.equal(
+      el.shadowRoot.querySelector("svg image").getAttribute("width"),
+      `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT}`
+    );
+  });
+
+  test("marginBottom", async () => {
+    const el = (await fixture(
+      html`<color-legend marginBottom="0"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.equal(
+      el.shadowRoot.querySelector("svg image").getAttribute("height"),
+      `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP}`
+    );
+  });
+
+  test("marginLeft", async () => {
+    const el = (await fixture(
+      html`<color-legend marginLeft="0"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.equal(
+      el.shadowRoot.querySelector("svg image").getAttribute("x"),
+      "0"
+    );
+  });
+
+  test("scaleType", async () => {
+    const el = (await fixture(
+      html`<color-legend scaleType="discrete"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.isAbove(el.shadowRoot.querySelectorAll("svg rect").length, 0);
+  });
 
   test("css styles are applied", async () => {
     const el = (await getEl()) as ColorLegendElement;
