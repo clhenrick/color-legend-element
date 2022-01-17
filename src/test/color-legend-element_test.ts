@@ -119,12 +119,127 @@ suite("color-legend-element", () => {
     );
   });
 
-  test("scaleType", async () => {
+  test("scaleType continuous", async () => {
+    const el = (await fixture(
+      html`<color-legend scaleType="continuous"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.exists(el.shadowRoot.querySelector("svg image"));
+  });
+
+  test("scaleType discrete", async () => {
     const el = (await fixture(
       html`<color-legend scaleType="discrete"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isAbove(el.shadowRoot.querySelectorAll("svg rect").length, 0);
+  });
+
+  test("scaleType threshold", async () => {
+    const el = (await fixture(
+      html`<color-legend scaleType="discrete"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.isAbove(el.shadowRoot.querySelectorAll("svg rect").length, 0);
+  });
+
+  test("scaleType categorical", async () => {
+    const el = (await fixture(
+      html`<color-legend scaleType="categorical"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.isAbove(el.shadowRoot.querySelectorAll("ul li").length, 0);
+  });
+
+  test("domain", async () => {
+    const domain = [0, 100];
+    const el = (await fixture(
+      html`<color-legend .domain="${domain}"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.deepEqual(el.colorScale.domain(), [0, 100]);
+  });
+
+  test("range", async () => {
+    const range = ["blue", "purple"];
+    const el = (await fixture(
+      html`<color-legend .range="${range}"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.deepEqual(el.colorScale.range(), ["blue", "purple"]);
+  });
+
+  test("markType rect", async () => {
+    const el = (await fixture(
+      html`<color-legend
+        scaleType="categorical"
+        markType="rect"
+      ></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.notExists(el.shadowRoot.querySelector(".legend-item.circle"));
+    assert.notExists(el.shadowRoot.querySelector(".legend-item.line"));
+  });
+
+  test("markType circle", async () => {
+    const el = (await fixture(
+      html`<color-legend
+        scaleType="categorical"
+        markType="circle"
+      ></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.exists(el.shadowRoot.querySelector(".legend-item.circle"));
+  });
+
+  test("markType line", async () => {
+    const el = (await fixture(
+      html`<color-legend
+        scaleType="categorical"
+        markType="line"
+      ></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.exists(el.shadowRoot.querySelector(".legend-item.line"));
+  });
+
+  test("ticks", async () => {
+    const el = (await fixture(
+      html`<color-legend ticks="0"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.equal(el.shadowRoot.querySelectorAll("svg .tick").length, 0);
+  });
+
+  test("tickFormat", async () => {
+    const el = (await fixture(
+      html`<color-legend tickFormat=".0%"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    const texts = el.shadowRoot.querySelectorAll("svg .tick text");
+    const values = Array.from(texts).map((d) => d.textContent);
+    assert.deepEqual(values, ["0%", "20%", "40%", "60%", "80%", "100%"]);
+  });
+
+  test("tickSize", async () => {
+    const el = (await fixture(
+      html`<color-legend tickSize="12"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    const lines = el.shadowRoot.querySelectorAll("svg .tick line");
+    const values = Array.from(lines).map((d) => +d.getAttribute("y2"));
+    assert.deepEqual(values, [12, 12, 12, 12, 12, 12]);
+  });
+
+  test("tickValues", async () => {
+    const tickValues = [0, 0.5, 1];
+    const el = (await fixture(
+      html`<color-legend .tickValues="${tickValues}"></color-legend>`
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    const texts = el.shadowRoot.querySelectorAll("svg .tick text");
+    const values = Array.from(texts).map((d) => d.textContent);
+    assert.deepEqual(values, ["0.0", "0.5", "1.0"]);
   });
 
   test("css styles are applied", async () => {
