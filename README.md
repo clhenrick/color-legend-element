@@ -170,11 +170,39 @@ npm run dev:prod
 
 You may then modify the `dev/index.html` and view the changes.
 
-### Running Tests
+### Running tests
 
-_TODO..._
+Tests are located in [`src/test`](./src/test) and may be run in either a development or production environment via:
 
-### Building docs
+```
+npm run test:dev
+```
+
+or:
+
+```
+npm run test:prod
+```
+
+To run tests in both a development and a production environment do:
+
+```
+npm run test
+```
+
+To have the tests run when making changes to `src/`:
+
+```
+npm run test:watch
+```
+
+or
+
+```
+npm run test:prod:watch
+```
+
+### Building the docs
 
 To generate the `docs` directory:
 
