@@ -178,8 +178,7 @@ suite("color-legend-element", () => {
       ></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.notExists(el.shadowRoot.querySelector(".legend-item.circle"));
-    assert.notExists(el.shadowRoot.querySelector(".legend-item.line"));
+    assert.exists(el.shadowRoot.querySelectorAll("li:not(.circle),li:not(.line)"));
   });
 
   test("markType circle", async () => {
@@ -250,13 +249,13 @@ suite("color-legend-element", () => {
     await el.updateComplete;
     const texts = el.shadowRoot.querySelectorAll("svg .tick text");
     const values = Array.from(texts).map((d) => d.textContent);
-    assert.include(values, "1!");
+    assert.deepEqual(values, ["0!", "0.2!", "0.4!", "0.6!", "0.8!", "1!"]);
   })
 
   test("tickFormatter throws", async () => {
     const el = (await getEl()) as ColorLegendElement;
     await el.updateComplete;
-    // @ts-ignore it's expected to be an incorrect type
+    // @ts-ignore - tickFormatter is expected to be an incorrect type
     const fn = () => (el.tickFormatter = "bla");
     assert.throws(fn, "tickFormatter must be a function.");
   });
@@ -272,7 +271,7 @@ suite("color-legend-element", () => {
   test("interpolator throws", async () => {
     const el = (await getEl()) as ColorLegendElement;
     await el.updateComplete;
-    // @ts-ignore it's expected to be an incorrect type
+    // @ts-ignore - interpolator expected to be an incorrect type
     const fn = () => (el.interpolator = "foo");
     assert.throws(fn, "interpolator must be a function.");
   });
@@ -280,9 +279,9 @@ suite("color-legend-element", () => {
   test("css styles are applied", async () => {
     const el = (await getEl()) as ColorLegendElement;
     await el.updateComplete;
-    assert.equal(
-      getComputedStyle(el.shadowRoot.querySelector("div")).paddingTop,
-      "6px"
-    );
+    el.style.setProperty("--cle-background", "#000");
+    await el.updateComplete;
+    const styles = getComputedStyle(el.shadowRoot.querySelector(".cle-container"))
+    assert.equal(styles.backgroundColor, "rgb(0, 0, 0)");
   });
 });
