@@ -5,6 +5,7 @@ import {
   DEFAULT_MARGIN_LEFT,
   DEFAULT_MARGIN_TOP,
 } from "../constants";
+import { interpolateGreys } from "d3";
 
 import { fixture, assert } from "@open-wc/testing";
 import { html } from "lit/static-html.js";
@@ -240,6 +241,40 @@ suite("color-legend-element", () => {
     const texts = el.shadowRoot.querySelectorAll("svg .tick text");
     const values = Array.from(texts).map((d) => d.textContent);
     assert.deepEqual(values, ["0.0", "0.5", "1.0"]);
+  });
+
+  test("tickFormatter", async () => {
+    const el = (await getEl()) as ColorLegendElement;
+    await el.updateComplete;
+    el.tickFormatter = (d) => `${d}!`;
+    await el.updateComplete;
+    const texts = el.shadowRoot.querySelectorAll("svg .tick text");
+    const values = Array.from(texts).map((d) => d.textContent);
+    assert.include(values, "1!");
+  })
+
+  test("tickFormatter throws", async () => {
+    const el = (await getEl()) as ColorLegendElement;
+    await el.updateComplete;
+    // @ts-ignore it's expected to be an incorrect type
+    const fn = () => (el.tickFormatter = "bla");
+    assert.throws(fn, "tickFormatter must be a function.");
+  });
+
+  test("interpolator", async () => {
+    const el = (await getEl()) as ColorLegendElement;
+    await el.updateComplete;
+    el.interpolator = interpolateGreys;
+    await el.updateComplete;
+    assert.equal(el.interpolator(1), "rgb(0, 0, 0)");
+  });
+
+  test("interpolator throws", async () => {
+    const el = (await getEl()) as ColorLegendElement;
+    await el.updateComplete;
+    // @ts-ignore it's expected to be an incorrect type
+    const fn = () => (el.interpolator = "foo");
+    assert.throws(fn, "interpolator must be a function.");
   });
 
   test("css styles are applied", async () => {
