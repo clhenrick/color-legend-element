@@ -84,7 +84,7 @@
   },
   "customElements": "custom-elements.json",
   "lint-staged": {
-    "*.{js,ts}": "eslint --cache --fix",
-    "*.{html,js,json,md,ts,css}": "npm run format --"
+    "*.{js,ts,cjs,mjs}": "eslint --cache --fix",
+    "*.{html,js,cjs,mjs,json,md,ts,css}": "npm run format --"
   }
 }
