@@ -178,7 +178,7 @@ suite("color-legend-element", () => {
       ></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.exists(el.shadowRoot.querySelectorAll("li:not(.circle),li:not(.line)"));
+    assert.exists(el.shadowRoot.querySelectorAll("li:not(.circle):not(.line)"));
   });
 
   test("markType circle", async () => {
