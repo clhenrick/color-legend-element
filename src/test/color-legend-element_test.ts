@@ -43,14 +43,14 @@ suite("color-legend-element", () => {
   });
 
   test("titleText", async () => {
-    const expected = "Snowfall (cm)";
+    const titleText = "Snowfall (cm)";
     const el = (await fixture(
-      html`<color-legend titleText="Snowfall (cm)"></color-legend>`
+      html`<color-legend titleText="${titleText}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("p.legend-title").textContent,
-      expected
+      titleText
     );
   });
 
