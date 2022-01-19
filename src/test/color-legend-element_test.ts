@@ -23,22 +23,22 @@ suite("color-legend-element", () => {
     assert.shadowDom.equal(
       el,
       `
-    <div
-      class="cle-container"
-      style="width:325px; height:auto;"
-    >
-      <p class="legend-title">
-        Color Legend Element
-      </p>
-      <slot name="subtitle">
-      </slot>
-      <svg width="325" height="32"></svg>
-      <ul class="categorical-container hidden">
-      </ul>
-      <slot name="footer">
-      </slot>
-    </div>
-    `
+      <div
+        class="cle-container"
+        style="width:325px; height:auto;"
+      >
+        <p class="legend-title">
+          Color Legend Element
+        </p>
+        <slot name="subtitle">
+        </slot>
+        <svg width="325" height="32"></svg>
+        <ul class="categorical-container hidden">
+        </ul>
+        <slot name="footer">
+        </slot>
+      </div>
+      `
     );
   });
 
