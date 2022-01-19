@@ -11,10 +11,11 @@ import { ScaleType } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
+const foo = "bar";
+foo = "foo";
+
 export class ColorScaleSetter {
   cle: ColorLegendElement;
-
-  colorScale: null;
 
   constructor(cle: ColorLegendElement) {
     this.cle = cle;
