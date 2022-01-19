@@ -55,68 +55,74 @@ suite("color-legend-element", () => {
   });
 
   test("width", async () => {
+    const width = 300;
     const el = (await fixture(
-      html`<color-legend width="300"></color-legend>`
+      html`<color-legend width="${width}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg").getAttribute("width"),
-      "300"
+      `${width}`
     );
   });
 
   test("height", async () => {
+    const height = 50;
     const el = (await fixture(
-      html`<color-legend height="50"></color-legend>`
+      html`<color-legend height="${height}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg").getAttribute("height"),
-      "50"
+      `${height}`
     );
   });
 
   test("marginTop", async () => {
+    const marginTop = 0;
     const el = (await fixture(
-      html`<color-legend marginTop="0"></color-legend>`
+      html`<color-legend marginTop="${marginTop}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg image").getAttribute("y"),
-      "0"
+      `${marginTop}`
     );
   });
 
   test("marginRight", async () => {
+    const marginRight = 0;
     const el = (await fixture(
-      html`<color-legend marginRight="0"></color-legend>`
+      html`<color-legend marginRight="${marginRight}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg image").getAttribute("width"),
-      `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT}`
+      `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT - marginRight}`
     );
   });
 
   test("marginBottom", async () => {
+    const marginBottom = 0;
     const el = (await fixture(
-      html`<color-legend marginBottom="0"></color-legend>`
+      html`<color-legend marginBottom="${marginBottom}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg image").getAttribute("height"),
-      `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP}`
+      `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP - marginBottom}`
     );
   });
 
   test("marginLeft", async () => {
+    const marginLeft = 0;
     const el = (await fixture(
-      html`<color-legend marginLeft="0"></color-legend>`
+      html`<color-legend marginLeft="${marginLeft}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("svg image").getAttribute("x"),
-      "0"
+      `${marginLeft}`
     );
   });
 
