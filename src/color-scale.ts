@@ -1,5 +1,11 @@
-import {scaleSequential, scaleLinear, scaleThreshold, scaleOrdinal, scaleQuantize} from "d3-scale";
-import {interpolateHcl} from "d3-interpolate";
+import {
+  scaleSequential,
+  scaleLinear,
+  scaleThreshold,
+  scaleOrdinal,
+  scaleQuantize,
+} from "d3-scale";
+import { interpolateHcl } from "d3-interpolate";
 
 import { ScaleType } from "./types";
 

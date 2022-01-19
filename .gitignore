@@ -3,3 +3,4 @@ node_modules/
 /test/
 /build/
 .DS_Store
+.eslintcache

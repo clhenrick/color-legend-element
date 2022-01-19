@@ -27,7 +27,8 @@
     "test:dev": "wtr",
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
-    "test:prod:watch": "MODE=prod wtr --watch"
+    "test:prod:watch": "MODE=prod wtr --watch",
+    "prepare": "husky install"
   },
   "keywords": [
     "web-components",
@@ -69,6 +70,8 @@
     "d3-scale-chromatic": "^3.0.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.32.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.2.1",
     "lit-analyzer": "^1.1.10",
     "mocha": "^9.1.1",
     "prettier": "^2.3.2",
@@ -79,5 +82,9 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.3.5"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.{html,js,json,md,ts,css}": "npm run format --"
+  }
 }
