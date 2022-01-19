@@ -31,7 +31,11 @@
   },
   "overrides": [
     {
-      "files": ["rollup.config.js", "web-test-runner.config.js"],
+      "files": [
+        "rollup.config.js",
+        "web-dev-server.config.mjs",
+        "web-test-runner.config.mjs"
+      ],
       "env": {
         "node": true
       }
