@@ -27,7 +27,8 @@
     "test:dev": "wtr",
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
-    "test:prod:watch": "MODE=prod wtr --watch"
+    "test:prod:watch": "MODE=prod wtr --watch",
+    "prepare": "husky install"
   },
   "keywords": [
     "web-components",
@@ -81,5 +82,9 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.3.5"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.--write": "prettier --write"
+  }
 }
