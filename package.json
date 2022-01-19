@@ -39,7 +39,6 @@
   "author": "Chris Henrick <chrishenrick@gmail.com> (https://clhenrick.io/)",
   "license": "MIT",
   "dependencies": {
-    "d3": "^7.1.1",
     "lit": "^2.0.0"
   },
   "devDependencies": {
@@ -63,6 +62,11 @@
     "@web/test-runner-mocha": "^0.7.4",
     "@web/test-runner-playwright": "^0.8.4",
     "@webcomponents/webcomponentsjs": "^2.6.0",
+    "d3-array": "^3.1.1",
+    "d3-format": "^3.1.0",
+    "d3-interpolate": "^3.0.1",
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^3.0.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.32.0",
     "lit-analyzer": "^1.1.10",
