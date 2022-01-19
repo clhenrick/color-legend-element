@@ -1,4 +1,5 @@
-import * as d3 from "d3";
+import {scaleSequential, scaleLinear, scaleThreshold, scaleOrdinal, scaleQuantize} from "d3-scale";
+import {interpolateHcl} from "d3-interpolate";
 
 import { ScaleType } from "./types";
 
@@ -39,20 +40,18 @@ export class ColorScaleSetter {
   private setContinousColorScale() {
     const { interpolator, domain, range } = this.cle;
     this.cle.colorScale = interpolator
-      ? d3.scaleSequential(interpolator).domain(domain as number[])
-      : d3
-          .scaleLinear<string>()
+      ? scaleSequential(interpolator).domain(domain as number[])
+      : scaleLinear<string>()
           .range(range as string[])
           .domain(domain as number[])
-          .interpolate(d3.interpolateHcl);
+          .interpolate(interpolateHcl);
   }
 
   /**
    * Sets the colorScale property to a ScaleQuantize
    */
   private setDiscreteColorScale() {
-    this.cle.colorScale = d3
-      .scaleQuantize<string>()
+    this.cle.colorScale = scaleQuantize<string>()
       .domain(this.cle.domain as number[])
       .range(this.cle.range);
   }
@@ -62,8 +61,7 @@ export class ColorScaleSetter {
    */
   private setThresholdColorScale() {
     const domain = this.cle.domain as number[];
-    this.cle.colorScale = d3
-      .scaleThreshold<number, string>()
+    this.cle.colorScale = scaleThreshold<number, string>()
       .domain(domain.slice(1, domain.length - 1))
       .range(this.cle.range as string[]);
   }
@@ -72,8 +70,7 @@ export class ColorScaleSetter {
    * Sets the colorScale to a ScaleOrdinal
    */
   private setCategoricalColorScale() {
-    this.cle.colorScale = d3
-      .scaleOrdinal<string, string>()
+    this.cle.colorScale = scaleOrdinal<string, string>()
       .domain(this.cle.domain as string[])
       .range(this.cle.range as string[]);
   }
