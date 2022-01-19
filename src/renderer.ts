@@ -1,6 +1,7 @@
 import { svg, html, TemplateResult } from "lit";
 import { classMap } from "lit/directives/class-map.js";
-import * as d3 from "d3";
+import { piecewise, interpolateHcl } from "d3-interpolate";
+
 
 import { ColorLegendElement } from "./color-legend-element";
 import {
@@ -111,7 +112,7 @@ export class Renderer {
 
     const colorInterpolator =
       (colorScale as ScaleSequential<string>).interpolator?.() ||
-      d3.piecewise<string>(d3.interpolateHcl, range as string[]);
+      piecewise<string>(interpolateHcl, range as string[]);
 
     return svg`<image 
       x=${marginLeft}

@@ -5,7 +5,7 @@ import {
   DEFAULT_MARGIN_LEFT,
   DEFAULT_MARGIN_TOP,
 } from "../constants";
-import { interpolateGreys } from "d3";
+import { interpolateGreys } from "d3-scale-chromatic";
 
 import { fixture, assert } from "@open-wc/testing";
 import { html } from "lit/static-html.js";
