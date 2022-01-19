@@ -11,8 +11,6 @@ import { ScaleType } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
-export const foo = "bar";
-
 export class ColorScaleSetter {
   cle: ColorLegendElement;
 
