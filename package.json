@@ -23,7 +23,11 @@
     "lint:lit-analyzer": "lit-analyzer",
     "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:dev && npm run test:prod",
+    "test:dev": "wtr",
+    "test:watch": "wtr --watch",
+    "test:prod": "MODE=prod wtr",
+    "test:prod:watch": "MODE=prod wtr --watch"
   },
   "keywords": [
     "web-components",
@@ -52,6 +56,7 @@
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.30.0",
     "@web/dev-server": "^0.1.22",
+    "@web/dev-server-esbuild": "^0.2.16",
     "@web/dev-server-legacy": "^0.1.4",
     "@web/dev-server-rollup": "^0.3.9",
     "@web/test-runner": "^0.13.16",
