@@ -61,7 +61,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg").getAttribute("width"),
+      el.svg.getAttribute("width"),
       `${width}`
     );
   });
@@ -73,7 +73,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg").getAttribute("height"),
+      el.svg.getAttribute("height"),
       `${height}`
     );
   });
@@ -85,7 +85,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg image").getAttribute("y"),
+      el.svg.querySelector("image").getAttribute("y"),
       `${marginTop}`
     );
   });
@@ -97,7 +97,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg image").getAttribute("width"),
+      el.svg.querySelector("image").getAttribute("width"),
       `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT - marginRight}`
     );
   });
@@ -109,7 +109,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg image").getAttribute("height"),
+      el.svg.querySelector("image").getAttribute("height"),
       `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP - marginBottom}`
     );
   });
@@ -121,7 +121,7 @@ suite("color-legend-element", () => {
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
-      el.shadowRoot.querySelector("svg image").getAttribute("x"),
+      el.svg.querySelector("image").getAttribute("x"),
       `${marginLeft}`
     );
   });
@@ -131,7 +131,7 @@ suite("color-legend-element", () => {
       html`<color-legend scaleType="continuous"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.exists(el.shadowRoot.querySelector("svg image"));
+    assert.exists(el.svg.querySelector("image"));
   });
 
   test("scaleType discrete", async () => {
@@ -139,7 +139,7 @@ suite("color-legend-element", () => {
       html`<color-legend scaleType="discrete"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isAbove(el.shadowRoot.querySelectorAll("svg rect").length, 0);
+    assert.isAbove(el.svg.querySelectorAll("rect").length, 0);
   });
 
   test("scaleType threshold", async () => {
@@ -147,7 +147,7 @@ suite("color-legend-element", () => {
       html`<color-legend scaleType="discrete"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isAbove(el.shadowRoot.querySelectorAll("svg rect").length, 0);
+    assert.isAbove(el.svg.querySelectorAll("rect").length, 0);
   });
 
   test("scaleType categorical", async () => {
