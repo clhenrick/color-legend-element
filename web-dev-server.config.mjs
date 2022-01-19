@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { legacyPlugin } from "@web/dev-server-legacy";
 
 const mode = process.env.MODE || "dev";
