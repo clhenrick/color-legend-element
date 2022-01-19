@@ -60,10 +60,7 @@ suite("color-legend-element", () => {
       html`<color-legend width="${width}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.equal(
-      el.svg.getAttribute("width"),
-      `${width}`
-    );
+    assert.equal(el.svg.getAttribute("width"), `${width}`);
   });
 
   test("height", async () => {
@@ -72,10 +69,7 @@ suite("color-legend-element", () => {
       html`<color-legend height="${height}"></color-legend>`
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.equal(
-      el.svg.getAttribute("height"),
-      `${height}`
-    );
+    assert.equal(el.svg.getAttribute("height"), `${height}`);
   });
 
   test("marginTop", async () => {
@@ -256,7 +250,7 @@ suite("color-legend-element", () => {
     const texts = el.shadowRoot.querySelectorAll("svg .tick text");
     const values = Array.from(texts).map((d) => d.textContent);
     assert.deepEqual(values, ["0!", "0.2!", "0.4!", "0.6!", "0.8!", "1!"]);
-  })
+  });
 
   test("tickFormatter throws", async () => {
     const el = (await getEl()) as ColorLegendElement;
@@ -287,7 +281,9 @@ suite("color-legend-element", () => {
     await el.updateComplete;
     el.style.setProperty("--cle-background", "#000");
     await el.updateComplete;
-    const styles = getComputedStyle(el.shadowRoot.querySelector(".cle-container"))
+    const styles = getComputedStyle(
+      el.shadowRoot.querySelector(".cle-container")
+    );
     assert.equal(styles.backgroundColor, "rgb(0, 0, 0)");
   });
 });

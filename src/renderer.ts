@@ -2,7 +2,6 @@ import { svg, html, TemplateResult } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import { piecewise, interpolateHcl } from "d3-interpolate";
 
-
 import { ColorLegendElement } from "./color-legend-element";
 import {
   Interpolator,

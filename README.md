@@ -62,7 +62,7 @@ See [the color-legend website](https://clhenrick.github.io/color-legend-element)
 The following table lists the Color Legend Element's properties and attributes. See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how these properties may be configured to render various types of legends. All properties listed have a corresponding HTML attribute of the same name except for the `interpolator` property which may only be set as a property using JavaScript.
 
 | Property     | Type             | Default Value          | Description                                                           | Has Attribute |
-|--------------|------------------|------------------------|-----------------------------------------------------------------------|---------------|
+| ------------ | ---------------- | ---------------------- | --------------------------------------------------------------------- | ------------- |
 | titleText    | string           | "Color Legend Element" | The title text that displays at the top of the legend.                | Yes           |
 | width        | number           | 325                    | The width of the SVG or categorical legend div element.               | Yes           |
 | height       | number           | 32                     | The height of the SVG element.                                        | Yes           |
