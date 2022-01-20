@@ -1,2 +1,2 @@
-import { ColorLegendElement } from "./build/color-legend-element.bundled.js";
+import { ColorLegendElement } from "./build/color-legend-element.js";
 export { ColorLegendElement };
