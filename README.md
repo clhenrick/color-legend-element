@@ -56,7 +56,7 @@ The `<color-legend>` will render using its default settings as follows:
 <color-legend></color-legend>
 ```
 
-It may be customized by providing values for its properties and CSS variables (see below).
+It may be customized by settings its properties and CSS variables (full list below).
 
 See [the color-legend website](https://clhenrick.github.io/color-legend-element) for more examples of how to use the Color Legend Element.
 
@@ -131,6 +131,8 @@ color-legend {
 
 ## Local Development
 
+Requires Node.js v16.13.0 and NPM >=8.
+
 In the root of this repository first install dependencies:
 
 ```bash
@@ -138,6 +140,8 @@ npm install
 ```
 
 ### Building from src
+
+All compiled files will be outputted in the `build/` directory.
 
 To create the ESM build:
 
@@ -162,16 +166,16 @@ npm run bundle
 To view the `<color-legend>` without bundling it:
 
 ```
-npm run dev
+npm run serve
 ```
 
 or
 
 ```
-npm run dev:prod
+npm run serve:prod
 ```
 
-You may then modify the `dev/index.html` and view the changes.
+This will start up a local web server for `dev/index.html`. You may then modify the contents of `src/` and/or `dev/index.html` and inspect the changes in your browser.
 
 ### Running tests
 
