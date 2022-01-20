@@ -223,6 +223,10 @@ npm run docs:serve
 
 ### Updating the custom-elements.json
 
+According to [Open Web Components](https://github.com/open-wc/custom-elements-manifest#custom-elements-manifest):
+
+> Custom Elements Manifest is a file format that describes custom elements. This format will allow tooling and IDEs to give rich information about the custom elements in a given project.
+
 To update the `custom-elements.json` manifest:
 
 ```bash
