@@ -719,6 +719,53 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "\"./types\""
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ColorLegendElement",
+          "declaration": {
+            "name": "ColorLegendElement",
+            "module": "src/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ColorScaleSetter",
+          "declaration": {
+            "name": "ColorScaleSetter",
+            "module": "src/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "AxisTicksSetter",
+          "declaration": {
+            "name": "AxisTicksSetter",
+            "module": "src/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Renderer",
+          "declaration": {
+            "name": "Renderer",
+            "module": "src/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/renderer.ts",
       "declarations": [
         {

@@ -28,13 +28,16 @@ import "color-legend-element";
 To use without a frontend build tool, add the `<color-legend>` via a `<script>` tag in your HTML document.
 
 ```html
-<script type="module" src="/path/to/color-legend-element.bundle.js"></script>
+<script
+  type="module"
+  src="color-legend-element/build/color-legend-element.js"
+></script>
 ```
 
 If you prefer to not use the ESM build, you may instead use the UMD build:
 
 ```html
-<script src="/path/to/color-legend-element.umd.js"></script>
+<script src="color-legend-element/build/color-legend-element.umd.js"></script>
 ```
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage

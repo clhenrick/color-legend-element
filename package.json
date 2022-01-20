@@ -1,13 +1,25 @@
 {
   "name": "color-legend-element",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A custom element (web component) suitable for use as a legend in data visualizations",
-  "main": "color-legend-element.js",
-  "module": "color-legend-element.js",
+  "main": "index.js",
+  "module": "index.js",
   "type": "module",
+  "types": "./build/index.d.ts",
+  "files": [
+    "./build/**/*.js",
+    "./build/**/*.d.ts"
+  ],
+  "unpkg": "./build/color-legend-element.umd.js",
+  "jsdelivr": "./build/color-legend-element.umd.js",
+  "exports": {
+    "umd": "./build/color-legend-element.umd.js",
+    "default": "./index.js"
+  },
+  "customElements": "custom-elements.json",
   "scripts": {
-    "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
-    "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
+    "analyze": "cem analyze --litelement --globs \"src/**/*.ts\" --exclude \"src/**/*_test.ts\"",
+    "analyze:watch": "npm run analyze -- --watch",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "bundle": "rollup -c",
@@ -21,6 +33,8 @@
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
+    "version": "npm run docs && git add docs",
+    "release": "np",
     "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
     "test": "npm run test:dev && npm run test:prod",
@@ -30,17 +44,35 @@
     "test:prod:watch": "MODE=prod wtr --watch",
     "prepare": "husky install"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clhenrick/color-legend-element.git"
+  },
   "keywords": [
     "web-components",
+    "custom-elements",
     "data-visualization",
     "legend",
     "lit",
-    "lit-element"
+    "lit-element",
+    "d3",
+    "d3js"
   ],
   "author": "Chris Henrick <chrishenrick@gmail.com> (https://clhenrick.io/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clhenrick/color-legend-element/issues"
+  },
+  "homepage": "https://github.com/clhenrick/color-legend-element#readme",
   "dependencies": {
     "lit": "^2.0.0"
+  },
+  "peerDependencies": {
+    "d3-array": "^3.1.1",
+    "d3-format": "^3.1.0",
+    "d3-interpolate": "^3.0.1",
+    "d3-scale": "^4.0.2",
+    "d3-scale-chromatic": "^3.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
@@ -63,17 +95,13 @@
     "@web/test-runner-mocha": "^0.7.4",
     "@web/test-runner-playwright": "^0.8.4",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "d3-array": "^3.1.1",
-    "d3-format": "^3.1.0",
-    "d3-interpolate": "^3.0.1",
-    "d3-scale": "^4.0.2",
-    "d3-scale-chromatic": "^3.0.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.2.1",
     "lit-analyzer": "^1.1.10",
     "mocha": "^9.1.1",
+    "np": "^7.6.0",
     "prettier": "^2.3.2",
     "prismjs": "^1.25.0",
     "rimraf": "^3.0.2",
@@ -82,9 +110,17 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.3.5"
   },
-  "customElements": "custom-elements.json",
   "lint-staged": {
     "*.{js,ts,cjs,mjs}": "eslint --cache --fix",
     "*.{html,js,cjs,mjs,json,md,ts,css}": "npm run format --"
+  },
+  "np": {
+    "branch": "main",
+    "yarn": false,
+    "contents": "./build",
+    "message": "color-legend-element v%s"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }

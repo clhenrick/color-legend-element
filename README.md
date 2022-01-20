@@ -15,7 +15,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 - Compatable with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
 - Framework and bundler not required, just add a `<script>` tag and use it!
-- TODO: [Small bundle size](https://bundlephobia.com/package/color-legend-element) (<>kb minified, <>kb gzipped)
+- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (52kb minified and 18kb gzipped)
 
 ## Installation
 
@@ -36,13 +36,16 @@ import "color-legend-element";
 To use without a frontend build tool, add the `<color-legend>` via a `<script>` tag in your HTML document.
 
 ```html
-<script type="module" src="/path/to/color-legend-element.bundle.js"></script>
+<script
+  type="module"
+  src="color-legend-element/build/color-legend-element.js"
+></script>
 ```
 
 If you prefer to not use the ESM build, you may instead use the UMD build:
 
 ```html
-<script src="/path/to/color-legend-element.umd.js"></script>
+<script src="color-legend-element/build/color-legend-element.umd.js"></script>
 ```
 
 ## Example Usage
@@ -53,7 +56,7 @@ The `<color-legend>` will render using its default settings as follows:
 <color-legend></color-legend>
 ```
 
-It may be customized by providing values for its properties and CSS variables (see below).
+It may be customized by settings its properties and CSS variables (full list below).
 
 See [the color-legend website](https://clhenrick.github.io/color-legend-element) for more examples of how to use the Color Legend Element.
 
@@ -128,6 +131,8 @@ color-legend {
 
 ## Local Development
 
+Requires Node.js v16.13.0 and NPM >=8.
+
 In the root of this repository first install dependencies:
 
 ```bash
@@ -135,6 +140,8 @@ npm install
 ```
 
 ### Building from src
+
+All compiled files will be outputted in the `build/` directory.
 
 To create the ESM build:
 
@@ -159,16 +166,16 @@ npm run bundle
 To view the `<color-legend>` without bundling it:
 
 ```
-npm run dev
+npm run serve
 ```
 
 or
 
 ```
-npm run dev:prod
+npm run serve:prod
 ```
 
-You may then modify the `dev/index.html` and view the changes.
+This will start up a local web server for `dev/index.html`. You may then modify the contents of `src/` and/or `dev/index.html` and inspect the changes in your browser.
 
 ### Running tests
 
@@ -219,6 +226,10 @@ npm run docs:serve
 ```
 
 ### Updating the custom-elements.json
+
+According to [Open Web Components](https://github.com/open-wc/custom-elements-manifest#custom-elements-manifest):
+
+> Custom Elements Manifest is a file format that describes custom elements. This format will allow tooling and IDEs to give rich information about the custom elements in a given project.
 
 To update the `custom-elements.json` manifest:
 
