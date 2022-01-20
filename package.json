@@ -43,8 +43,13 @@
     "test:prod:watch": "MODE=prod wtr --watch",
     "prepare": "husky install"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clhenrick/color-legend-element.git"
+  },
   "keywords": [
     "web-components",
+    "custom-elements",
     "data-visualization",
     "legend",
     "lit",
@@ -54,6 +59,10 @@
   ],
   "author": "Chris Henrick <chrishenrick@gmail.com> (https://clhenrick.io/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clhenrick/color-legend-element/issues"
+  },
+  "homepage": "https://github.com/clhenrick/color-legend-element#readme",
   "dependencies": {
     "lit": "^2.0.0"
   },
