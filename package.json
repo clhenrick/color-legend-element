@@ -8,9 +8,10 @@
   "types": "build/**/*.d.ts",
   "files": [
     "./build/**/*.js",
-    "./build/**/*.d.ts",
-    "./src/*.ts"
+    "./build/**/*.d.ts"
   ],
+  "unpkg": "./build/color-legend-element.umd.js",
+  "jsdelivr": "./build/color-legend-element.umd.js",
   "exports": {
     "umd": "./build/color-legend-element.umd.js",
     "default": "./index.js"
