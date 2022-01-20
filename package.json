@@ -118,6 +118,9 @@
     "branch": "main",
     "yarn": false,
     "contents": "./build",
-    "message": "version %s"
+    "message": "color-legend-element v%s"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
