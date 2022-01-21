@@ -6,8 +6,19 @@
   --border: 1px solid lightgray;
 }
 
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 body {
   font-family: var(--font-family);
+  font-size: 1rem;
   line-height: 1.5;
   color: var(--color);
   background: var(--bg-color);
@@ -80,6 +91,13 @@ label {
 code[class*="language-"],
 pre[class*="language-"] {
   font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 1rem;
+  }
 }
 
 pre[class*="language-"] {
