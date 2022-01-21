@@ -82,6 +82,13 @@ pre[class*="language-"] {
   font-size: 0.75rem;
 }
 
+@media (max-width: 600px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 1rem;
+  }
+}
+
 pre[class*="language-"] {
   max-width: min(100%, 25rem);
   margin: 0;
