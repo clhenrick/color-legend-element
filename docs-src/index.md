@@ -427,7 +427,7 @@ Child content may be placed within the `<color-legend>` via its two [slots](http
 </color-legend>
 ```
 
-Note that any slotted elements are part of the "light DOM" and **will be** styled by CSS external from the `<color-legend>`. Slotted elements **will not** be styled by the `<color-legend>`'s internal styles.
+Note that any slotted elements are considered part of the "light DOM" and can be styled by CSS external from the `<color-legend>`.
 
 </div>
 
