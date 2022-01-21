@@ -230,15 +230,17 @@ Categorical legends may be rendered by setting the `scaleType` property to `"cat
 #### <a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line
 
 <div class="example">
-  <color-legend
-    width="350"
-    titleText="Business Sectors"
-    scaleType="categorical"
-    domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
-    range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-    markType="line"
-  >
-  </color-legend>
+  <div class="overflow-x">
+    <color-legend
+      width="350"
+      titleText="Business Sectors"
+      scaleType="categorical"
+      domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
+      range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
+      markType="line"
+    >
+    </color-legend>
+  </div>
 
 ```html
 <color-legend
@@ -334,16 +336,18 @@ Or for example, to change the number of columns and/or the swatch size in a cate
   }
 </style>
 
-<color-legend
-  class="columns"
-  width="400"
-  height=""
-  titleText="Business Sectors"
-  scaletype="categorical"
-  marktype="line"
-  domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
-  range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
-/>
+<div class="overflow-x">
+  <color-legend
+    class="columns"
+    width="400"
+    height=""
+    titleText="Business Sectors"
+    scaletype="categorical"
+    marktype="line"
+    domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
+    range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
+  />
+</div>
 
 ```html
 <color-legend

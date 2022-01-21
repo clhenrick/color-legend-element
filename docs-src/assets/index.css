@@ -105,4 +105,9 @@ color-legend:defined {
   margin-bottom: 2rem;
 }
 
+.overflow-x {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 /* @media screen and (max-width: 50rem) {} */
