@@ -169,17 +169,7 @@
             {
               "kind": "field",
               "name": "colorScale",
-              "type": {
-                "text": "ColorScale"
-              },
               "description": "A type of d3-scale for applying color values to the legend item(s),\nset internally by the colorScaleSetter."
-            },
-            {
-              "kind": "field",
-              "name": "renderer",
-              "privacy": "private",
-              "default": "new Renderer(this)",
-              "description": "Handles rendering of HTML/SVG markup from the scaleType"
             },
             {
               "kind": "field",
@@ -191,10 +181,14 @@
             {
               "kind": "field",
               "name": "xScale",
-              "type": {
-                "text": "XScale"
-              },
               "description": "A d3 linear scale used for generating axis ticks,\nset internally by the axisTickSetter"
+            },
+            {
+              "kind": "field",
+              "name": "renderer",
+              "privacy": "private",
+              "default": "new Renderer(this)",
+              "description": "Handles rendering of HTML/SVG markup from the scaleType"
             }
           ],
           "attributes": [
@@ -386,6 +380,13 @@
                 "text": "ColorLegendElement"
               },
               "default": "cle"
+            },
+            {
+              "kind": "field",
+              "name": "colorScale",
+              "type": {
+                "text": "ColorScale"
+              }
             },
             {
               "kind": "method",
@@ -967,6 +968,13 @@
                 "text": "ColorLegendElement"
               },
               "default": "cle"
+            },
+            {
+              "kind": "field",
+              "name": "xScale",
+              "type": {
+                "text": "XScale"
+              }
             },
             {
               "kind": "method",

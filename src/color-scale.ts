@@ -7,12 +7,14 @@ import {
 } from "d3-scale";
 import { interpolateHcl } from "d3-interpolate";
 
-import { ScaleType } from "./types";
+import { ColorScale, ScaleType } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
 export class ColorScaleSetter {
   cle: ColorLegendElement;
+
+  colorScale!: ColorScale;
 
   constructor(cle: ColorLegendElement) {
     this.cle = cle;
@@ -45,7 +47,7 @@ export class ColorScaleSetter {
    */
   private setContinousColorScale() {
     const { interpolator, domain, range } = this.cle;
-    this.cle.colorScale = interpolator
+    this.colorScale = interpolator
       ? scaleSequential(interpolator).domain(domain as number[])
       : scaleLinear<string>()
           .range(range as string[])
@@ -57,7 +59,7 @@ export class ColorScaleSetter {
    * Sets the colorScale property to a ScaleQuantize
    */
   private setDiscreteColorScale() {
-    this.cle.colorScale = scaleQuantize<string>()
+    this.colorScale = scaleQuantize<string>()
       .domain(this.cle.domain as number[])
       .range(this.cle.range);
   }
@@ -67,7 +69,7 @@ export class ColorScaleSetter {
    */
   private setThresholdColorScale() {
     const domain = this.cle.domain as number[];
-    this.cle.colorScale = scaleThreshold<number, string>()
+    this.colorScale = scaleThreshold<number, string>()
       .domain(domain.slice(1, domain.length - 1))
       .range(this.cle.range as string[]);
   }
@@ -76,7 +78,7 @@ export class ColorScaleSetter {
    * Sets the colorScale to a ScaleOrdinal
    */
   private setCategoricalColorScale() {
-    this.cle.colorScale = scaleOrdinal<string, string>()
+    this.colorScale = scaleOrdinal<string, string>()
       .domain(this.cle.domain as string[])
       .range(this.cle.range as string[]);
   }
