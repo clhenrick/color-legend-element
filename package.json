@@ -5,13 +5,13 @@
   "main": "index.js",
   "module": "index.js",
   "type": "module",
-  "types": "./build/index.d.ts",
+  "types": "build/index.d.ts",
   "files": [
-    "./build/**/*.js",
-    "./build/**/*.d.ts"
+    "build/**/*.js",
+    "build/**/*.d.ts"
   ],
-  "unpkg": "./build/color-legend-element.umd.js",
-  "jsdelivr": "./build/color-legend-element.umd.js",
+  "unpkg": "build/color-legend-element.umd.js",
+  "jsdelivr": "build/color-legend-element.umd.js",
   "exports": {
     "umd": "./build/color-legend-element.umd.js",
     "default": "./index.js"
