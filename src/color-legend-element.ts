@@ -6,14 +6,7 @@ import { Renderer } from "./renderer";
 import { AxisTicksSetter } from "./x-scale-axis";
 import { styles } from "./styles";
 
-import {
-  ColorScale,
-  XScale,
-  ScaleType,
-  Interpolator,
-  ChangedProps,
-  TickFormatter,
-} from "./types";
+import { ScaleType, Interpolator, ChangedProps, TickFormatter } from "./types";
 
 import {
   COLOR_SCALE_PROPS,
@@ -184,12 +177,9 @@ export class ColorLegendElement extends LitElement {
    * A type of d3-scale for applying color values to the legend item(s),
    * set internally by the colorScaleSetter.
    */
-  colorScale!: ColorScale;
-
-  /**
-   * Handles rendering of HTML/SVG markup from the scaleType
-   */
-  private renderer = new Renderer(this);
+  get colorScale() {
+    return this.colorScaleSetter.colorScale;
+  }
 
   /**
    * Configures the x scale and axis ticks
@@ -200,7 +190,14 @@ export class ColorLegendElement extends LitElement {
    * A d3 linear scale used for generating axis ticks,
    * set internally by the axisTickSetter
    */
-  xScale!: XScale;
+  get xScale() {
+    return this.axisTickSetter.xScale;
+  }
+
+  /**
+   * Handles rendering of HTML/SVG markup from the scaleType
+   */
+  private renderer = new Renderer(this);
 
   /**
    * Invoked on each update to perform rendering tasks. This method may return any

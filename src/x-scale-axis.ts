@@ -1,11 +1,13 @@
 import { scaleLinear } from "d3-scale";
 import { format } from "d3-format";
 import { ColorLegendElement } from "./color-legend-element";
-import { ScaleType, ScaleQuantize } from "./types";
+import { ScaleType, ScaleQuantize, XScale } from "./types";
 import { DEFAULT_TICKS, DEFAULT_TICK_FORMAT } from "./constants";
 
 export class AxisTicksSetter {
   cle: ColorLegendElement;
+
+  xScale!: XScale;
 
   constructor(cle: ColorLegendElement) {
     this.cle = cle;
@@ -18,13 +20,13 @@ export class AxisTicksSetter {
     const { scaleType, marginLeft, width, marginRight } = this.cle;
     switch (scaleType) {
       case ScaleType.Continuous:
-        this.cle.xScale = scaleLinear()
+        this.xScale = scaleLinear()
           .domain(this.cle.domain as number[])
           .range([marginLeft, width - marginRight]);
         break;
       case ScaleType.Discrete:
       case ScaleType.Threshold:
-        this.cle.xScale = scaleLinear<number, number>()
+        this.xScale = scaleLinear<number, number>()
           .domain([
             (this.cle.domain as number[]).at(0),
             (this.cle.domain as number[]).at(-1),
@@ -33,7 +35,7 @@ export class AxisTicksSetter {
         break;
       case ScaleType.Categorical:
         // xScale is not used for ScaleType.Categorical
-        this.cle.xScale = null;
+        this.xScale = null;
         break;
       default:
         throw new Error(`Unrecognized scaleType: ${scaleType}`);
@@ -50,7 +52,7 @@ export class AxisTicksSetter {
       scaleType !== ScaleType.Continuous &&
       scaleType !== ScaleType.Categorical
     ) {
-      const [min, max] = this.cle.xScale.domain() as [number, number];
+      const [min, max] = this.xScale.domain() as [number, number];
       this.cle.tickValues = this.cle.tickValues || [
         min,
         ...((this.cle.colorScale as ScaleQuantize<number>)?.thresholds?.() ||
@@ -61,7 +63,7 @@ export class AxisTicksSetter {
     if (this.cle.tickFormat?.length) {
       this.cle.tickFormatter = format(this.cle.tickFormat);
     } else {
-      this.cle.tickFormatter = this.cle.xScale.tickFormat(
+      this.cle.tickFormatter = this.xScale.tickFormat(
         this.cle.ticks || DEFAULT_TICKS,
         this.cle.tickFormat || DEFAULT_TICK_FORMAT
       );
