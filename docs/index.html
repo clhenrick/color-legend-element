@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Color Legend Element</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script defer src="./node_modules/lit/polyfill-support.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/d3@7.3.0/dist/d3.min.js"></script>
@@ -135,15 +136,17 @@
 </div>
 <h4><a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line</h4>
 <div class="example">
-  <color-legend
-    width="350"
-    titleText="Business Sectors"
-    scaleType="categorical"
-    domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
-    range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
-    markType="line"
-  >
-  </color-legend>
+  <div class="overflow-x">
+    <color-legend
+      width="350"
+      titleText="Business Sectors"
+      scaleType="categorical"
+      domain='["Agriculture","Business services","Construction","Education and Health","Finance","Government"]'
+      range='["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949"]'
+      markType="line"
+    >
+    </color-legend>
+  </div>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span><br>  <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>350<span class="token punctuation">"</span></span><br>  <span class="token attr-name">titleText</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Business Sectors<span class="token punctuation">"</span></span><br>  <span class="token attr-name">scaleType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>categorical<span class="token punctuation">"</span></span><br>  <span class="token attr-name">domain</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>Agriculture<span class="token punctuation">"</span>,<span class="token punctuation">"</span>Business services<span class="token punctuation">"</span>,<span class="token punctuation">"</span>Construction<span class="token punctuation">"</span>,<span class="token punctuation">"</span>Education and Health<span class="token punctuation">"</span>,<span class="token punctuation">"</span>Finance<span class="token punctuation">"</span>,<span class="token punctuation">"</span>Government<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span><br>  <span class="token attr-name">range</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>#4e79a7<span class="token punctuation">"</span>,<span class="token punctuation">"</span>#f28e2c<span class="token punctuation">"</span>,<span class="token punctuation">"</span>#e15759<span class="token punctuation">"</span>,<span class="token punctuation">"</span>#76b7b2<span class="token punctuation">"</span>,<span class="token punctuation">"</span>#59a14f<span class="token punctuation">"</span>,<span class="token punctuation">"</span>#edc949<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span><br>  <span class="token attr-name">markType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>line<span class="token punctuation">"</span></span><br><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
 <h3><a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden</h3>
@@ -195,16 +198,18 @@ properties). All CSS variable names are namespaced with <code>cle</code>. For ex
     --cle-swatch-size: 14px;
   }
 </style>
-<p><color-legend
-  class="columns"
-  width="400"
-  height=""
-  titleText="Business Sectors"
-  scaletype="categorical"
-  marktype="line"
-  domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
-  range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
-/></p>
+<div class="overflow-x">
+  <color-legend
+    class="columns"
+    width="400"
+    height=""
+    titleText="Business Sectors"
+    scaletype="categorical"
+    marktype="line"
+    domain='["Agriculture", "Business services", "Construction", "Education and Health", "Finance", "Government"]'
+    range='["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949"]'
+  />
+</div>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span><br>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>columns<span class="token punctuation">"</span></span><br>  <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span><br>  <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><br>  <span class="token attr-name">titleText</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Business Sectors<span class="token punctuation">"</span></span><br>  <span class="token attr-name">scaletype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>categorical<span class="token punctuation">"</span></span><br>  <span class="token attr-name">marktype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>line<span class="token punctuation">"</span></span><br>  <span class="token attr-name">domain</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>Agriculture<span class="token punctuation">"</span>, <span class="token punctuation">"</span>Business services<span class="token punctuation">"</span>, <span class="token punctuation">"</span>Construction<span class="token punctuation">"</span>, <span class="token punctuation">"</span>Education and Health<span class="token punctuation">"</span>, <span class="token punctuation">"</span>Finance<span class="token punctuation">"</span>, <span class="token punctuation">"</span>Government<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span><br>  <span class="token attr-name">range</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>#4e79a7<span class="token punctuation">"</span>, <span class="token punctuation">"</span>#f28e2c<span class="token punctuation">"</span>, <span class="token punctuation">"</span>#e15759<span class="token punctuation">"</span>, <span class="token punctuation">"</span>#76b7b2<span class="token punctuation">"</span>, <span class="token punctuation">"</span>#59a14f<span class="token punctuation">"</span>, <span class="token punctuation">"</span>#edc949<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span><br><span class="token punctuation">/></span></span></code></pre>
 <pre class="language-css"><code class="language-css"><span class="token selector">color-legend.columns</span> <span class="token punctuation">{</span><br>  <span class="token property">--cle-columns</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span><br>  <span class="token property">--cle-swatch-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
 </div>
@@ -237,7 +242,7 @@ properties). All CSS variable names are namespaced with <code>cle</code>. For ex
 </color-legend>
 <!-- prettier-ignore -->
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>small</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>subtitle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    Some subtitle text here perhaps?<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>small</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>     = No data<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
-<p>Note that any slotted elements are part of the &quot;light DOM&quot; and <strong>will be</strong> styled by CSS external from the <code>&lt;color-legend&gt;</code>. Slotted elements <strong>will not</strong> be styled by the <code>&lt;color-legend&gt;</code>'s internal styles.</p>
+<p>Note that any slotted elements are considered part of the &quot;light DOM&quot; and can be styled by CSS external from the <code>&lt;color-legend&gt;</code>.</p>
 </div>
 <h2><a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions</h2>
 <p>To report a bug or make a suggestion, please open an issue in the <a href="https://github.com/clhenrick/color-legend-element">Github repository</a> or send me a <a href="https://twitter.com/chrislhenrick">Tweet</a>. And feel free to let me know if it's helped you in a project 🙂 Thanks!</p>
