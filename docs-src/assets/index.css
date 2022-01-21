@@ -49,13 +49,22 @@ a:active {
 }
 a.anchor {
   text-decoration: none;
+  margin-left: -1rem;
 }
 
 header,
 main {
   max-width: 66rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 4rem;
+}
+
+@media (max-width: 600px) {
+  header,
+  main {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
 }
 
 fieldset {
