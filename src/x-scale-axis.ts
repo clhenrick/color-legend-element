@@ -28,8 +28,8 @@ export class AxisTicksSetter {
       case ScaleType.Threshold:
         this.xScale = scaleLinear<number, number>()
           .domain([
-            (this.cle.domain as number[]).at(0),
-            (this.cle.domain as number[]).at(-1),
+            (this.cle.domain as number[])[0],
+            (this.cle.domain as number[])[this.cle.domain.length - 1],
           ])
           .rangeRound([marginLeft, width - marginRight]);
         break;
