@@ -2,7 +2,6 @@ import { fixture, assert } from "@open-wc/testing";
 import { html } from "lit/static-html.js";
 import { AxisTicksSetter } from "../x-scale-axis";
 import { ColorLegendElement } from "../color-legend-element";
-import { ColorScaleSetter } from "../color-scale";
 import { ScaleType } from "../types";
 
 suite("AxisTicksSetter", () => {
