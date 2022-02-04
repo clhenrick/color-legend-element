@@ -33,8 +33,9 @@
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
-    "version": "npm run docs && git add docs",
-    "release": "np",
+    "preversion": "npm test",
+    "version": "rimraf build && npm run build && npm run bundle",
+    "postversion": "git push && git push --tags",
     "serve": "wds --open=./dev --watch",
     "serve:prod": "MODE=prod npm run serve",
     "test": "npm run test:dev && npm run test:prod",
@@ -101,7 +102,6 @@
     "lint-staged": "^12.2.1",
     "lit-analyzer": "^1.1.10",
     "mocha": "^9.1.1",
-    "np": "^7.6.0",
     "prettier": "^2.3.2",
     "prismjs": "^1.25.0",
     "rimraf": "^3.0.2",
@@ -113,12 +113,6 @@
   "lint-staged": {
     "*.{js,ts,cjs,mjs}": "eslint --cache --fix",
     "*.{html,js,cjs,mjs,json,md,ts,css}": "npm run format --"
-  },
-  "np": {
-    "branch": "main",
-    "yarn": false,
-    "contents": "./build",
-    "message": "color-legend-element v%s"
   },
   "engines": {
     "node": "16.13.0"
