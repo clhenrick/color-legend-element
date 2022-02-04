@@ -15,7 +15,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 - Compatable with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
 - Framework and bundler not required, just add a `<script>` tag and use it!
-- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (52kb minified and 18kb gzipped)
+- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (28kb minified and 9kb gzipped)
 
 ## Installation
 
@@ -224,6 +224,8 @@ To serve the docs directory and watch for changes:
 ```bash
 npm run docs:serve
 ```
+
+Then open your browser to `localhost:8080` to view the site.
 
 ### Updating the custom-elements.json
 
