@@ -5,3 +5,5 @@ Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/). In
 Copyright 2021, [Chris Henrick](https://clhenrick.io/), under the [MIT License](https://github.com/clhenrick/color-legend-element/blob/main/LICENSE).
 
 [View on Github](https://github.com/clhenrick/color-legend-element).
+
+This website was built using [EleventyJS](https://www.11ty.dev/).
