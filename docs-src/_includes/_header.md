@@ -6,4 +6,4 @@ Copyright 2021, [Chris Henrick](https://clhenrick.io/), under the [MIT License](
 
 [View on Github](https://github.com/clhenrick/color-legend-element).
 
-This website was built using [Eleventy](https://www.11ty.dev/).
+This website was built using [Eleventy](https://www.11ty.dev/). It's hosted on [Github Pages](https://pages.github.com/).
