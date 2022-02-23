@@ -3,8 +3,11 @@ import { terser } from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 
+/**
+ * @type {import('rollup').RollupOptions}
+ */
 export default {
-  external: ["d3"],
+  external: ["d3-scale", "d3-format", "d3-interpolate", "d3-array"],
   input: "build/color-legend-element.js",
   output: [
     {
@@ -16,7 +19,10 @@ export default {
       name: "color-legend-element",
       format: "umd",
       globals: {
-        d3: "d3",
+        "d3-scale": "d3",
+        "d3-format": "d3",
+        "d3-interpolate": "d3",
+        "d3-array": "d3",
       },
     },
   ],
