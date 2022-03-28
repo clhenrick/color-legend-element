@@ -40,6 +40,14 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 <script src="color-legend-element/build/color-legend-element.umd.js"></script>
 ```
 
+### <a class="anchor" id="windows-os-install" href="#usage" aria-hidden>#</a> Windows OS Install
+
+Note that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
+
+```js
+import "color-legend-element/build/color-legend-element.js";
+```
+
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
 
 The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete.
