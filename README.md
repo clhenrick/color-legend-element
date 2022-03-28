@@ -48,6 +48,14 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 <script src="color-legend-element/build/color-legend-element.umd.js"></script>
 ```
 
+### Windows OS Install
+
+Note that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
+
+```js
+import "color-legend-element/build/color-legend-element.js";
+```
+
 ## Example Usage
 
 The `<color-legend>` will render using its default settings as follows:
