@@ -2,7 +2,7 @@
   "name": "color-legend-element",
   "version": "1.0.5",
   "description": "A custom element (web component) suitable for use as a legend in data visualizations",
-  "main": "build/color-legend-element.umd.js",
+  "main": "index.js",
   "module": "index.js",
   "type": "module",
   "types": "build/index.d.ts",
