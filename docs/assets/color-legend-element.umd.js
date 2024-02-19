@@ -37,7 +37,7 @@ const st=(t,i)=>"method"===i.kind&&i.descriptor&&!("value"in i.descriptor)?{...i
      * @license
      * Copyright 2017 Google LLC
      * SPDX-License-Identifier: BSD-3-Clause
-     */}class ot{constructor(t){this.cle=t}setColorScale(){switch(this.cle.scaleType){case"continuous":this.setContinousColorScale();break;case"discrete":this.setDiscreteColorScale();break;case"threshold":this.setThresholdColorScale();break;case"categorical":this.setCategoricalColorScale();break;default:this.invalidScaleType(this.cle.scaleType)}}setContinousColorScale(){const{interpolator:t,domain:s,range:n}=this.cle;this.colorScale=t?i.scaleSequential(t).domain(s):i.scaleLinear().range(n).domain(s).interpolate(e.interpolateHcl)}setDiscreteColorScale(){this.colorScale=i.scaleQuantize().domain(this.cle.domain).range(this.cle.range)}setThresholdColorScale(){const t=this.cle.domain;this.colorScale=i.scaleThreshold().domain(t.slice(1,t.length-1)).range(this.cle.range)}setCategoricalColorScale(){this.colorScale=i.scaleOrdinal().domain(this.cle.domain).range(this.cle.range)}invalidScaleType(t){throw new Error(`invalid property scaletype: ${t}. \n      Must be one of "categorical", "continuous", "discrete", "threshold".`)}}
+     */}class ot{constructor(t){this.cle=t}setColorScale(){switch(this.cle.scaleType){case"continuous":this.setContinousColorScale();break;case"discrete":this.setDiscreteColorScale();break;case"threshold":this.setThresholdColorScale();break;case"categorical":this.setCategoricalColorScale();break;default:this.invalidScaleType(this.cle.scaleType)}}setContinousColorScale(){const{interpolator:t,domain:s,range:n}=this.cle;this.colorScale=t?i.scaleSequential(t).domain(s):i.scaleLinear().range(n).domain(s).interpolate(e.interpolateHcl)}setDiscreteColorScale(){this.colorScale=i.scaleQuantize().domain(this.cle.domain).range(this.cle.range)}setThresholdColorScale(){const t=this.cle.domain;this.colorScale=i.scaleThreshold().domain(t.slice(1,t.length-1)).range(this.cle.range)}setCategoricalColorScale(){this.colorScale=i.scaleOrdinal().domain(this.cle.domain).range(this.cle.range)}invalidScaleType(t){throw new Error(`invalid property scaletype: ${t}.\n      Must be one of "categorical", "continuous", "discrete", "threshold".`)}}
 /**
      * @license
      * Copyright 2017 Google LLC
@@ -74,7 +74,7 @@ const st=(t,i)=>"method"===i.kind&&i.descriptor&&!("value"in i.descriptor)?{...i
         style="--color:${i(t)}"
       >
         ${t}
-      </li>`))}`}renderContinuous(){var t,i;if("continuous"!==this.cle.scaleType||null===this.cle.colorScale)return"";const{colorScale:s,marginTop:n,marginLeft:o,marginRight:r,tickSize:l,width:h,range:c}=this.cle,a=this.cle.marginBottom+l,d=this.cle.height+l,u=(null===(i=(t=s).interpolator)||void 0===i?void 0:i.call(t))||e.piecewise(e.interpolateHcl,c);return j`<image 
+      </li>`))}`}renderContinuous(){var t,i;if("continuous"!==this.cle.scaleType||null===this.cle.colorScale)return"";const{colorScale:s,marginTop:n,marginLeft:o,marginRight:r,tickSize:l,width:h,range:c}=this.cle,a=this.cle.marginBottom+l,d=this.cle.height+l,u=(null===(i=(t=s).interpolator)||void 0===i?void 0:i.call(t))||e.piecewise(e.interpolateHcl,c);return j`<image
       x=${o}
       y=${n}
       width=${h-r-o}
