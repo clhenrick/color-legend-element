@@ -7,7 +7,7 @@ import {
 } from "d3-scale";
 import { interpolateHcl } from "d3-interpolate";
 
-import { ColorScale, ScaleType } from "./types";
+import { ColorScale } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
