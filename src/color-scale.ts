@@ -7,7 +7,7 @@ import {
 } from "d3-scale";
 import { interpolateHcl } from "d3-interpolate";
 
-import { ColorScale, ScaleType } from "./types";
+import { ColorScale } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
@@ -25,16 +25,16 @@ export class ColorScaleSetter {
    */
   setColorScale() {
     switch (this.cle.scaleType) {
-      case ScaleType.Continuous:
+      case "continuous":
         this.setContinousColorScale();
         break;
-      case ScaleType.Discrete:
+      case "discrete":
         this.setDiscreteColorScale();
         break;
-      case ScaleType.Threshold:
+      case "threshold":
         this.setThresholdColorScale();
         break;
-      case ScaleType.Categorical:
+      case "categorical":
         this.setCategoricalColorScale();
         break;
       default:
@@ -88,7 +88,7 @@ export class ColorScaleSetter {
    * @param value string
    */
   private invalidScaleType(value: string) {
-    throw new Error(`invalid property scaletype: ${value}. 
+    throw new Error(`invalid property scaletype: ${value}.
       Must be one of "categorical", "continuous", "discrete", "threshold".`);
   }
 }

@@ -2,7 +2,6 @@ import { fixture, assert } from "@open-wc/testing";
 import { html } from "lit/static-html.js";
 import { AxisTicksSetter } from "../x-scale-axis";
 import { ColorLegendElement } from "../color-legend-element";
-import { ScaleType } from "../types";
 
 suite("AxisTicksSetter", () => {
   test("is instanceOf", () => {
@@ -13,7 +12,7 @@ suite("AxisTicksSetter", () => {
 
   test("setXScale continuous", () => {
     const cle = new ColorLegendElement();
-    cle.scaleType = ScaleType.Continuous;
+    cle.scaleType = "continuous";
     const ats = new AxisTicksSetter(cle);
     ats.setXScale();
     assert.isNotNull(ats.xScale);
@@ -21,7 +20,7 @@ suite("AxisTicksSetter", () => {
 
   test("setXScale discrete", () => {
     const cle = new ColorLegendElement();
-    cle.scaleType = ScaleType.Discrete;
+    cle.scaleType = "discrete";
     cle.domain = [0, 1, 2, 3, 4, 5];
     const ats = new AxisTicksSetter(cle);
     ats.setXScale();
@@ -30,7 +29,7 @@ suite("AxisTicksSetter", () => {
 
   test("setXScale threshold", () => {
     const cle = new ColorLegendElement();
-    cle.scaleType = ScaleType.Threshold;
+    cle.scaleType = "threshold";
     cle.domain = [0, 1, 2, 3, 4, 5];
     const ats = new AxisTicksSetter(cle);
     ats.setXScale();
@@ -39,7 +38,7 @@ suite("AxisTicksSetter", () => {
 
   test("setXScale categorical", () => {
     const cle = new ColorLegendElement();
-    cle.scaleType = ScaleType.Categorical;
+    cle.scaleType = "categorical";
     const ats = new AxisTicksSetter(cle);
     ats.setXScale();
     assert.isNull(ats.xScale);
@@ -64,7 +63,7 @@ suite("AxisTicksSetter", () => {
     const expected = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
     const el = (await fixture(
       html`<color-legend
-        scaleType=${ScaleType.Discrete}
+        scaleType=${"discrete"}
         .domain=${[0.1, 1]}
         .range=${[
           "#fcfbfd",
@@ -88,7 +87,7 @@ suite("AxisTicksSetter", () => {
     const expected = [0, 2, 4, 10];
     const el = (await fixture(
       html`<color-legend
-        scaleType=${ScaleType.Threshold}
+        scaleType=${"threshold"}
         .domain=${expected}
       ></color-legend>`
     )) as ColorLegendElement;
@@ -99,7 +98,7 @@ suite("AxisTicksSetter", () => {
   test("handleAxisTicks continuous", async () => {
     const el = (await fixture(
       html`<color-legend
-        scaleType=${ScaleType.Continuous}
+        scaleType=${"continuous"}
         .domain=${[0, 100]}
       ></color-legend>`
     )) as ColorLegendElement;
@@ -110,7 +109,7 @@ suite("AxisTicksSetter", () => {
   test("handleAxisTicks categorical", async () => {
     const el = (await fixture(
       html`<color-legend
-        scaleType=${ScaleType.Categorical}
+        scaleType=${"categorical"}
         .domain=${["a", "b", "c"]}
       ></color-legend>`
     )) as ColorLegendElement;

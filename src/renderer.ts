@@ -5,8 +5,6 @@ import { piecewise, interpolateHcl } from "d3-interpolate";
 import { ColorLegendElement } from "./color-legend-element";
 import {
   Interpolator,
-  ScaleType,
-  MarkType,
   ScaleOrdinal,
   ScaleSequential,
   ScaleThreshold,
@@ -27,9 +25,9 @@ export class Renderer {
     const title = this.cle.titleText
       ? html`<p class="legend-title">${this.cle.titleText}</p>`
       : "";
-    const svgClasses = { hidden: this.cle.scaleType === ScaleType.Categorical };
+    const svgClasses = { hidden: this.cle.scaleType === "categorical" };
     const categoricalClasses = {
-      hidden: this.cle.scaleType !== ScaleType.Categorical,
+      hidden: this.cle.scaleType !== "categorical",
       "categorical-container": true,
     };
 
@@ -63,14 +61,14 @@ export class Renderer {
    * @returns lit-html TemplateResult or empty string
    */
   renderCategorical(): TemplateResult | string {
-    if (this.cle.scaleType !== ScaleType.Categorical) {
+    if (this.cle.scaleType !== "categorical") {
       return "";
     }
     const { markType, colorScale, domain } = this.cle;
     const classes = {
       "legend-item": true,
-      line: markType === MarkType.Line,
-      circle: markType === MarkType.Circle,
+      line: markType === "line",
+      circle: markType === "circle",
     };
     return html`${(domain as string[]).map(
       (category) => html`<li
@@ -89,10 +87,7 @@ export class Renderer {
    * @returns lit-html TemplateResult or empty string
    */
   renderContinuous() {
-    if (
-      this.cle.scaleType !== ScaleType.Continuous ||
-      this.cle.colorScale === null
-    ) {
+    if (this.cle.scaleType !== "continuous" || this.cle.colorScale === null) {
       return "";
     }
 
@@ -113,7 +108,7 @@ export class Renderer {
       (colorScale as ScaleSequential<string>).interpolator?.() ||
       piecewise<string>(interpolateHcl, range as string[]);
 
-    return svg`<image 
+    return svg`<image
       x=${marginLeft}
       y=${marginTop}
       width=${width - marginRight - marginLeft}
@@ -129,8 +124,8 @@ export class Renderer {
    */
   renderDiscreteThreshold() {
     if (
-      this.cle.scaleType !== ScaleType.Discrete &&
-      this.cle.scaleType !== ScaleType.Threshold
+      this.cle.scaleType !== "discrete" &&
+      this.cle.scaleType !== "threshold"
     ) {
       return "";
     }
@@ -171,8 +166,7 @@ export class Renderer {
    * @returns lit-html TemplateResult or empty string
    */
   renderAxis(): TemplateResult | string {
-    if (!this.cle.xScale || this.cle.scaleType === ScaleType.Categorical)
-      return "";
+    if (!this.cle.xScale || this.cle.scaleType === "categorical") return "";
 
     const {
       ticks,

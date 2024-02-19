@@ -24,8 +24,8 @@ export const DEFAULT_RANGE = [
 
 export const DEFAULT_TITLE_TEXT = "Color Legend Element";
 
-export const DEFAULT_MARK_TYPE = MarkType.Circle;
-export const DEFAULT_SCALE_TYPE = ScaleType.Continuous;
+export const DEFAULT_MARK_TYPE: MarkType = "circle";
+export const DEFAULT_SCALE_TYPE: ScaleType = "continuous";
 
 export const COLOR_SCALE_PROPS = [
   "domain",

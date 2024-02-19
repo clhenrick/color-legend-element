@@ -35,17 +35,10 @@ export type Interpolator<T> = (t: number) => T;
 
 export type TickFormatter = (d: number) => string;
 
-export const enum MarkType {
-  Rect = "rect",
-  Circle = "circle",
-  Line = "line",
-}
+/** the type of shape rendered when ScaleType is "categorical" */
+export type MarkType = "rect" | "circle" | "line";
 
-export const enum ScaleType {
-  Categorical = "categorical",
-  Continuous = "continuous",
-  Discrete = "discrete",
-  Threshold = "threshold",
-}
+/** available scales, similar to those of d3-scale */
+export type ScaleType = "categorical" | "continuous" | "discrete" | "threshold";
 
 export type ChangedProps = Map<string, number | string>;
