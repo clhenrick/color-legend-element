@@ -17,6 +17,19 @@
   </head>
   <body>
     <h1>Color Legend Element</h1>
+
     <color-legend></color-legend>
+
+    <hr style="margin: 1rem 0" />
+
+    <!-- Note that when passing objects or arrays to attributes they are assumed to be JSON.stringified -->
+    <color-legend
+      titletext="My categorical legend"
+      class="js-categorical"
+      scaletype="categorical"
+      domain='["a","b"]'
+      range='["red","blue"]'
+      markType="line"
+    ></color-legend>
   </body>
 </html>
