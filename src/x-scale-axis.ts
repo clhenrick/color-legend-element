@@ -1,7 +1,7 @@
 import { scaleLinear } from "d3-scale";
 import { format } from "d3-format";
 import { ColorLegendElement } from "./color-legend-element";
-import { ScaleType, ScaleQuantize, XScale } from "./types";
+import { ScaleQuantize, XScale } from "./types";
 import { DEFAULT_TICKS, DEFAULT_TICK_FORMAT } from "./constants";
 
 export class AxisTicksSetter {
@@ -19,13 +19,13 @@ export class AxisTicksSetter {
   setXScale() {
     const { scaleType, marginLeft, width, marginRight } = this.cle;
     switch (scaleType) {
-      case ScaleType.Continuous:
+      case "continuous":
         this.xScale = scaleLinear()
           .domain(this.cle.domain as number[])
           .range([marginLeft, width - marginRight]);
         break;
-      case ScaleType.Discrete:
-      case ScaleType.Threshold:
+      case "discrete":
+      case "threshold":
         this.xScale = scaleLinear<number, number>()
           .domain([
             (this.cle.domain as number[])[0],
@@ -33,7 +33,7 @@ export class AxisTicksSetter {
           ])
           .rangeRound([marginLeft, width - marginRight]);
         break;
-      case ScaleType.Categorical:
+      case "categorical":
         // xScale is not used for ScaleType.Categorical
         this.xScale = null;
         break;
@@ -48,10 +48,7 @@ export class AxisTicksSetter {
    */
   handleAxisTicks() {
     const { scaleType } = this.cle;
-    if (
-      scaleType !== ScaleType.Continuous &&
-      scaleType !== ScaleType.Categorical
-    ) {
+    if (scaleType !== "continuous" && scaleType !== "categorical") {
       const [min, max] = this.xScale.domain() as [number, number];
       this.cle.tickValues = this.cle.tickValues || [
         min,
