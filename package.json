@@ -1,6 +1,6 @@
 {
   "name": "color-legend-element",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A custom element (web component) suitable for use as a legend in data visualizations",
   "main": "build/color-legend-element.umd.js",
   "module": "index.js",
@@ -91,9 +91,9 @@
     "@web/dev-server-esbuild": "^0.2.16",
     "@web/dev-server-legacy": "^0.1.4",
     "@web/dev-server-rollup": "^0.3.9",
-    "@web/test-runner": "^0.13.16",
-    "@web/test-runner-mocha": "^0.7.4",
-    "@web/test-runner-playwright": "^0.8.4",
+    "@web/test-runner": "^0.18.0",
+    "@web/test-runner-mocha": "^0.9.0",
+    "@web/test-runner-playwright": "^0.11.0",
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.32.0",
@@ -121,6 +121,6 @@
     "message": "color-legend-element v%s"
   },
   "engines": {
-    "node": "16.13.0"
+    "node": ">=16.13.0"
   }
 }
