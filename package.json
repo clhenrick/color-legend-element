@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/clhenrick/color-legend-element#readme",
   "dependencies": {
-    "lit": "^2.0.0"
+    "lit": "2.8"
   },
   "peerDependencies": {
     "d3-array": "^3.1.1",
