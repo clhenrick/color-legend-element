@@ -122,6 +122,6 @@
     "message": "color-legend-element v%s"
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=20.11.1"
   }
 }
