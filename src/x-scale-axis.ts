@@ -57,9 +57,14 @@ export class AxisTicksSetter {
         max,
       ];
     }
-    if (this.cle.tickFormat?.length) {
+    // prefer `tickFormatter` property if it has been set
+    if (typeof this.cle.tickFormatter === "function") {
+      return;
+    } else if (this.cle.tickFormat?.length) {
+      // else prefer `tickFormat` attribute / property if it has been set
       this.cle.tickFormatter = format(this.cle.tickFormat);
     } else {
+      // else fallback to default tick formatting settings
       this.cle.tickFormatter = this.xScale.tickFormat(
         this.cle.ticks || DEFAULT_TICKS,
         this.cle.tickFormat || DEFAULT_TICK_FORMAT
