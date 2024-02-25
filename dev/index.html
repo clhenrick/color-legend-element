@@ -18,7 +18,7 @@
   <body>
     <h1>Color Legend Element</h1>
 
-    <color-legend></color-legend>
+    <color-legend class="js-vanilla"></color-legend>
 
     <hr style="margin: 1rem 0" />
 
@@ -32,4 +32,9 @@
       markType="line"
     ></color-legend>
   </body>
+  <script>
+    // test that the tickFormatter property works as intended
+    const cle = document.querySelector("color-legend.js-vanilla");
+    cle.tickFormatter = (d) => `${d}˚`;
+  </script>
 </html>
