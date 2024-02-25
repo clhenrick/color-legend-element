@@ -53,10 +53,24 @@ suite("AxisTicksSetter", () => {
   });
 
   test("handleAxisTicks", () => {
-    const cle = new ColorLegendElement();
-    const ats = new AxisTicksSetter(cle);
+    // NOTE: for each group of assertions we need to create new instances due to how handleAxisTicks sets the value of cle.tickFormatter
+    let cle = new ColorLegendElement();
+    let ats = new AxisTicksSetter(cle);
     ats.handleAxisTicks();
     assert.isFunction(cle.tickFormatter);
+    assert.equal(cle.tickFormatter(1.23), "1.2");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.tickFormat = ".0%";
+    ats.handleAxisTicks();
+    assert.equal(cle.tickFormatter(0.537), "54%");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.tickFormatter = (d) => `${d}!`;
+    ats.handleAxisTicks();
+    assert.equal(cle.tickFormatter(100), "100!");
   });
 
   test("handleAxisTicks discrete", async () => {
