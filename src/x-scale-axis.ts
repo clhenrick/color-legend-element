@@ -47,10 +47,14 @@ export class AxisTicksSetter {
    * Handles setting the tickFormatter function
    */
   handleAxisTicks() {
-    const { scaleType } = this.cle;
-    if (scaleType !== "continuous" && scaleType !== "categorical") {
+    // NOTE: used to customize the tick values for certain legend types
+    if (
+      this.cle.scaleType !== "continuous" &&
+      this.cle.scaleType !== "categorical" &&
+      !this.cle.tickValues
+    ) {
       const [min, max] = this.xScale.domain() as [number, number];
-      this.cle.tickValues = this.cle.tickValues || [
+      this.cle.tickValues = [
         min,
         ...((this.cle.colorScale as ScaleQuantize<number>)?.thresholds?.() ||
           (this.cle.colorScale.domain() as number[])),
@@ -58,6 +62,7 @@ export class AxisTicksSetter {
       ];
     }
     // prefer `tickFormatter` property if it has been set
+    // TODO: how to override `tickFormat` after tickFormatter has previously been set and is already a function?
     if (typeof this.cle.tickFormatter === "function") {
       return;
     } else if (this.cle.tickFormat?.length) {
