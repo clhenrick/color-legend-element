@@ -71,6 +71,13 @@ suite("AxisTicksSetter", () => {
     cle.tickFormatter = (d) => `${d}!`;
     ats.handleAxisTicks();
     assert.equal(cle.tickFormatter(100), "100!");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.scaleType = "discrete";
+    cle.tickValues = [0, 25, 50, 75, 100];
+    ats.handleAxisTicks();
+    assert.deepEqual(cle.tickValues, [0, 25, 50, 75, 100]);
   });
 
   test("handleAxisTicks discrete", async () => {
