@@ -1,6 +1,6 @@
 {
   "name": "color-legend-element",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A custom element (web component) suitable for use as a legend in data visualizations",
   "main": "index.js",
   "module": "index.js",
