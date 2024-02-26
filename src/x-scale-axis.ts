@@ -47,10 +47,9 @@ export class AxisTicksSetter {
    * Handles setting the tickFormatter function
    */
   handleAxisTicks() {
-    // NOTE: used to customize the tick values for certain legend types
     if (
-      this.cle.scaleType !== "continuous" &&
-      this.cle.scaleType !== "categorical" &&
+      (this.cle.scaleType === "discrete" ||
+        this.cle.scaleType === "threshold") &&
       !this.cle.tickValues
     ) {
       const [min, max] = this.xScale.domain() as [number, number];
