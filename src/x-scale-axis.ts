@@ -47,19 +47,28 @@ export class AxisTicksSetter {
    * Handles setting the tickFormatter function
    */
   handleAxisTicks() {
-    const { scaleType } = this.cle;
-    if (scaleType !== "continuous" && scaleType !== "categorical") {
+    if (
+      (this.cle.scaleType === "discrete" ||
+        this.cle.scaleType === "threshold") &&
+      !this.cle.tickValues
+    ) {
       const [min, max] = this.xScale.domain() as [number, number];
-      this.cle.tickValues = this.cle.tickValues || [
+      this.cle.tickValues = [
         min,
         ...((this.cle.colorScale as ScaleQuantize<number>)?.thresholds?.() ||
           (this.cle.colorScale.domain() as number[])),
         max,
       ];
     }
-    if (this.cle.tickFormat?.length) {
+    // prefer `tickFormatter` property if it has been set
+    // TODO: how to override `tickFormat` after tickFormatter has previously been set and is already a function?
+    if (typeof this.cle.tickFormatter === "function") {
+      return;
+    } else if (this.cle.tickFormat?.length) {
+      // else prefer `tickFormat` attribute / property if it has been set
       this.cle.tickFormatter = format(this.cle.tickFormat);
     } else {
+      // else fallback to default tick formatting settings
       this.cle.tickFormatter = this.xScale.tickFormat(
         this.cle.ticks || DEFAULT_TICKS,
         this.cle.tickFormat || DEFAULT_TICK_FORMAT

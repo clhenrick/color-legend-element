@@ -40,6 +40,7 @@ export const AXIS_AND_X_SCALE_PROPS = [
   "tickSize",
   "tickValues",
   "tickFormat",
+  "tickFormatter",
   "domain",
   "range",
   "marginLeft",
