@@ -36,5 +36,8 @@
     // test that the tickFormatter property works as intended
     const cle = document.querySelector("color-legend.js-vanilla");
     cle.tickFormatter = (d) => `${d}˚`;
+    cle.tickFormatter = (d) => `${d}!`;
+    // NOTE: due to how AxisTicksSetter.handleAxisTicks sets the tickFormatter subsequent updates to tickFormat will not be honored
+    cle.tickFormat = ".2f";
   </script>
 </html>
