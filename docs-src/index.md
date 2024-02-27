@@ -42,7 +42,7 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 
 ### <a class="anchor" id="windows-os-install" href="#usage" aria-hidden="true">#</a> Windows OS Install
 
-Note that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
+**Note:** that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
 
 ```js
 import "color-legend-element/build/color-legend-element.js";
@@ -50,7 +50,9 @@ import "color-legend-element/build/color-legend-element.js";
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden="true">#</a> Usage
 
-The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete. You may also view a fancier, interactive version of these docs on [Observable](https://observablehq.com/@clhenrick/color-legend-element).
+The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete.
+
+You may also view an [interactive version of these docs](https://observablehq.com/@clhenrick/color-legend-element) on [ObservableHQ.com](https://observablehq.com).
 
 **Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity. For a list of all properties including their type, default value, and description see the [README](https://github.com/clhenrick/color-legend-element/blob/main/README.md#properties).
 
@@ -94,7 +96,9 @@ To alter the color gradient, pass an array of strings equivalent to valid HTML c
 
 ### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden="true">#</a> Continuous with an interpolator
 
-The continuous legend may also be altered by providing an interpolator function, such as one from [`d3-scale-chromatic`](https://github.com/d3/d3-scale-chromatic), by setting the `interpolator` property in JavaScript. _Note that there is no equivalent HTML attribute for the `interpolator` property as it must be a function and cannot be parsed as JSON._
+The continuous legend may also be altered by providing an interpolator function, such as one from [`d3-scale-chromatic`](https://d3js.org/d3-scale-chromatic), by setting the `interpolator` property in JavaScript.
+
+**Note:** that there is no equivalent HTML attribute for the `interpolator` property as its value must be a function and thus cannot be parsed as JSON.
 
 <div class="example">
   <color-legend
@@ -435,7 +439,7 @@ Child content may be placed within the `<color-legend>` via its two [slots](http
 </color-legend>
 ```
 
-Note that any slotted elements are considered part of the "light DOM" and can be styled by CSS external from the `<color-legend>`.
+**Note:** that any slotted elements are considered part of the "light DOM" and will be styled by any global CSS belonging to the page in which the `<color-legend>` is rendered in.
 
 </div>
 
