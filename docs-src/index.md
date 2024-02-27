@@ -58,7 +58,7 @@ The following examples demonstrate how to configure the `<color-legend>` for rep
 
 ### <a class="anchor" id="continuous" href="#continuous" aria-hidden="true">#</a> Continuous
 
-With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for its properties. The color gradient is created using the [`d3.interpolateHcl`](https://github.com/d3/d3-interpolate#interpolateHcl) color interpolator and color values from the `range` property.
+With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for its properties. The color gradient is created using the [`d3.interpolateHcl`](https://d3js.org/d3-interpolate/color#interpolateHcl) color interpolator and color values from the `range` property.
 
 <div class="example">
   <color-legend></color-legend>
