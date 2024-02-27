@@ -25,22 +25,22 @@
       ></color-legend>
 
       <p>A <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">Custom Element</a> suitable for use as a legend in data visualizations.</p>
-<p>Built with <a href="https://lit.dev/">Lit/Lit-Element</a> and <a href="https://d3js.org/">D3JS</a>. Inspired by the <a href="https://observablehq.com/@d3/color-legend">Color Legend</a> on <a href="https://observablehq.com">Observable</a> by <a href="https://observablehq.com/@mbostock">Mike Bostock</a> 🙏.</p>
+<p>Built with <a href="https://lit.dev/">Lit</a> and <a href="https://d3js.org/">D3JS</a>. Inspired by the <a href="https://observablehq.com/@d3/color-legend">Color Legend</a> on <a href="https://observablehq.com">Observable</a> by <a href="https://observablehq.com/@mbostock">Mike Bostock</a> 🙏.</p>
 <p>Copyright 2021, <a href="https://clhenrick.io/">Chris Henrick</a>, under the <a href="https://github.com/clhenrick/color-legend-element/blob/main/LICENSE">MIT License</a>.</p>
 <p><a href="https://github.com/clhenrick/color-legend-element">View on Github</a>.</p>
 <p>This website was built using <a href="https://www.11ty.dev/">Eleventy</a>. It's hosted on <a href="https://pages.github.com/">Github Pages</a>.</p>
 
     </header>
 
-    <main><h2><a class="anchor" id="install" href="#install" aria-hidden>#</a> Installation</h2>
-<h3><a class="anchor" id="dependencies" href="#dependencies" aria-hidden>#</a> Dependencies</h3>
+    <main><h2><a class="anchor" id="install" href="#install" aria-hidden="true">#</a> Installation</h2>
+<h3><a class="anchor" id="dependencies" href="#dependencies" aria-hidden="true">#</a> Dependencies</h3>
 <p>The <code>&lt;color-legend&gt;</code> assumes D3JS is available as a dependency. At the very least this should include the following modules from the D3JS library: <code>d3-scale</code>, <code>d3-array</code>, <code>d3-format</code>, <code>d3-interpolate</code>, and <code>d3-scale-chromatic</code> (if using one of d3's color scheme interpolators).</p>
-<h3><a class="anchor" id="install-npm" href="#install-npm" aria-hidden>#</a> NPM</h3>
+<h3><a class="anchor" id="install-npm" href="#install-npm" aria-hidden="true">#</a> NPM</h3>
 <p>Install via <a href="https://www.npmjs.com/package/color-legend-element">npm</a>:</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> color-legend-element</code></pre>
 <p>You may then <code>import</code> the <code>&lt;color-legend&gt;</code> in the desired ES Module:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">"color-legend-element"</span><span class="token punctuation">;</span></code></pre>
-<h3><a class="anchor" id="install-script" href="#install-script" aria-hidden>#</a> Script</h3>
+<h3><a class="anchor" id="install-script" href="#install-script" aria-hidden="true">#</a> Script</h3>
 <p>To use without a frontend build tool, add the <code>&lt;color-legend&gt;</code> via a <code>&lt;script&gt;</code> tag in your HTML document.</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
   <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span>
@@ -48,15 +48,16 @@
 <span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <p>If you prefer to not use the ESM build, you may instead use the UMD build:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>color-legend-element/build/color-legend-element.umd.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
-<h3><a class="anchor" id="windows-os-install" href="#usage" aria-hidden>#</a> Windows OS Install</h3>
-<p>Note that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:</p>
+<h3><a class="anchor" id="windows-os-install" href="#usage" aria-hidden="true">#</a> Windows OS Install</h3>
+<p><strong>Note:</strong> that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">"color-legend-element/build/color-legend-element.js"</span><span class="token punctuation">;</span></code></pre>
-<h2><a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage</h2>
+<h2><a class="anchor" id="usage" href="#usage" aria-hidden="true">#</a> Usage</h2>
 <p>The following examples demonstrate how to configure the <code>&lt;color-legend&gt;</code> for representing various types of data such as continuous, categorical, or discrete.</p>
-<p><strong>Note:</strong> most <code>&lt;color-legend&gt;</code> configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word &quot;property&quot; is used interchangeably with &quot;attribute&quot; for brevity.</p>
+<p>You may also view an <a href="https://observablehq.com/@clhenrick/color-legend-element">interactive version of these docs</a> on <a href="https://observablehq.com">ObservableHQ.com</a>.</p>
+<p><strong>Note:</strong> most <code>&lt;color-legend&gt;</code> configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word &quot;property&quot; is used interchangeably with &quot;attribute&quot; for brevity. For a list of all properties including their type, default value, and description see the <a href="https://github.com/clhenrick/color-legend-element/blob/main/README.md#properties">README</a>.</p>
 <!-- TODO: link to README with full list of configuration options -->
-<h3><a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous</h3>
-<p>With no additional configuration, the <code>&lt;color-legend&gt;</code> will render a continuous legend using the default values for its properties. The color gradient is created using the <a href="https://github.com/d3/d3-interpolate#interpolateHcl"><code>d3.interpolateHcl</code></a> color interpolator and color values from the <code>range</code> property.</p>
+<h3><a class="anchor" id="continuous" href="#continuous" aria-hidden="true">#</a> Continuous</h3>
+<p>With no additional configuration, the <code>&lt;color-legend&gt;</code> will render a continuous legend using the default values for its properties. The color gradient is created using the <a href="https://d3js.org/d3-interpolate/color#interpolateHcl"><code>d3.interpolateHcl</code></a> color interpolator and color values from the <code>range</code> property.</p>
 <div class="example">
   <color-legend></color-legend>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
@@ -78,8 +79,9 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h3><a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator</h3>
-<p>The continuous legend may also be altered by providing an interpolator function, such as one from <a href="https://github.com/d3/d3-scale-chromatic"><code>d3-scale-chromatic</code></a>, by setting the <code>interpolator</code> property in JavaScript. <em>Note that there is no equivalent HTML attribute for the <code>interpolator</code> property as it must be a function and cannot be parsed as JSON.</em></p>
+<h3><a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden="true">#</a> Continuous with an interpolator</h3>
+<p>The continuous legend may also be altered by providing an interpolator function, such as one from <a href="https://d3js.org/d3-scale-chromatic"><code>d3-scale-chromatic</code></a>, by setting the <code>interpolator</code> property in JavaScript.</p>
+<p><strong>Note:</strong> that there is no equivalent HTML attribute for the <code>interpolator</code> property as its value must be a function and thus cannot be parsed as JSON.</p>
 <div class="example">
   <color-legend
     class="continuous-with-interpolator"
@@ -106,7 +108,7 @@
   <span class="token string">"color-legend.continuous-with-interpolator"</span>
 <span class="token punctuation">)</span><span class="token punctuation">.</span>interpolator <span class="token operator">=</span> d3<span class="token punctuation">.</span>interpolateTurbo<span class="token punctuation">;</span></code></pre>
 </div>
-<h3><a class="anchor" id="discrete" href="#discrete" aria-hidden>#</a> Discrete</h3>
+<h3><a class="anchor" id="discrete" href="#discrete" aria-hidden="true">#</a> Discrete</h3>
 <p>A discrete legend may be rendered by setting the <code>scaleType</code> property to <code>&quot;discrete&quot;</code> and passing two values for the <code>domain</code> and two or more colors for the <code>range</code>. The <code>domain</code> will be divided equally by the number of values in the <code>range</code>.</p>
 <div class="example">
   <color-legend
@@ -126,7 +128,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h3><a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold</h3>
+<h3><a class="anchor" id="threshold" href="#threshold" aria-hidden="true">#</a> Threshold</h3>
 <p>Threshold legends may be rendered by setting the <code>scaleType</code> property to <code>&quot;threshold&quot;</code>, and by setting the <code>domain</code> to an array of two or more sequential numbers. In order to render correctly, the length of the <code>range</code> colors array should be one less than the length of the <code>domain</code> array.</p>
 <div class="example">
   <color-legend
@@ -146,7 +148,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h3><a class="anchor" id="categorical" href="#categorical" aria-hidden>#</a> Categorical</h3>
+<h3><a class="anchor" id="categorical" href="#categorical" aria-hidden="true">#</a> Categorical</h3>
 <p>Categorical legends may be rendered by setting the <code>scaleType</code> property to <code>&quot;categorical&quot;</code>. This assumes an equal number of values in both the <code>domain</code> and <code>range</code> properties. The <code>markType</code> property is used to symbolize each category and may be set to one of <code>&quot;circle&quot;</code>, <code>&quot;rect&quot;</code>, or <code>&quot;line&quot;</code>. The default <code>markType</code> value is <code>&quot;circle&quot;</code>.</p>
 <div class="example">
   <color-legend
@@ -164,7 +166,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h4><a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden>#</a> Categorical with markType set to rect</h4>
+<h4><a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden="true">#</a> Categorical with markType set to rect</h4>
 <div class="example">
   <color-legend
     titleText="Business Sectors"
@@ -183,7 +185,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h4><a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line</h4>
+<h4><a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden="true">#</a> Categorical with markType set to line</h4>
 <div class="example">
   <div class="overflow-x">
     <color-legend
@@ -206,7 +208,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h3><a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden</h3>
+<h3><a class="anchor" id="hidden" href="#hidden" aria-hidden="true">#</a> Hidden</h3>
 <p>The <code>&lt;color-legend&gt;</code> may be hidden applying the boolean <code>hidden</code> attribute:</p>
 <div class="example">
 <fieldset>
@@ -225,7 +227,7 @@
 </script>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>color-legend</span> <span class="token attr-name">hidden</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 </div>
-<h2><a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden>#</a> Styling using CSS</h2>
+<h2><a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden="true">#</a> Styling using CSS</h2>
 <p>The <code>&lt;color-legend&gt;</code>'s styles are encapsulated using the Shadow DOM and thus will not bleed out
 to pollute the style of neigboring DOM elements. Its default styles may be
 customized by overriding one or more of its CSS variables (custom
@@ -300,7 +302,7 @@ properties). All CSS variable names are namespaced with <code>cle</code>. For ex
   <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 </div>
-<h2><a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Adding Child Content via Slots</h2>
+<h2><a class="anchor" id="slots" href="#slots" aria-hidden="true">#</a> Adding Child Content via Slots</h2>
 <p>Child content may be placed within the <code>&lt;color-legend&gt;</code> via its two <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot">slots</a>, named &quot;subtitle&quot; and &quot;footer&quot; which render above and below the primary legend content respectively.</p>
 <div class="example">
 <style>
@@ -332,9 +334,9 @@ properties). All CSS variable names are namespaced with <code>cle</code>. For ex
      = No data
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
-<p>Note that any slotted elements are considered part of the &quot;light DOM&quot; and can be styled by CSS external from the <code>&lt;color-legend&gt;</code>.</p>
+<p><strong>Note:</strong> that any slotted elements are considered part of the &quot;light DOM&quot; and will be styled by any global CSS belonging to the page in which the <code>&lt;color-legend&gt;</code> is rendered in.</p>
 </div>
-<h2><a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions</h2>
+<h2><a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden="true">#</a> Bugs / Suggestions</h2>
 <p>To report a bug or make a suggestion, please open an issue in the <a href="https://github.com/clhenrick/color-legend-element">Github repository</a> or send me a <a href="https://twitter.com/chrislhenrick">Tweet</a>. And feel free to let me know if it's helped you in a project 🙂 Thanks!</p>
 <div style="margin-bottom: 3rem"></div>
 </main>
