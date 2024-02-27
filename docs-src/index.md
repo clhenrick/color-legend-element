@@ -3,13 +3,13 @@ layout: baselayout.njk
 title: Color Legend Element
 ---
 
-## <a class="anchor" id="install" href="#install" aria-hidden>#</a> Installation
+## <a class="anchor" id="install" href="#install" aria-hidden="true">#</a> Installation
 
-### <a class="anchor" id="dependencies" href="#dependencies" aria-hidden>#</a> Dependencies
+### <a class="anchor" id="dependencies" href="#dependencies" aria-hidden="true">#</a> Dependencies
 
 The `<color-legend>` assumes D3JS is available as a dependency. At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
 
-### <a class="anchor" id="install-npm" href="#install-npm" aria-hidden>#</a> NPM
+### <a class="anchor" id="install-npm" href="#install-npm" aria-hidden="true">#</a> NPM
 
 Install via [npm](https://www.npmjs.com/package/color-legend-element):
 
@@ -23,7 +23,7 @@ You may then `import` the `<color-legend>` in the desired ES Module:
 import "color-legend-element";
 ```
 
-### <a class="anchor" id="install-script" href="#install-script" aria-hidden>#</a> Script
+### <a class="anchor" id="install-script" href="#install-script" aria-hidden="true">#</a> Script
 
 To use without a frontend build tool, add the `<color-legend>` via a `<script>` tag in your HTML document.
 
@@ -40,25 +40,27 @@ If you prefer to not use the ESM build, you may instead use the UMD build:
 <script src="color-legend-element/build/color-legend-element.umd.js"></script>
 ```
 
-### <a class="anchor" id="windows-os-install" href="#usage" aria-hidden>#</a> Windows OS Install
+### <a class="anchor" id="windows-os-install" href="#usage" aria-hidden="true">#</a> Windows OS Install
 
-Note that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
+**Note:** that Windows OS users may experience a problem with module bundlers where the D3JS dependencies are not found by the CLE. To work around this, it is recommended to be sure to use the ESM build:
 
 ```js
 import "color-legend-element/build/color-legend-element.js";
 ```
 
-## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
+## <a class="anchor" id="usage" href="#usage" aria-hidden="true">#</a> Usage
 
 The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete.
 
-**Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity.
+You may also view an [interactive version of these docs](https://observablehq.com/@clhenrick/color-legend-element) on [ObservableHQ.com](https://observablehq.com).
+
+**Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity. For a list of all properties including their type, default value, and description see the [README](https://github.com/clhenrick/color-legend-element/blob/main/README.md#properties).
 
 <!-- TODO: link to README with full list of configuration options -->
 
-### <a class="anchor" id="continuous" href="#continuous" aria-hidden>#</a> Continuous
+### <a class="anchor" id="continuous" href="#continuous" aria-hidden="true">#</a> Continuous
 
-With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for its properties. The color gradient is created using the [`d3.interpolateHcl`](https://github.com/d3/d3-interpolate#interpolateHcl) color interpolator and color values from the `range` property.
+With no additional configuration, the `<color-legend>` will render a continuous legend using the default values for its properties. The color gradient is created using the [`d3.interpolateHcl`](https://d3js.org/d3-interpolate/color#interpolateHcl) color interpolator and color values from the `range` property.
 
 <div class="example">
   <color-legend></color-legend>
@@ -92,9 +94,11 @@ To alter the color gradient, pass an array of strings equivalent to valid HTML c
 
 </div>
 
-### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden>#</a> Continuous with an interpolator
+### <a class="anchor" id="continuous-with-interpolator" href="#continuous-with-interpolator" aria-hidden="true">#</a> Continuous with an interpolator
 
-The continuous legend may also be altered by providing an interpolator function, such as one from [`d3-scale-chromatic`](https://github.com/d3/d3-scale-chromatic), by setting the `interpolator` property in JavaScript. _Note that there is no equivalent HTML attribute for the `interpolator` property as it must be a function and cannot be parsed as JSON._
+The continuous legend may also be altered by providing an interpolator function, such as one from [`d3-scale-chromatic`](https://d3js.org/d3-scale-chromatic), by setting the `interpolator` property in JavaScript.
+
+**Note:** that there is no equivalent HTML attribute for the `interpolator` property as its value must be a function and thus cannot be parsed as JSON.
 
 <div class="example">
   <color-legend
@@ -131,7 +135,7 @@ document.querySelector(
 
 </div>
 
-### <a class="anchor" id="discrete" href="#discrete" aria-hidden>#</a> Discrete
+### <a class="anchor" id="discrete" href="#discrete" aria-hidden="true">#</a> Discrete
 
 A discrete legend may be rendered by setting the `scaleType` property to `"discrete"` and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.
 
@@ -158,7 +162,7 @@ A discrete legend may be rendered by setting the `scaleType` property to `"discr
 
 </div>
 
-### <a class="anchor" id="threshold" href="#threshold" aria-hidden>#</a> Threshold
+### <a class="anchor" id="threshold" href="#threshold" aria-hidden="true">#</a> Threshold
 
 Threshold legends may be rendered by setting the `scaleType` property to `"threshold"`, and by setting the `domain` to an array of two or more sequential numbers. In order to render correctly, the length of the `range` colors array should be one less than the length of the `domain` array.
 
@@ -185,7 +189,7 @@ Threshold legends may be rendered by setting the `scaleType` property to `"thres
 
 </div>
 
-### <a class="anchor" id="categorical" href="#categorical" aria-hidden>#</a> Categorical
+### <a class="anchor" id="categorical" href="#categorical" aria-hidden="true">#</a> Categorical
 
 Categorical legends may be rendered by setting the `scaleType` property to `"categorical"`. This assumes an equal number of values in both the `domain` and `range` properties. The `markType` property is used to symbolize each category and may be set to one of `"circle"`, `"rect"`, or `"line"`. The default `markType` value is `"circle"`.
 
@@ -210,7 +214,7 @@ Categorical legends may be rendered by setting the `scaleType` property to `"cat
 
 </div>
 
-#### <a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden>#</a> Categorical with markType set to rect
+#### <a class="anchor" id="categorical-rect" href="#categorical-rect" aria-hidden="true">#</a> Categorical with markType set to rect
 
 <div class="example">
   <color-legend
@@ -235,7 +239,7 @@ Categorical legends may be rendered by setting the `scaleType` property to `"cat
 
 </div>
 
-#### <a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden>#</a> Categorical with markType set to line
+#### <a class="anchor" id="categorical-line" href="#categorical-line" aria-hidden="true">#</a> Categorical with markType set to line
 
 <div class="example">
   <div class="overflow-x">
@@ -264,7 +268,7 @@ Categorical legends may be rendered by setting the `scaleType` property to `"cat
 
 </div>
 
-### <a class="anchor" id="hidden" href="#hidden" aria-hidden>#</a> Hidden
+### <a class="anchor" id="hidden" href="#hidden" aria-hidden="true">#</a> Hidden
 
 The `<color-legend>` may be hidden applying the boolean `hidden` attribute:
 
@@ -293,7 +297,7 @@ The `<color-legend>` may be hidden applying the boolean `hidden` attribute:
 
 </div>
 
-## <a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden>#</a> Styling using CSS
+## <a class="anchor" id="styling-using-css" href="#styling-using-css" aria-hidden="true">#</a> Styling using CSS
 
 The `<color-legend>`'s styles are encapsulated using the Shadow DOM and thus will not bleed out
 to pollute the style of neigboring DOM elements. Its default styles may be
@@ -395,7 +399,7 @@ color-legend-element:defined {
 
 </div>
 
-## <a class="anchor" id="slots" href="#slots" aria-hidden>#</a> Adding Child Content via Slots
+## <a class="anchor" id="slots" href="#slots" aria-hidden="true">#</a> Adding Child Content via Slots
 
 Child content may be placed within the `<color-legend>` via its two [slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Slot), named "subtitle" and "footer" which render above and below the primary legend content respectively.
 
@@ -435,11 +439,11 @@ Child content may be placed within the `<color-legend>` via its two [slots](http
 </color-legend>
 ```
 
-Note that any slotted elements are considered part of the "light DOM" and can be styled by CSS external from the `<color-legend>`.
+**Note:** that any slotted elements are considered part of the "light DOM" and will be styled by any global CSS belonging to the page in which the `<color-legend>` is rendered in.
 
 </div>
 
-## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden>#</a> Bugs / Suggestions
+## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden="true">#</a> Bugs / Suggestions
 
 To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](https://twitter.com/chrislhenrick). And feel free to let me know if it's helped you in a project 🙂 Thanks!
 
