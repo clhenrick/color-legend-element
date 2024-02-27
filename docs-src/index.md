@@ -50,9 +50,9 @@ import "color-legend-element/build/color-legend-element.js";
 
 ## <a class="anchor" id="usage" href="#usage" aria-hidden>#</a> Usage
 
-The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete.
+The following examples demonstrate how to configure the `<color-legend>` for representing various types of data such as continuous, categorical, or discrete. You may also view a fancier, interactive version of these docs on [Observable](https://observablehq.com/@clhenrick/color-legend-element).
 
-**Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity.
+**Note:** most `<color-legend>` configuration options may be set as either HTML attributes or properties via JavaScript. Unless otherwise noted this is the case, and the word "property" is used interchangeably with "attribute" for brevity. For a list of all properties including their type, default value, and description see the [README](https://github.com/clhenrick/color-legend-element/blob/main/README.md#properties).
 
 <!-- TODO: link to README with full list of configuration options -->
 
