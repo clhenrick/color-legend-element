@@ -77,7 +77,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@custom-elements-manifest/analyzer": "^0.9.2",
+    "@custom-elements-manifest/analyzer": "^0.9.3",
     "@esm-bundle/chai": "^4.3.4",
     "@open-wc/testing": "^4.0.0",
     "@open-wc/testing-karma": "^4.0.9",
