@@ -99,7 +99,7 @@
     "deepmerge": "^4.3.1",
     "eslint": "^8.57.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.2.1",
+    "lint-staged": "^15.2.2",
     "lit-analyzer": "^2.0.3",
     "mocha": "^10.3.0",
     "np": "^10.0.0",
