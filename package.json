@@ -42,7 +42,7 @@
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "prepare": "husky install"
+    "prepare": "node .husky/install.mjs"
   },
   "repository": {
     "type": "git",
