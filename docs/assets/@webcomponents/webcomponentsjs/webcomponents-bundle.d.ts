@@ -138,6 +138,7 @@ declare global {
     };
     noPatch: boolean | string;
     patchElementProto: (node: Object) => void;
+    querySelectorImplementation?: 'native' | 'selectorEngine';
     wrap: (node: Node) => Node;
   }
 

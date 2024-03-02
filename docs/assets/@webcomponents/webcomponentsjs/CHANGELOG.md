@@ -8,6 +8,21 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- ## [Unreleased] -->
 
+## [2.8.0] - 2023-03-30
+
+- Update dependencies ([#542](https://github.com/webcomponents/polyfills/pull/542))
+- Polyfill `Element.toggleAttribute()`. ([#541](https://github.com/webcomponents/polyfills/pull/541))
+
+## [2.7.0] - 2022-10-20
+
+- Polyfill `addEventListener/removeEventListener` event listener options,
+  including `{capture: boolean, once: boolean}`.
+  ([#469](https://github.com/webcomponents/polyfills/pull/469))
+- Make `webcomponents-loader.js` compatible with the Trusted Types API
+  ([#501](https://github.com/webcomponents/polyfills/pull/501))
+- Remove an arrow function in `webcomponents-loader.js`.
+  ([#507](https://github.com/webcomponents/polyfills/pull/507))
+
 ## [2.6.0] - 2021-08-02
 
 - Add TS externs. ([#457](https://github.com/webcomponents/polyfills/pull/457))

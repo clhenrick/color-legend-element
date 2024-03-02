@@ -35,7 +35,7 @@
 
     <main><h2><a class="anchor" id="install" href="#install" aria-hidden="true">#</a> Installation</h2>
 <h3><a class="anchor" id="dependencies" href="#dependencies" aria-hidden="true">#</a> Dependencies</h3>
-<p>The <code>&lt;color-legend&gt;</code> assumes D3JS is available as a dependency. At the very least this should include the following modules from the D3JS library: <code>d3-scale</code>, <code>d3-array</code>, <code>d3-format</code>, <code>d3-interpolate</code>, and <code>d3-scale-chromatic</code> (if using one of d3's color scheme interpolators).</p>
+<p>The <code>&lt;color-legend&gt;</code> assumes D3JS is available as a <em>peer dependency</em>. At the very least this should include the following modules from the D3JS library: <code>d3-scale</code>, <code>d3-array</code>, <code>d3-format</code>, <code>d3-interpolate</code>, and <code>d3-scale-chromatic</code> (if using one of d3's color scheme interpolators).</p>
 <h3><a class="anchor" id="install-npm" href="#install-npm" aria-hidden="true">#</a> NPM</h3>
 <p>Install via <a href="https://www.npmjs.com/package/color-legend-element">npm</a>:</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> color-legend-element</code></pre>
@@ -106,7 +106,7 @@
 <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>color-legend</span><span class="token punctuation">></span></span></code></pre>
 <pre class="language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>
-  <span class="token string">"color-legend.continuous-with-interpolator"</span>
+  <span class="token string">"color-legend.continuous-with-interpolator"</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">.</span>interpolator <span class="token operator">=</span> d3<span class="token punctuation">.</span>interpolateTurbo<span class="token punctuation">;</span></code></pre>
 </div>
 <h3><a class="anchor" id="discrete" href="#discrete" aria-hidden="true">#</a> Discrete</h3>
