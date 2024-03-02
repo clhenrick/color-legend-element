@@ -445,6 +445,6 @@ Child content may be placed within the `<color-legend>` via its two [slots](http
 
 ## <a class="anchor" id="bugs-suggestions" href="#bugs-suggestions" aria-hidden="true">#</a> Bugs / Suggestions
 
-To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Tweet](https://twitter.com/chrislhenrick). And feel free to let me know if it's helped you in a project 🙂 Thanks!
+To report a bug or make a suggestion, please open an issue in the [Github repository](https://github.com/clhenrick/color-legend-element) or send me a [Toot](https://indieweb.social/@clhenrick). And feel free to let me know if it's helped you in a project 🙂 Thanks!
 
 <div style="margin-bottom: 3rem"></div>
