@@ -71,14 +71,15 @@ export class Renderer {
       circle: markType === "circle",
     };
     return html`${(domain as string[]).map(
-      (category) => html`<li
-        class=${classMap(classes)}
-        style="--color:${(colorScale as ScaleOrdinal<string, string>)(
-          category
-        )}"
-      >
-        ${category}
-      </li>`
+      (category) =>
+        html`<li
+          class=${classMap(classes)}
+          style="--color:${(colorScale as ScaleOrdinal<string, string>)(
+            category,
+          )}"
+        >
+          ${category}
+        </li>`,
     )}`;
   }
 
@@ -157,7 +158,7 @@ export class Renderer {
       (v) =>
         svg`<rect x=${rectX(v)} y=${marginTop} width=${rectWidth(v)} height=${
           height - marginTop - marginBottom
-        } fill=${v}></rect>`
+        } fill=${v}></rect>`,
     )}`;
   }
 
@@ -189,12 +190,12 @@ export class Renderer {
       values.map(
         (d) => svg`<g class="tick" transform='translate(${xScale(d)},0)'>
       <line stroke="currentColor" y2="${tickSize}" y1="${
-          marginTop + marginBottom - height
-        }"></line>
+        marginTop + marginBottom - height
+      }"></line>
       <text fill="currentColor" y="${spacing}" dy="0.71em">${tickFormatter(
-          d
-        )}</text>
-      </g>`
+        d,
+      )}</text>
+      </g>`,
       );
 
     return svg`<g

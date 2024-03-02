@@ -98,7 +98,7 @@ suite("AxisTicksSetter", () => {
           "#3f007d",
         ]}
         tickFormat=".1f"
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.tickValues.map(el.tickFormatter).map(Number), expected);
@@ -110,7 +110,7 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"threshold"}
         .domain=${expected}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.tickValues, expected);
@@ -121,7 +121,7 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"continuous"}
         .domain=${[0, 100]}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isNull(el.tickValues);
@@ -132,7 +132,7 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"categorical"}
         .domain=${["a", "b", "c"]}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isNull(el.tickValues);

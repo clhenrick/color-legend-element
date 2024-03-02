@@ -71,7 +71,7 @@ export class AxisTicksSetter {
       // else fallback to default tick formatting settings
       this.cle.tickFormatter = this.xScale.tickFormat(
         this.cle.ticks || DEFAULT_TICKS,
-        this.cle.tickFormat || DEFAULT_TICK_FORMAT
+        this.cle.tickFormat || DEFAULT_TICK_FORMAT,
       );
     }
   }
