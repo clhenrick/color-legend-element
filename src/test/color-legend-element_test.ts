@@ -38,26 +38,26 @@ suite("color-legend-element", () => {
         <slot name="footer">
         </slot>
       </div>
-      `
+      `,
     );
   });
 
   test("titleText", async () => {
     const titleText = "Snowfall (cm)";
     const el = (await fixture(
-      html`<color-legend titleText="${titleText}"></color-legend>`
+      html`<color-legend titleText="${titleText}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.shadowRoot.querySelector("p.legend-title").textContent,
-      titleText
+      titleText,
     );
   });
 
   test("width", async () => {
     const width = 300;
     const el = (await fixture(
-      html`<color-legend width="${width}"></color-legend>`
+      html`<color-legend width="${width}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(el.svg.getAttribute("width"), `${width}`);
@@ -66,7 +66,7 @@ suite("color-legend-element", () => {
   test("height", async () => {
     const height = 50;
     const el = (await fixture(
-      html`<color-legend height="${height}"></color-legend>`
+      html`<color-legend height="${height}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(el.svg.getAttribute("height"), `${height}`);
@@ -75,54 +75,54 @@ suite("color-legend-element", () => {
   test("marginTop", async () => {
     const marginTop = 0;
     const el = (await fixture(
-      html`<color-legend marginTop="${marginTop}"></color-legend>`
+      html`<color-legend marginTop="${marginTop}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.svg.querySelector("image").getAttribute("y"),
-      `${marginTop}`
+      `${marginTop}`,
     );
   });
 
   test("marginRight", async () => {
     const marginRight = 0;
     const el = (await fixture(
-      html`<color-legend marginRight="${marginRight}"></color-legend>`
+      html`<color-legend marginRight="${marginRight}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.svg.querySelector("image").getAttribute("width"),
-      `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT - marginRight}`
+      `${DEFAULT_WIDTH - DEFAULT_MARGIN_LEFT - marginRight}`,
     );
   });
 
   test("marginBottom", async () => {
     const marginBottom = 0;
     const el = (await fixture(
-      html`<color-legend marginBottom="${marginBottom}"></color-legend>`
+      html`<color-legend marginBottom="${marginBottom}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.svg.querySelector("image").getAttribute("height"),
-      `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP - marginBottom}`
+      `${DEFAULT_HEIGHT - DEFAULT_MARGIN_TOP - marginBottom}`,
     );
   });
 
   test("marginLeft", async () => {
     const marginLeft = 0;
     const el = (await fixture(
-      html`<color-legend marginLeft="${marginLeft}"></color-legend>`
+      html`<color-legend marginLeft="${marginLeft}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(
       el.svg.querySelector("image").getAttribute("x"),
-      `${marginLeft}`
+      `${marginLeft}`,
     );
   });
 
   test("scaleType continuous", async () => {
     const el = (await fixture(
-      html`<color-legend scaleType="continuous"></color-legend>`
+      html`<color-legend scaleType="continuous"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.exists(el.svg.querySelector("image"));
@@ -130,7 +130,7 @@ suite("color-legend-element", () => {
 
   test("scaleType discrete", async () => {
     const el = (await fixture(
-      html`<color-legend scaleType="discrete"></color-legend>`
+      html`<color-legend scaleType="discrete"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isAbove(el.svg.querySelectorAll("rect").length, 0);
@@ -138,7 +138,7 @@ suite("color-legend-element", () => {
 
   test("scaleType threshold", async () => {
     const el = (await fixture(
-      html`<color-legend scaleType="discrete"></color-legend>`
+      html`<color-legend scaleType="discrete"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isAbove(el.svg.querySelectorAll("rect").length, 0);
@@ -146,7 +146,7 @@ suite("color-legend-element", () => {
 
   test("scaleType categorical", async () => {
     const el = (await fixture(
-      html`<color-legend scaleType="categorical"></color-legend>`
+      html`<color-legend scaleType="categorical"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.isAbove(el.shadowRoot.querySelectorAll("ul li").length, 0);
@@ -155,7 +155,7 @@ suite("color-legend-element", () => {
   test("domain", async () => {
     const domain = [0, 100];
     const el = (await fixture(
-      html`<color-legend .domain="${domain}"></color-legend>`
+      html`<color-legend .domain="${domain}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.colorScale.domain(), [0, 100]);
@@ -164,7 +164,7 @@ suite("color-legend-element", () => {
   test("range", async () => {
     const range = ["blue", "purple"];
     const el = (await fixture(
-      html`<color-legend .range="${range}"></color-legend>`
+      html`<color-legend .range="${range}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.colorScale.range(), ["blue", "purple"]);
@@ -175,7 +175,7 @@ suite("color-legend-element", () => {
       html`<color-legend
         scaleType="categorical"
         markType="rect"
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.exists(el.shadowRoot.querySelectorAll("li:not(.circle):not(.line)"));
@@ -186,7 +186,7 @@ suite("color-legend-element", () => {
       html`<color-legend
         scaleType="categorical"
         markType="circle"
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.exists(el.shadowRoot.querySelector(".legend-item.circle"));
@@ -197,7 +197,7 @@ suite("color-legend-element", () => {
       html`<color-legend
         scaleType="categorical"
         markType="line"
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.exists(el.shadowRoot.querySelector(".legend-item.line"));
@@ -205,7 +205,7 @@ suite("color-legend-element", () => {
 
   test("ticks", async () => {
     const el = (await fixture(
-      html`<color-legend ticks="0"></color-legend>`
+      html`<color-legend ticks="0"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.equal(el.shadowRoot.querySelectorAll("svg .tick").length, 0);
@@ -213,7 +213,7 @@ suite("color-legend-element", () => {
 
   test("tickFormat", async () => {
     const el = (await fixture(
-      html`<color-legend tickFormat=".0%"></color-legend>`
+      html`<color-legend tickFormat=".0%"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     const texts = el.shadowRoot.querySelectorAll("svg .tick text");
@@ -223,7 +223,7 @@ suite("color-legend-element", () => {
 
   test("tickSize", async () => {
     const el = (await fixture(
-      html`<color-legend tickSize="12"></color-legend>`
+      html`<color-legend tickSize="12"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     const lines = el.shadowRoot.querySelectorAll("svg .tick line");
@@ -234,7 +234,7 @@ suite("color-legend-element", () => {
   test("tickValues", async () => {
     const tickValues = [0, 0.5, 1];
     const el = (await fixture(
-      html`<color-legend .tickValues="${tickValues}"></color-legend>`
+      html`<color-legend .tickValues="${tickValues}"></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     const texts = el.shadowRoot.querySelectorAll("svg .tick text");
@@ -282,7 +282,7 @@ suite("color-legend-element", () => {
     el.style.setProperty("--cle-background", "#000");
     await el.updateComplete;
     const styles = getComputedStyle(
-      el.shadowRoot.querySelector(".cle-container")
+      el.shadowRoot.querySelector(".cle-container"),
     );
     assert.equal(styles.backgroundColor, "rgb(0, 0, 0)");
   });

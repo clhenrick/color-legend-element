@@ -7,7 +7,7 @@ title: Color Legend Element
 
 ### <a class="anchor" id="dependencies" href="#dependencies" aria-hidden="true">#</a> Dependencies
 
-The `<color-legend>` assumes D3JS is available as a dependency. At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
+The `<color-legend>` assumes D3JS is available as a _peer dependency_. At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
 
 ### <a class="anchor" id="install-npm" href="#install-npm" aria-hidden="true">#</a> NPM
 
@@ -129,7 +129,7 @@ The continuous legend may also be altered by providing an interpolator function,
 
 ```js
 document.querySelector(
-  "color-legend.continuous-with-interpolator"
+  "color-legend.continuous-with-interpolator",
 ).interpolator = d3.interpolateTurbo;
 ```
 

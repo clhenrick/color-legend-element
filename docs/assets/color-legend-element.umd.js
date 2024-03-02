@@ -75,11 +75,11 @@ const lt={attribute:!0,type:String,converter:$,reflect:!1,hasChanged:S},at=(t=lt
       </ul>
       <slot name="footer"></slot>
     </div>`}renderCategorical(){if("categorical"!==this.cle.scaleType)return"";const{markType:t,colorScale:i,domain:e}=this.cle,s={"legend-item":!0,line:"line"===t,circle:"circle"===t};return W`${e.map((t=>W`<li
-        class=${pt(s)}
-        style="--color:${i(t)}"
-      >
-        ${t}
-      </li>`))}`}renderContinuous(){if("continuous"!==this.cle.scaleType||null===this.cle.colorScale)return"";const{colorScale:t,marginTop:i,marginLeft:s,marginRight:r,tickSize:o,width:n,range:h}=this.cle,c=this.cle.marginBottom+o,l=this.cle.height+o,a=t.interpolator?.()||e.piecewise(e.interpolateHcl,h);return H`<image
+          class=${pt(s)}
+          style="--color:${i(t)}"
+        >
+          ${t}
+        </li>`))}`}renderContinuous(){if("continuous"!==this.cle.scaleType||null===this.cle.colorScale)return"";const{colorScale:t,marginTop:i,marginLeft:s,marginRight:r,tickSize:o,width:n,range:h}=this.cle,c=this.cle.marginBottom+o,l=this.cle.height+o,a=t.interpolator?.()||e.piecewise(e.interpolateHcl,h);return H`<image
       x=${s}
       y=${i}
       width=${n-r-s}
