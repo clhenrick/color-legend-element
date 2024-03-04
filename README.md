@@ -34,6 +34,12 @@ Install via [npm](https://www.npmjs.com/package/color-legend-element):
 npm install color-legend-element
 ```
 
+Or via [Yarn](https://yarnpkg.com/):
+
+```bash
+yarn add color-legend-element
+```
+
 You may then `import` the `<color-legend>` in the desired ES Module:
 
 ```js
