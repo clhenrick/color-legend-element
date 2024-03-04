@@ -13,16 +13,16 @@
 </color-legend>
 ```
 
-A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) suitable for use as a legend in data visualizations. Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/).
+A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) suitable for use as a legend in data visualizations. Built with [Lit](https://lit.dev/) and [D3JS](https://d3js.org/).
 
 ## Features
 
-- Render legends for continuous, discrete, and categorical data.
+- Render legends for continuous, discrete, threshold, and categorical scales.
 - Uses `d3-scale`'s concept of a `domain` and a `range` for mapping values to visual marks.
-- Compatable with color interpolators from `d3-scale-chromatic`
+- Compatible with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
 - Framework and bundler not required, just add a `<script>` tag and use it!
-- [Small bundle size](https://bundlephobia.com/package/color-legend-element) (28kb minified and 9kb gzipped)
+- [Small bundle size](https://bundlephobia.com/package/color-legend-element): 27kb minified and 9kb gzipped.
 
 ## Installation
 
