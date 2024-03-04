@@ -83,27 +83,27 @@ See [the color-legend website](https://clhenrick.github.io/color-legend-element)
 
 ## Properties
 
-The following table lists the Color Legend Element's properties, most of which have a corresponding attribute. All attributes use a lowercase name so for example the property `scaleType` corresponds to the attribute `scaletype`. See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how these properties and attributes may be configured to customize the `<color-legend>`.
+The following table lists the Color Legend Element's properties, most of which have a corresponding HTML attribute. All attributes use a lowercase naming convention, so for example the property `scaleType` corresponds to the attribute `scaletype`. See [the color-legend website](https://clhenrick.github.io/color-legend-element) for examples of how these properties and attributes may be configured to customize the `<color-legend>`.
 
-| Property      | Type                      | Default Value          | Description                                                           | Has Attribute |
-| ------------- | ------------------------- | ---------------------- | --------------------------------------------------------------------- | ------------- |
-| titleText     | string                    | "Color Legend Element" | The title text that displays at the top of the legend.                | Yes           |
-| width         | number                    | 325                    | The width of the SVG or categorical legend div element.               | Yes           |
-| height        | number                    | 32                     | The height of the SVG element.                                        | Yes           |
-| marginTop     | number                    | 6                      | The spacing between the legend bar and top most extent of the SVG.    | Yes           |
-| marginRight   | number                    | 12                     | The spacing between the legend bar and right most extent of the SVG.  | Yes           |
-| marginBottom  | number                    | 16                     | The spacing between the legend bar and bottom most extent of the SVG. | Yes           |
-| marginLeft    | number                    | 12                     | The spacing between the legend bar and left most extent of the SVG.   | Yes           |
-| scaleType     | ScaleType                 | "continuous"           | The type of legend to render based on d3-scale.                       | Yes           |
-| domain        | number\|string[]          | [0, 1]                 | The color scale's domain values.                                      | Yes           |
-| range         | string[]                  | d3.schemeYlGnBu[5]     | The color scale's range values.                                       | Yes           |
-| markType      | MarkType                  | "circle"               | The symbology used for categorical legends.                           | Yes           |
-| ticks         | number                    | 5                      | The desired number of axis ticks.                                     | Yes           |
-| tickFormat    | string                    | ".1f"                  | The d3-format specifier to format axis tick values.                   | Yes           |
-| tickFormatter | (value: number) => string | (_set internally_)     | A function that handles formatting the tick values                    | No            |
-| tickSize      | number                    | 6                      | The size or length of the axis ticks.                                 | Yes           |
-| tickValues    | number[]                  | null                   | The explicit values to be used for axis ticks.                        | Yes           |
-| interpolator  | Interpolator              | null                   | The color interpolator function.                                      | No            |
+| Property      | Type                      | Default Value          | Description                                                                                            | Has Attribute |
+| ------------- | ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------- |
+| titleText     | string                    | "Color Legend Element" | The title text that displays at the top of the legend.                                                 | Yes           |
+| width         | number                    | 325                    | The width of the SVG or categorical legend div element.                                                | Yes           |
+| height        | number                    | 32                     | The height of the SVG element.                                                                         | Yes           |
+| marginTop     | number                    | 6                      | The spacing between the legend bar and top most extent of the SVG.                                     | Yes           |
+| marginRight   | number                    | 12                     | The spacing between the legend bar and right most extent of the SVG.                                   | Yes           |
+| marginBottom  | number                    | 16                     | The spacing between the legend bar and bottom most extent of the SVG.                                  | Yes           |
+| marginLeft    | number                    | 12                     | The spacing between the legend bar and left most extent of the SVG.                                    | Yes           |
+| scaleType     | ScaleType                 | "continuous"           | The type of legend to render (e.g. data classification scheme the legend represents).                  | Yes           |
+| domain        | number \| string[]        | [0, 1]                 | The color scale's domain values.                                                                       | Yes           |
+| range         | string[]                  | d3.schemeYlGnBu[5]     | The color scale's range values.                                                                        | Yes           |
+| markType      | MarkType                  | "circle"               | The symbology used for categorical legends.                                                            | Yes           |
+| ticks         | number                    | 5                      | The desired number of axis ticks.                                                                      | Yes           |
+| tickFormat    | string                    | ".1f"                  | The d3-format specifier to format axis tick values.                                                    | Yes           |
+| tickFormatter | (value: number) => string | (_set internally_)     | A function that handles formatting the tick values                                                     | No            |
+| tickSize      | number                    | 6                      | The size or length of the axis ticks.                                                                  | Yes           |
+| tickValues    | number[]                  | null                   | The explicit values to be used for axis ticks.                                                         | Yes           |
+| interpolator  | Interpolator              | `d3.interpolateHcl`    | The color interpolator function to use from [`d3-interpolate`](https://d3js.org/d3-interpolate/color). | No            |
 
 Notes on the above properties:
 
