@@ -26,7 +26,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 
 ## Installation
 
-**NOTE: the `<color-legend>` assumes D3JS is available as a dependency.** At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and `d3-scale-chromatic` (if using one of d3's color scheme interpolators).
+**NOTE:** the `<color-legend>` assumes D3JS is available as a _peer dependency._ At the very least this should include the following modules from the D3JS library: `d3-scale`, `d3-array`, `d3-format`, `d3-interpolate`, and possibly `d3-scale-chromatic` if using one of d3's color schemes.
 
 Install via [npm](https://www.npmjs.com/package/color-legend-element):
 
