@@ -3,7 +3,14 @@
 ![Screenshot of color-legend-element](./docs-src/assets/color-legend-element.png)
 
 ```html
-<color-legend></color-legend>
+<color-legend
+  titletext="Snowfall (cm)"
+  scaletype="continuous"
+  tickformat=".0f"
+  domain="[0, 100]"
+  range='["#eff3ff", "#bdd7e7", "#6baed6", "#3182bd", "#08519c"]'
+>
+</color-legend>
 ```
 
 A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) suitable for use as a legend in data visualizations. Built with [Lit/Lit-Element](https://lit.dev/) and [D3JS](https://d3js.org/).
