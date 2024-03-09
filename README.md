@@ -95,7 +95,7 @@ The following table lists the Color Legend Element's properties, most of which h
 | marginBottom  | number                    | 16                     | The spacing between the legend bar and bottom most extent of the SVG.                                  | Yes           |
 | marginLeft    | number                    | 12                     | The spacing between the legend bar and left most extent of the SVG.                                    | Yes           |
 | scaleType     | ScaleType                 | "continuous"           | The type of legend to render (e.g. data classification scheme the legend represents).                  | Yes           |
-| domain        | number \| string[]        | [0, 1]                 | The color scale's domain values.                                                                       | Yes           |
+| domain        | (number \| string)[]      | [0, 1]                 | The color scale's domain values.                                                                       | Yes           |
 | range         | string[]                  | d3.schemeYlGnBu[5]     | The color scale's range values.                                                                        | Yes           |
 | markType      | MarkType                  | "circle"               | The symbology used for categorical legends.                                                            | Yes           |
 | ticks         | number                    | 5                      | The desired number of axis ticks.                                                                      | Yes           |
