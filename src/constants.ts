@@ -10,7 +10,6 @@ export const DEFAULT_MARGIN_LEFT = 12;
 
 export const DEFAULT_TICKS = 5;
 export const DEFAULT_TICK_SIZE = 6;
-export const DEFAULT_TICK_VALUES: number[] = null;
 export const DEFAULT_TICK_FORMAT = ".1f";
 
 export const DEFAULT_DOMAIN = [0, 1];
