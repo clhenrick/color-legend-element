@@ -124,7 +124,7 @@ suite("AxisTicksSetter", () => {
       ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isNull(el.tickValues);
+    assert.isUndefined(el.tickValues);
   });
 
   test("handleAxisTicks categorical", async () => {
@@ -135,6 +135,6 @@ suite("AxisTicksSetter", () => {
       ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isNull(el.tickValues);
+    assert.isUndefined(el.tickValues);
   });
 });
