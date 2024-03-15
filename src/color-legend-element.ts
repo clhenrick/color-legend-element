@@ -122,16 +122,21 @@ export class ColorLegendElement extends LitElement {
   tickValues: number[];
 
   /**
+   * @ignore
    * Reference to the SVG node
    */
   @query("svg")
   svg!: SVGSVGElement;
 
   /**
+   * @ignore
    * a color interpolator function such as one from d3-scale-chromatic
    */
   private _interpolator!: Interpolator<string>;
 
+  /**
+   * a color interpolator function such as one from d3-scale-chromatic
+   */
   @property({ attribute: false })
   get interpolator() {
     return this._interpolator;
@@ -148,10 +153,14 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Function that formats the xAxis tick values, set internally but may also be set externally
    */
   private _tickFormatter!: TickFormatter;
 
+  /**
+   * Function that formats the xAxis tick values, set internally but may also be set externally
+   */
   @property({ attribute: false })
   get tickFormatter() {
     return this._tickFormatter;
@@ -168,11 +177,13 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Handles configuring the colorScale
    */
   private colorScaleSetter = new ColorScaleSetter(this);
 
   /**
+   * @ignore
    * A type of d3-scale for applying color values to the legend item(s),
    * set internally by the colorScaleSetter.
    */
@@ -181,11 +192,13 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Configures the x scale and axis ticks
    */
   private axisTickSetter = new AxisTicksSetter(this);
 
   /**
+   * @ignore
    * A d3 linear scale used for generating axis ticks,
    * set internally by the axisTickSetter
    */
@@ -194,6 +207,7 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Handles rendering of HTML/SVG markup from the scaleType
    */
   private renderer = new Renderer(this);
