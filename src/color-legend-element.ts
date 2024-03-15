@@ -25,7 +25,6 @@ import {
   DEFAULT_TICKS,
   DEFAULT_TICK_FORMAT,
   DEFAULT_TICK_SIZE,
-  DEFAULT_TICK_VALUES,
 } from "./constants";
 
 @customElement("color-legend")
@@ -120,7 +119,7 @@ export class ColorLegendElement extends LitElement {
    * The explicit values to be used for axis ticks
    */
   @property({ type: Array })
-  tickValues: number[] = DEFAULT_TICK_VALUES;
+  tickValues: number[];
 
   /**
    * Reference to the SVG node

@@ -121,7 +121,6 @@
               "type": {
                 "text": "number[]"
               },
-              "default": "DEFAULT_TICK_VALUES",
               "description": "The explicit values to be used for axis ticks",
               "attribute": "tickValues"
             },
@@ -169,7 +168,8 @@
             {
               "kind": "field",
               "name": "colorScale",
-              "description": "A type of d3-scale for applying color values to the legend item(s),\nset internally by the colorScaleSetter."
+              "description": "A type of d3-scale for applying color values to the legend item(s),\nset internally by the colorScaleSetter.",
+              "readonly": true
             },
             {
               "kind": "field",
@@ -181,7 +181,8 @@
             {
               "kind": "field",
               "name": "xScale",
-              "description": "A d3 linear scale used for generating axis ticks,\nset internally by the axisTickSetter"
+              "description": "A d3 linear scale used for generating axis ticks,\nset internally by the axisTickSetter",
+              "readonly": true
             },
             {
               "kind": "field",
@@ -196,63 +197,42 @@
               "name": "titleText",
               "default": "DEFAULT_TITLE_TEXT",
               "description": "The title text that displays at the top of the legend",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "titleText"
             },
             {
               "name": "width",
               "default": "DEFAULT_WIDTH",
               "description": "The width of the SVG or categorical legend div element",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "width"
             },
             {
               "name": "height",
               "default": "DEFAULT_HEIGHT",
               "description": "The height of the SVG element",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "height"
             },
             {
               "name": "marginTop",
               "default": "DEFAULT_MARGIN_TOP",
               "description": "The spacing between the legend bar and top most extent of the SVG",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "marginTop"
             },
             {
               "name": "marginRight",
               "default": "DEFAULT_MARGIN_RIGHT",
               "description": "The spacing between the legend bar and right most extent of the SVG",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "marginRight"
             },
             {
               "name": "marginBottom",
               "default": "DEFAULT_MARGIN_BOTTOM",
               "description": "The spacing between the legend bar and bottom most extent of the SVG",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "marginBottom"
             },
             {
               "name": "marginLeft",
               "default": "DEFAULT_MARGIN_LEFT",
               "description": "The spacing between the legend bar and left most extent of the SVG",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "marginLeft"
             },
             {
@@ -262,9 +242,6 @@
               },
               "default": "DEFAULT_SCALE_TYPE",
               "description": "The type of legend to render based on d3-scale",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "scaleType"
             },
             {
@@ -274,54 +251,36 @@
               },
               "default": "DEFAULT_DOMAIN",
               "description": "The color scale's domain values",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "domain"
             },
             {
               "name": "range",
               "default": "DEFAULT_RANGE",
               "description": "The color scale's range values",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "range"
             },
             {
               "name": "markType",
               "default": "DEFAULT_MARK_TYPE",
               "description": "The symbology used for categorical legends",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "markType"
             },
             {
               "name": "ticks",
               "default": "DEFAULT_TICKS",
               "description": "The desired number of axis ticks",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "ticks"
             },
             {
               "name": "tickFormat",
               "default": "DEFAULT_TICK_FORMAT",
               "description": "The d3-format specifier to format axis tick values",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "tickFormat"
             },
             {
               "name": "tickSize",
               "default": "DEFAULT_TICK_SIZE",
               "description": "The size or length of the axis ticks",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "tickSize"
             },
             {
@@ -329,11 +288,7 @@
               "type": {
                 "text": "number[]"
               },
-              "default": "DEFAULT_TICK_VALUES",
               "description": "The explicit values to be used for axis ticks",
-              "resolveInitializer": {
-                "module": "/src/constants"
-              },
               "fieldName": "tickValues"
             }
           ],
@@ -516,14 +471,6 @@
         },
         {
           "kind": "variable",
-          "name": "DEFAULT_TICK_VALUES",
-          "type": {
-            "text": "number[]"
-          },
-          "default": "null"
-        },
-        {
-          "kind": "variable",
           "name": "DEFAULT_TICK_FORMAT",
           "type": {
             "text": "string"
@@ -556,11 +503,19 @@
         },
         {
           "kind": "variable",
-          "name": "DEFAULT_MARK_TYPE"
+          "name": "DEFAULT_MARK_TYPE",
+          "type": {
+            "text": "MarkType"
+          },
+          "default": "\"circle\""
         },
         {
           "kind": "variable",
-          "name": "DEFAULT_SCALE_TYPE"
+          "name": "DEFAULT_SCALE_TYPE",
+          "type": {
+            "text": "ScaleType"
+          },
+          "default": "\"continuous\""
         },
         {
           "kind": "variable",
@@ -576,7 +531,7 @@
           "type": {
             "text": "array"
           },
-          "default": "[\n  \"scaleType\",\n  \"ticks\",\n  \"tickSize\",\n  \"tickValues\",\n  \"tickFormat\",\n  \"domain\",\n  \"range\",\n  \"marginLeft\",\n  \"marginRight\",\n  \"marginBottom\",\n  \"marginTop\",\n  \"width\",\n  \"height\",\n]"
+          "default": "[\n  \"scaleType\",\n  \"ticks\",\n  \"tickSize\",\n  \"tickValues\",\n  \"tickFormat\",\n  \"tickFormatter\",\n  \"domain\",\n  \"range\",\n  \"marginLeft\",\n  \"marginRight\",\n  \"marginBottom\",\n  \"marginTop\",\n  \"width\",\n  \"height\",\n]"
         }
       ],
       "exports": [
@@ -641,14 +596,6 @@
           "name": "DEFAULT_TICK_SIZE",
           "declaration": {
             "name": "DEFAULT_TICK_SIZE",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "DEFAULT_TICK_VALUES",
-          "declaration": {
-            "name": "DEFAULT_TICK_VALUES",
             "module": "src/constants.ts"
           }
         },
