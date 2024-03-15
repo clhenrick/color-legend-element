@@ -27,6 +27,12 @@ import {
   DEFAULT_TICK_SIZE,
 } from "./constants";
 
+/**
+ * @tagname color-legend
+ *
+ * @slot subtitle - content to display below the main title
+ * @slot footer - content to display under the legend color bar or items
+ * */
 @customElement("color-legend")
 export class ColorLegendElement extends LitElement {
   static override styles = [styles];
