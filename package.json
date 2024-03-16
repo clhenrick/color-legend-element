@@ -8,7 +8,9 @@
   "types": "build/index.d.ts",
   "files": [
     "build/**/*.js",
-    "build/**/*.d.ts"
+    "build/**/*.d.ts",
+    "!build/test/*",
+    "custom-elements.json"
   ],
   "unpkg": "build/color-legend-element.umd.js",
   "jsdelivr": "build/color-legend-element.umd.js",
