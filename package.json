@@ -18,7 +18,7 @@
   },
   "customElements": "custom-elements.json",
   "scripts": {
-    "analyze": "cem analyze --litelement --globs \"src/**/*.ts\" --exclude \"src/**/*_test.ts\"",
+    "analyze": "cem analyze --litelement --globs \"src/(color-legend-element|constants).ts\" --exclude \"src/**/*_test.ts\"",
     "analyze:watch": "npm run analyze -- --watch",
     "build": "tsc",
     "build:watch": "tsc --watch",
