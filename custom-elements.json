@@ -10,6 +10,133 @@
           "kind": "class",
           "description": "",
           "name": "ColorLegendElement",
+          "cssProperties": [
+            {
+              "description": "Font used for tick and legend item text",
+              "name": "--cle-font-family",
+              "default": "sans-serif"
+            },
+            {
+              "description": "Font used for the legend's title text",
+              "name": "--cle-font-family-title",
+              "default": "var(--cle-font-family)"
+            },
+            {
+              "description": "Font size for the tick and legend item text",
+              "name": "--cle-font-size",
+              "default": "0.75rem"
+            },
+            {
+              "description": "Font size for the legend title text",
+              "name": "--cle-font-size-title",
+              "default": "0.875rem"
+            },
+            {
+              "description": "Letter spacing for tick and legend item text",
+              "name": "--cle-letter-spacing",
+              "default": "0.3px"
+            },
+            {
+              "description": "Letter spacing for the legend title text",
+              "name": "--cle-letter-spacing-title",
+              "default": "0.25px"
+            },
+            {
+              "description": "Font weight for the tick and legend item text",
+              "name": "--cle-font-weight",
+              "default": "400"
+            },
+            {
+              "description": "Font weight for the title text",
+              "name": "--cle-font-weight-title",
+              "default": "500"
+            },
+            {
+              "description": "Font color for all text and tick lines",
+              "name": "--cle-color",
+              "default": "currentColor"
+            },
+            {
+              "description": "Background color for the legend",
+              "name": "--cle-background",
+              "default": "#fff"
+            },
+            {
+              "description": "Padding in the legend's container div",
+              "name": "--cle-padding",
+              "default": "0.375rem"
+            },
+            {
+              "description": "Border style of the legend's container div",
+              "name": "--cle-border",
+              "default": "none"
+            },
+            {
+              "description": "Border radius of the legend's container div",
+              "name": "--cle-border-radius",
+              "default": "0"
+            },
+            {
+              "description": "Box-sizing property of the legend's container div",
+              "name": "--cle-box-sizing",
+              "default": "content-box"
+            },
+            {
+              "description": "Number of columns for categorical legends",
+              "name": "--cle-columns",
+              "default": "2"
+            },
+            {
+              "description": "Column width for categorical legends",
+              "name": "--cle-column-width",
+              "default": "auto"
+            },
+            {
+              "description": "Margin property for categorical legend items",
+              "name": "--cle-item-margin",
+              "default": "0.375rem 0.75rem 0 0"
+            },
+            {
+              "description": "Width of the \"line\" markType for categorical legends",
+              "name": "--cle-line-width",
+              "default": "24px"
+            },
+            {
+              "description": "Height of the \"line\" markType for categorical legends",
+              "name": "--cle-line-height",
+              "default": "2px"
+            },
+            {
+              "description": "Height & Width of \"rect\" and \"circle\" markTypes for categorical legends",
+              "name": "--cle-swatch-size",
+              "default": "10px"
+            },
+            {
+              "description": "Width of the \"rect\" and \"circle\" markTypes for categorical legends",
+              "name": "--cle-swatch-width",
+              "default": "var(--cle-swatch-size)"
+            },
+            {
+              "description": "Height of the \"rect\" and \"circle\" markTypes for categorical legends",
+              "name": "--cle-swatch-height",
+              "default": "var(--cle-swatch-size)"
+            },
+            {
+              "description": "Margin of the mark (line, square, circle) for categorical legends",
+              "name": "--cle-swatch-margin",
+              "default": "0 0.5rem 0 0"
+            }
+          ],
+          "slots": [
+            {
+              "description": "content to display below the main title",
+              "name": "subtitle"
+            },
+            {
+              "description": "content to display under the legend color bar or items",
+              "name": "footer"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -126,70 +253,13 @@
             },
             {
               "kind": "field",
-              "name": "svg",
-              "type": {
-                "text": "SVGSVGElement"
-              },
-              "description": "Reference to the SVG node"
-            },
-            {
-              "kind": "field",
-              "name": "_interpolator",
-              "type": {
-                "text": "Interpolator<string>"
-              },
-              "privacy": "private",
+              "name": "interpolator",
               "description": "a color interpolator function such as one from d3-scale-chromatic"
             },
             {
               "kind": "field",
-              "name": "interpolator"
-            },
-            {
-              "kind": "field",
-              "name": "_tickFormatter",
-              "type": {
-                "text": "TickFormatter"
-              },
-              "privacy": "private",
+              "name": "tickFormatter",
               "description": "Function that formats the xAxis tick values, set internally but may also be set externally"
-            },
-            {
-              "kind": "field",
-              "name": "tickFormatter"
-            },
-            {
-              "kind": "field",
-              "name": "colorScaleSetter",
-              "privacy": "private",
-              "default": "new ColorScaleSetter(this)",
-              "description": "Handles configuring the colorScale"
-            },
-            {
-              "kind": "field",
-              "name": "colorScale",
-              "description": "A type of d3-scale for applying color values to the legend item(s),\nset internally by the colorScaleSetter.",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "axisTickSetter",
-              "privacy": "private",
-              "default": "new AxisTicksSetter(this)",
-              "description": "Configures the x scale and axis ticks"
-            },
-            {
-              "kind": "field",
-              "name": "xScale",
-              "description": "A d3 linear scale used for generating axis ticks,\nset internally by the axisTickSetter",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "renderer",
-              "privacy": "private",
-              "default": "new Renderer(this)",
-              "description": "Handles rendering of HTML/SVG markup from the scaleType"
             }
           ],
           "attributes": [
@@ -297,6 +367,7 @@
             "package": "lit"
           },
           "tagName": "color-legend",
+          "summary": "A custom element that renders a legend suitable for use with data visualizations.",
           "customElement": true
         }
       ],
@@ -315,88 +386,6 @@
           "declaration": {
             "name": "ColorLegendElement",
             "module": "src/color-legend-element.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/color-scale.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ColorScaleSetter",
-          "members": [
-            {
-              "kind": "field",
-              "name": "cle",
-              "type": {
-                "text": "ColorLegendElement"
-              },
-              "default": "cle"
-            },
-            {
-              "kind": "field",
-              "name": "colorScale",
-              "type": {
-                "text": "ColorScale"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setColorScale",
-              "description": "Sets the colorScale value from the scaleType value"
-            },
-            {
-              "kind": "method",
-              "name": "setContinousColorScale",
-              "privacy": "private",
-              "description": "Sets the colorScale property to either a ScaleSequential or ScaleLinear"
-            },
-            {
-              "kind": "method",
-              "name": "setDiscreteColorScale",
-              "privacy": "private",
-              "description": "Sets the colorScale property to a ScaleQuantize"
-            },
-            {
-              "kind": "method",
-              "name": "setThresholdColorScale",
-              "privacy": "private",
-              "description": "Sets the colorScale property to a ScaleThreshold"
-            },
-            {
-              "kind": "method",
-              "name": "setCategoricalColorScale",
-              "privacy": "private",
-              "description": "Sets the colorScale to a ScaleOrdinal"
-            },
-            {
-              "kind": "method",
-              "name": "invalidScaleType",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  },
-                  "description": "string"
-                }
-              ],
-              "description": "Handles warning the user they provided an invalid scale type"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ColorScaleSetter",
-          "declaration": {
-            "name": "ColorScaleSetter",
-            "module": "src/color-scale.ts"
           }
         }
       ]
@@ -661,288 +650,6 @@
           "declaration": {
             "name": "AXIS_AND_X_SCALE_PROPS",
             "module": "src/constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "\"./types\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ColorLegendElement",
-          "declaration": {
-            "name": "ColorLegendElement",
-            "module": "src/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ColorScaleSetter",
-          "declaration": {
-            "name": "ColorScaleSetter",
-            "module": "src/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "AxisTicksSetter",
-          "declaration": {
-            "name": "AxisTicksSetter",
-            "module": "src/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Renderer",
-          "declaration": {
-            "name": "Renderer",
-            "module": "src/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/renderer.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Renderer",
-          "members": [
-            {
-              "kind": "field",
-              "name": "cle",
-              "type": {
-                "text": "ColorLegendElement"
-              },
-              "default": "colorLegendElement"
-            },
-            {
-              "kind": "method",
-              "name": "renderCategorical",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "description": "Renders a categorical legend html"
-            },
-            {
-              "kind": "method",
-              "name": "renderContinuous",
-              "description": "Renders the continuous legend's color ramp SVG image",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderDiscreteThreshold",
-              "description": "Renders SVG Rects for a discrete or threshold color scale",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderAxis",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "description": "Renders the legend's SVG x axis"
-            },
-            {
-              "kind": "method",
-              "name": "getColorRamp",
-              "parameters": [
-                {
-                  "name": "colorInterpolator",
-                  "type": {
-                    "text": "Interpolator<string>"
-                  },
-                  "description": "an interpolator function, e.g. one from d3-scale-chromatic"
-                },
-                {
-                  "name": "n",
-                  "default": "256",
-                  "description": "width of canvas / number of colors"
-                }
-              ],
-              "description": "getColorRamp: constructs the canvas element used for continuous legends",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Renderer",
-          "declaration": {
-            "name": "Renderer",
-            "module": "src/renderer.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "default": "css`\n  :host {\n    --cle-font-family: sans-serif;\n    --cle-font-family-title: var(--cle-font-family);\n    --cle-font-size: 0.75rem;\n    --cle-font-size-title: 0.875rem;\n    --cle-letter-spacing: 0.3px;\n    --cle-letter-spacing-title: 0.25px;\n    --cle-font-weight: 400;\n    --cle-font-weight-title: 500;\n    --cle-color: currentColor;\n    --cle-background: #fff;\n    --cle-padding: 0.375rem;\n    --cle-border: none;\n    --cle-border-radius: 0;\n    --cle-box-sizing: content-box;\n    --cle-columns: 2;\n    --cle-column-width: auto;\n    --cle-item-margin: 0.375rem 0.75rem 0 0;\n    --cle-line-width: 24px;\n    --cle-line-height: 2px;\n    --cle-swatch-size: 10px;\n    --cle-swatch-width: var(--cle-swatch-size);\n    --cle-swatch-height: var(--cle-swatch-size);\n    --cle-swatch-margin: 0 0.5rem 0 0;\n  }\n\n  :host([hidden]),\n  .hidden {\n    display: none !important;\n  }\n\n  div.cle-container {\n    font-family: var(--cle-font-family);\n    font-size: var(--cle-font-size);\n    font-weight: var(--cle-font-weight);\n    letter-spacing: var(--cle-letter-spacing);\n    color: var(--cle-color);\n    background: var(--cle-background);\n    display: inline-block;\n    padding: var(--cle-padding);\n    border: var(--cle-border);\n    border-radius: var(--cle-border-radius);\n    box-sizing: var(--cle-box-sizing);\n  }\n\n  svg {\n    display: block;\n    overflow: visible;\n  }\n\n  svg text {\n    font-family: var(--cle-font-family);\n    font-size: var(--cle-font-size);\n    fill: var(--cle-color);\n  }\n\n  p.legend-title {\n    margin: 0;\n    font-family: var(--cle-font-family-title);\n    font-size: var(--cle-font-size-title);\n    font-weight: var(--cle-font-weight-title);\n    letter-spacing: var(--cle-letter-spacing-title);\n  }\n\n  ul.categorical-container {\n    padding: 0;\n    margin: 0;\n    column-count: var(--cle-columns);\n    column-width: var(--cle-column-width);\n  }\n\n  .legend-item {\n    display: inline-flex;\n    align-items: center;\n    margin: var(--cle-item-margin);\n  }\n\n  .legend-item::before {\n    content: \"\";\n    width: var(--cle-swatch-width);\n    height: var(--cle-swatch-height);\n    margin: var(--cle-swatch-margin);\n    background: var(--color);\n  }\n\n  .legend-item.line::before {\n    width: var(--cle-line-width);\n    height: var(--cle-line-height);\n  }\n\n  .legend-item.circle::before {\n    border-radius: 50%;\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "styles",
-          "declaration": {
-            "name": "styles",
-            "module": "src/styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/types.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ScaleSequential",
-          "declaration": {
-            "name": "ScaleSequential",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleQuantile",
-          "declaration": {
-            "name": "ScaleQuantile",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleQuantize",
-          "declaration": {
-            "name": "ScaleQuantize",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleThreshold",
-          "declaration": {
-            "name": "ScaleThreshold",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleDiverging",
-          "declaration": {
-            "name": "ScaleDiverging",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleOrdinal",
-          "declaration": {
-            "name": "ScaleOrdinal",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleLinear",
-          "declaration": {
-            "name": "ScaleLinear",
-            "module": "src/types.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ScaleBand",
-          "declaration": {
-            "name": "ScaleBand",
-            "module": "src/types.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/x-scale-axis.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AxisTicksSetter",
-          "members": [
-            {
-              "kind": "field",
-              "name": "cle",
-              "type": {
-                "text": "ColorLegendElement"
-              },
-              "default": "cle"
-            },
-            {
-              "kind": "field",
-              "name": "xScale",
-              "type": {
-                "text": "XScale"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setXScale",
-              "description": "Sets the xScale property based on the value of the scaleType property"
-            },
-            {
-              "kind": "method",
-              "name": "handleAxisTicks",
-              "description": "Handles setting fallback axis tick values for discrete & threshold scales\nHandles setting the tickFormatter function"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AxisTicksSetter",
-          "declaration": {
-            "name": "AxisTicksSetter",
-            "module": "src/x-scale-axis.ts"
           }
         }
       ]

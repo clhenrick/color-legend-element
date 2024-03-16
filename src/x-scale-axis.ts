@@ -4,6 +4,9 @@ import { ColorLegendElement } from "./color-legend-element";
 import { ScaleQuantize, XScale } from "./types";
 import { DEFAULT_TICKS, DEFAULT_TICK_FORMAT } from "./constants";
 
+/** handles configuring the x-scale and x-axis for non-categorical legends
+ * @ignore - for custom-elements.json
+ */
 export class AxisTicksSetter {
   cle: ColorLegendElement;
 

@@ -27,6 +27,39 @@ import {
   DEFAULT_TICK_SIZE,
 } from "./constants";
 
+// NOTE: the JS Doc strings that follow are used to create the custom-elements.json manifest
+// See [Open Web Components](https://custom-elements-manifest.open-wc.org/analyzer/getting-started/) for more info.
+/**
+ * @tagname color-legend
+ * @summary A custom element that renders a legend suitable for use with data visualizations.
+ *
+ * @slot subtitle - content to display below the main title
+ * @slot footer - content to display under the legend color bar or items
+ *
+ * @cssproperty [--cle-font-family = sans-serif] Font used for tick and legend item text
+ * @cssproperty [--cle-font-family-title = var(--cle-font-family)] Font used for the legend's title text
+ * @cssproperty [--cle-font-size = 0.75rem] Font size for the tick and legend item text
+ * @cssproperty [--cle-font-size-title = 0.875rem] Font size for the legend title text
+ * @cssproperty [--cle-letter-spacing = 0.3px] Letter spacing for tick and legend item text
+ * @cssproperty [--cle-letter-spacing-title = 0.25px] Letter spacing for the legend title text
+ * @cssproperty [--cle-font-weight = 400] Font weight for the tick and legend item text
+ * @cssproperty [--cle-font-weight-title = 500] Font weight for the title text
+ * @cssproperty [--cle-color = currentColor] Font color for all text and tick lines
+ * @cssproperty [--cle-background = #fff] Background color for the legend
+ * @cssproperty [--cle-padding = 0.375rem] Padding in the legend's container div
+ * @cssproperty [--cle-border = none] Border style of the legend's container div
+ * @cssproperty [--cle-border-radius = 0] Border radius of the legend's container div
+ * @cssproperty [--cle-box-sizing = content-box] Box-sizing property of the legend's container div
+ * @cssproperty [--cle-columns = 2] Number of columns for categorical legends
+ * @cssproperty [--cle-column-width = auto] Column width for categorical legends
+ * @cssproperty [--cle-item-margin = 0.375rem 0.75rem 0 0] Margin property for categorical legend items
+ * @cssproperty [--cle-line-width = 24px] Width of the "line" markType for categorical legends
+ * @cssproperty [--cle-line-height = 2px] Height of the "line" markType for categorical legends
+ * @cssproperty [--cle-swatch-size = 10px] Height & Width of "rect" and "circle" markTypes for categorical legends
+ * @cssproperty [--cle-swatch-width = var(--cle-swatch-size)] Width of the "rect" and "circle" markTypes for categorical legends
+ * @cssproperty [--cle-swatch-height = var(--cle-swatch-size)] Height of the "rect" and "circle" markTypes for categorical legends
+ * @cssproperty [--cle-swatch-margin = 0 0.5rem 0 0] Margin of the mark (line, square, circle) for categorical legends
+ **/
 @customElement("color-legend")
 export class ColorLegendElement extends LitElement {
   static override styles = [styles];
@@ -122,16 +155,21 @@ export class ColorLegendElement extends LitElement {
   tickValues: number[];
 
   /**
+   * @ignore
    * Reference to the SVG node
    */
   @query("svg")
   svg!: SVGSVGElement;
 
   /**
+   * @ignore
    * a color interpolator function such as one from d3-scale-chromatic
    */
   private _interpolator!: Interpolator<string>;
 
+  /**
+   * a color interpolator function such as one from d3-scale-chromatic
+   */
   @property({ attribute: false })
   get interpolator() {
     return this._interpolator;
@@ -148,10 +186,14 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Function that formats the xAxis tick values, set internally but may also be set externally
    */
   private _tickFormatter!: TickFormatter;
 
+  /**
+   * Function that formats the xAxis tick values, set internally but may also be set externally
+   */
   @property({ attribute: false })
   get tickFormatter() {
     return this._tickFormatter;
@@ -168,11 +210,13 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Handles configuring the colorScale
    */
   private colorScaleSetter = new ColorScaleSetter(this);
 
   /**
+   * @ignore
    * A type of d3-scale for applying color values to the legend item(s),
    * set internally by the colorScaleSetter.
    */
@@ -181,11 +225,13 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Configures the x scale and axis ticks
    */
   private axisTickSetter = new AxisTicksSetter(this);
 
   /**
+   * @ignore
    * A d3 linear scale used for generating axis ticks,
    * set internally by the axisTickSetter
    */
@@ -194,6 +240,7 @@ export class ColorLegendElement extends LitElement {
   }
 
   /**
+   * @ignore
    * Handles rendering of HTML/SVG markup from the scaleType
    */
   private renderer = new Renderer(this);

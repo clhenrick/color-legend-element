@@ -10,6 +10,9 @@ import {
   ScaleThreshold,
 } from "./types";
 
+/** handles rendering the HTML for the color-legend
+ * @ignore - for custom-elements.json
+ */
 export class Renderer {
   cle: ColorLegendElement;
 
