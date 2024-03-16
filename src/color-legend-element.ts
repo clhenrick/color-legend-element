@@ -27,12 +27,11 @@ import {
   DEFAULT_TICK_SIZE,
 } from "./constants";
 
+// NOTE: the JS Doc strings that follow are used to create the custom-elements.json manifest
+// See [Open Web Components](https://custom-elements-manifest.open-wc.org/analyzer/getting-started/) for more info.
 /**
- * A custom element that renders a legend suitable for use with data visualizations.
- *
- * NOTE: the JS Doc strings that follow are used to create the custom-elements.json manifest
- * See [Open Web Components](https://custom-elements-manifest.open-wc.org/analyzer/getting-started/) for more info.
  * @tagname color-legend
+ * @summary A custom element that renders a legend suitable for use with data visualizations.
  *
  * @slot subtitle - content to display below the main title
  * @slot footer - content to display under the legend color bar or items
