@@ -11,6 +11,10 @@ import { ColorScale } from "./types";
 
 import { ColorLegendElement } from "./color-legend-element";
 
+/**
+ * handles setting the color scale for the color-legend
+ * @ignore - for custom-elements.json
+ */
 export class ColorScaleSetter {
   cle: ColorLegendElement;
 
