@@ -91,7 +91,10 @@ export class Renderer {
    * @returns lit-html TemplateResult or empty string
    */
   renderContinuous() {
-    if (this.cle.scaleType !== "continuous" || this.cle.colorScale === null) {
+    if (
+      (this.cle.scaleType !== "continuous" && this.cle.scaleType !== "log10") ||
+      this.cle.colorScale === null
+    ) {
       return "";
     }
 

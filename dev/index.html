@@ -31,6 +31,17 @@
       range='["red","blue"]'
       markType="line"
     ></color-legend>
+
+    <hr style="margin: 1rem 0" />
+
+    <color-legend
+      titletext="My logarithmic legend"
+      class="js-log"
+      scaletype="log10"
+      domain="[1, 1000]"
+      range='["#f7fbff", "#08306b"]'
+      tickformat="~s"
+    ></color-legend>
   </body>
   <script>
     // test that the tickFormatter property works as intended

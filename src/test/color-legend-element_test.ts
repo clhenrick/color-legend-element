@@ -128,6 +128,17 @@ suite("color-legend-element", () => {
     assert.exists(el.svg.querySelector("image"));
   });
 
+  test("scaleType log10", async () => {
+    const el = (await fixture(
+      html`<color-legend
+        scaleType="log10"
+        .domain="${[1, 1000]}"
+      ></color-legend>`,
+    )) as ColorLegendElement;
+    await el.updateComplete;
+    assert.exists(el.svg.querySelector("image"));
+  });
+
   test("scaleType discrete", async () => {
     const el = (await fixture(
       html`<color-legend scaleType="discrete"></color-legend>`,

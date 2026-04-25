@@ -1,9 +1,11 @@
 import {
   scaleSequential,
   scaleLinear,
+  scaleLog,
   scaleThreshold,
   scaleOrdinal,
   scaleQuantize,
+  scaleSequentialLog,
 } from "d3-scale";
 import { interpolateHcl } from "d3-interpolate";
 
@@ -32,6 +34,9 @@ export class ColorScaleSetter {
       case "continuous":
         this.setContinousColorScale();
         break;
+      case "log10":
+        this.setLogColorScale();
+        break;
       case "discrete":
         this.setDiscreteColorScale();
         break;
@@ -54,6 +59,19 @@ export class ColorScaleSetter {
     this.colorScale = interpolator
       ? scaleSequential(interpolator).domain(domain as number[])
       : scaleLinear<string>()
+          .range(range as string[])
+          .domain(domain as number[])
+          .interpolate(interpolateHcl);
+  }
+
+  /**
+   * Sets the colorScale property to either a ScaleSequentialLog or ScaleLogarithmic
+   */
+  private setLogColorScale() {
+    const { interpolator, domain, range } = this.cle;
+    this.colorScale = interpolator
+      ? scaleSequentialLog(interpolator).domain(domain as number[])
+      : scaleLog<string>()
           .range(range as string[])
           .domain(domain as number[])
           .interpolate(interpolateHcl);

@@ -135,6 +135,33 @@ document.querySelector(
 
 </div>
 
+### <a class="anchor" id="log10" href="#log10" aria-hidden="true">#</a> Logarithmic
+
+A logarithmic legend may be rendered by setting the `scaleType` property to `"log10"`. This is useful for data with a large dynamic range. It uses [`d3.scaleLog`](https://d3js.org/d3-scale/log) internally.
+
+<div class="example">
+  <color-legend
+    titleText="Logarithmic Scale"
+    scaleType="log10"
+    domain="[1, 1000]"
+    range='["#f7fbff", "#08306b"]'
+    tickFormat="~s"
+  >
+  </color-legend>
+
+```html
+<color-legend
+  titletext="Logarithmic Scale"
+  scaletype="log10"
+  domain="[1, 1000]"
+  range='["#f7fbff", "#08306b"]'
+  tickformat="~s"
+>
+</color-legend>
+```
+
+</div>
+
 ### <a class="anchor" id="discrete" href="#discrete" aria-hidden="true">#</a> Discrete
 
 A discrete legend may be rendered by setting the `scaleType` property to `"discrete"` and passing two values for the `domain` and two or more colors for the `range`. The `domain` will be divided equally by the number of values in the `range`.

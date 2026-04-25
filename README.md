@@ -17,7 +17,7 @@ A [Custom Element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/U
 
 ## Features
 
-- Render legends for continuous, discrete, threshold, and categorical scales.
+- Render legends for continuous, log10, discrete, threshold, and categorical scales.
 - Uses `d3-scale`'s concept of a `domain` and a `range` for mapping values to visual marks.
 - Compatible with color interpolators from `d3-scale-chromatic`
 - Customizable via its [properties / attributes](#properties) and [CSS variables](#css-variables).
