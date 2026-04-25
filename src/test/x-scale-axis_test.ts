@@ -53,10 +53,31 @@ suite("AxisTicksSetter", () => {
   });
 
   test("handleAxisTicks", () => {
-    const cle = new ColorLegendElement();
-    const ats = new AxisTicksSetter(cle);
+    // NOTE: for each group of assertions we need to create new instances due to how handleAxisTicks sets the value of cle.tickFormatter
+    let cle = new ColorLegendElement();
+    let ats = new AxisTicksSetter(cle);
     ats.handleAxisTicks();
     assert.isFunction(cle.tickFormatter);
+    assert.equal(cle.tickFormatter(1.23), "1.2");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.tickFormat = ".0%";
+    ats.handleAxisTicks();
+    assert.equal(cle.tickFormatter(0.537), "54%");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.tickFormatter = (d) => `${d}!`;
+    ats.handleAxisTicks();
+    assert.equal(cle.tickFormatter(100), "100!");
+
+    cle = new ColorLegendElement();
+    ats = new AxisTicksSetter(cle);
+    cle.scaleType = "discrete";
+    cle.tickValues = [0, 25, 50, 75, 100];
+    ats.handleAxisTicks();
+    assert.deepEqual(cle.tickValues, [0, 25, 50, 75, 100]);
   });
 
   test("handleAxisTicks discrete", async () => {
@@ -77,7 +98,7 @@ suite("AxisTicksSetter", () => {
           "#3f007d",
         ]}
         tickFormat=".1f"
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.tickValues.map(el.tickFormatter).map(Number), expected);
@@ -89,7 +110,7 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"threshold"}
         .domain=${expected}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
     assert.deepEqual(el.tickValues, expected);
@@ -100,10 +121,10 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"continuous"}
         .domain=${[0, 100]}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isNull(el.tickValues);
+    assert.isUndefined(el.tickValues);
   });
 
   test("handleAxisTicks categorical", async () => {
@@ -111,9 +132,9 @@ suite("AxisTicksSetter", () => {
       html`<color-legend
         scaleType=${"categorical"}
         .domain=${["a", "b", "c"]}
-      ></color-legend>`
+      ></color-legend>`,
     )) as ColorLegendElement;
     await el.updateComplete;
-    assert.isNull(el.tickValues);
+    assert.isUndefined(el.tickValues);
   });
 });

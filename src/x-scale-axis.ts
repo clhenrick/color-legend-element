@@ -1,9 +1,12 @@
-import { scaleLinear } from "d3-scale";
+import { scaleLinear, scaleLog } from "d3-scale";
 import { format } from "d3-format";
 import { ColorLegendElement } from "./color-legend-element";
 import { ScaleQuantize, XScale } from "./types";
 import { DEFAULT_TICKS, DEFAULT_TICK_FORMAT } from "./constants";
 
+/** handles configuring the x-scale and x-axis for non-categorical legends
+ * @ignore - for custom-elements.json
+ */
 export class AxisTicksSetter {
   cle: ColorLegendElement;
 
@@ -23,6 +26,12 @@ export class AxisTicksSetter {
         this.xScale = scaleLinear()
           .domain(this.cle.domain as number[])
           .range([marginLeft, width - marginRight]);
+        break;
+      case "log10":
+        this.xScale = scaleLog()
+          .domain(this.cle.domain as number[])
+          .range([marginLeft, width - marginRight])
+          .nice();
         break;
       case "discrete":
       case "threshold":
@@ -47,22 +56,33 @@ export class AxisTicksSetter {
    * Handles setting the tickFormatter function
    */
   handleAxisTicks() {
-    const { scaleType } = this.cle;
-    if (scaleType !== "continuous" && scaleType !== "categorical") {
+    if (this.cle.scaleType === "log10" && !this.cle.tickValues) {
+      this.cle.tickValues = this.xScale.ticks(this.cle.ticks || DEFAULT_TICKS);
+    } else if (
+      (this.cle.scaleType === "discrete" ||
+        this.cle.scaleType === "threshold") &&
+      !this.cle.tickValues
+    ) {
       const [min, max] = this.xScale.domain() as [number, number];
-      this.cle.tickValues = this.cle.tickValues || [
+      this.cle.tickValues = [
         min,
         ...((this.cle.colorScale as ScaleQuantize<number>)?.thresholds?.() ||
           (this.cle.colorScale.domain() as number[])),
         max,
       ];
     }
-    if (this.cle.tickFormat?.length) {
+    // prefer `tickFormatter` property if it has been set
+    // TODO: how to override `tickFormat` after tickFormatter has previously been set and is already a function?
+    if (typeof this.cle.tickFormatter === "function") {
+      return;
+    } else if (this.cle.tickFormat?.length && this.cle.scaleType !== "log10") {
+      // else prefer `tickFormat` attribute / property if it has been set
       this.cle.tickFormatter = format(this.cle.tickFormat);
     } else {
+      // else fallback to default tick formatting settings
       this.cle.tickFormatter = this.xScale.tickFormat(
         this.cle.ticks || DEFAULT_TICKS,
-        this.cle.tickFormat || DEFAULT_TICK_FORMAT
+        this.cle.tickFormat || DEFAULT_TICK_FORMAT,
       );
     }
   }

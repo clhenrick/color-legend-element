@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -18,7 +18,7 @@
   <body>
     <h1>Color Legend Element</h1>
 
-    <color-legend></color-legend>
+    <color-legend class="js-vanilla"></color-legend>
 
     <hr style="margin: 1rem 0" />
 
@@ -31,5 +31,24 @@
       range='["red","blue"]'
       markType="line"
     ></color-legend>
+
+    <hr style="margin: 1rem 0" />
+
+    <color-legend
+      titletext="My logarithmic legend"
+      class="js-log"
+      scaletype="log10"
+      domain="[1, 1000]"
+      range='["#f7fbff", "#08306b"]'
+      tickformat="~s"
+    ></color-legend>
   </body>
+  <script>
+    // test that the tickFormatter property works as intended
+    const cle = document.querySelector("color-legend.js-vanilla");
+    cle.tickFormatter = (d) => `${d}˚`;
+    cle.tickFormatter = (d) => `${d}!`;
+    // NOTE: due to how AxisTicksSetter.handleAxisTicks sets the tickFormatter subsequent updates to tickFormat will not be honored
+    cle.tickFormat = ".2f";
+  </script>
 </html>

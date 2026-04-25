@@ -32,7 +32,7 @@ export default {
     }
   },
   plugins: [
-    replace({ "Reflect.decorate": "undefined" }),
+    replace({ "Reflect.decorate": "undefined", preventAssignment: true }),
     resolve(),
     terser({
       ecma: 2017,

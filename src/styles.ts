@@ -1,5 +1,6 @@
 import { css } from "lit";
 
+/** @ignore - for custom-elements.json */
 export const styles = css`
   :host {
     --cle-font-family: sans-serif;
